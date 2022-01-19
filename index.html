@@ -71,6 +71,44 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-clean" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/01/19/clean/" class="article-date">
+  <time class="dt-published" datetime="2022-01-19T12:24:43.000Z" itemprop="datePublished">2022-01-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/01/19/clean/">clean</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/01/19/clean/" data-id="ckylipsy00003pkvdhf3n7p4r" data-title="clean" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hpctoolkit" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/01/19/hpctoolkit/" class="article-date">
@@ -85,7 +123,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/01/19/hpctoolkit/">hpctoolkit</a>
+      <a class="p-name article-title" href="/2022/01/19/hpctoolkit/">hpctoolkit安装与使用</a>
     </h1>
   
 
@@ -93,11 +131,48 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        
+        <h2 id="Source-Code-Installation"><a href="#Source-Code-Installation" class="headerlink" title="Source Code Installation"></a>Source Code Installation</h2><p>We now use Spack for building HPCToolkit’s prerequisites (replacing the old hpctoolkit externals). You can install HPCToolkit with the “One Button” spack install hpctoolkit method.</p>
+<ul>
+<li>Clone Spack Repositories on GitHub.</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/spack/spack</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Create Environment Variables</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SPACK_ROOT=`pwd`/spack</span><br><span class="line">export PATH=$&#123;SPACK_ROOT&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Refresh Shell Environment</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source $&#123;SPACK_ROOT&#125;/share/spack/setup-env.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Check the Build Environment</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spack compiler find</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Install</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spack install hpctoolkit</span><br></pre></td></tr></table></figure>
+
+<h2 id="Typical-bug"><a href="#Typical-bug" class="headerlink" title="Typical bug"></a>Typical bug</h2><p><img src="bug1.png" alt="avatar"></p>
+<p><img src="bug2.png" alt="avatar"></p>
+<ul>
+<li><p>Reasons</p>
+<p>  fortran build environment is not set</p>
+</li>
+<li><p>Solution</p>
+<p>  Add the build environment to <code>/.spack/linux/compilers.yaml</code></p>
+</li>
+</ul>
+<p><img src="bug.png" alt="avatar"></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/19/hpctoolkit/" data-id="ckyl0xf83000384vd843m9f3c" data-title="hpctoolkit" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/01/19/hpctoolkit/" data-id="ckylipsy10004pkvda01taalf" data-title="hpctoolkit安装与使用" class="article-share-link">Share</a>
       
       
       
@@ -135,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/01/08/Pytorch%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" data-id="ckyl0xf7q000084vd9u4pbzf5" data-title="Pytorch入门指南" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/01/08/Pytorch%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/" data-id="ckylipsxt0000pkvdbd649he6" data-title="Pytorch入门指南" class="article-share-link">Share</a>
       
       
       
@@ -174,7 +249,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/17/article-title/" data-id="ckyl0xf7x000284vd2h0obc5o" data-title="article title" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/17/article-title/" data-id="ckylipsxx0001pkvdclie5omb" data-title="article title" class="article-share-link">Share</a>
       
       
       
@@ -225,7 +300,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/11/17/hello-world/" data-id="ckyl0xf7v000184vdgfro2hom" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2021/11/17/hello-world/" data-id="ckylipsxz0002pkvd0xa86p1f" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -268,7 +343,11 @@
       <ul>
         
           <li>
-            <a href="/2022/01/19/hpctoolkit/">hpctoolkit</a>
+            <a href="/2022/01/19/clean/">clean</a>
+          </li>
+        
+          <li>
+            <a href="/2022/01/19/hpctoolkit/">hpctoolkit安装与使用</a>
           </li>
         
           <li>
