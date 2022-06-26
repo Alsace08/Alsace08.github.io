@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>clean</title>
+      <link href="/2022/01/19/clean/"/>
+      <url>/2022/01/19/clean/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>hpctoolkit安装与使用</title>
+      <link href="/2022/01/19/hpctoolkit/"/>
+      <url>/2022/01/19/hpctoolkit/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Source-Code-Installation"><a href="#Source-Code-Installation" class="headerlink" title="Source Code Installation"></a>Source Code Installation</h2><p>We now use Spack for building HPCToolkit’s prerequisites (replacing the old hpctoolkit externals). You can install HPCToolkit with the “One Button” spack install hpctoolkit method.</p><ul><li>Clone Spack Repositories on GitHub.</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/spack/spack</span><br></pre></td></tr></table></figure><ul><li>Create Environment Variables</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export SPACK_ROOT=`pwd`/spack</span><br><span class="line">export PATH=$&#123;SPACK_ROOT&#125;/bin:$PATH</span><br></pre></td></tr></table></figure><ul><li>Refresh Shell Environment</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source $&#123;SPACK_ROOT&#125;/share/spack/setup-env.sh</span><br></pre></td></tr></table></figure><ul><li>Check the Build Environment</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spack compiler find</span><br></pre></td></tr></table></figure><ul><li>Install</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">spack install hpctoolkit</span><br></pre></td></tr></table></figure><h2 id="Typical-bug"><a href="#Typical-bug" class="headerlink" title="Typical bug"></a>Typical bug</h2><p><img src="bug1.png" alt="avatar"></p><p><img src="bug2.png" alt="avatar"></p><ul><li><p>Reasons</p><p>  fortran build environment is not set</p></li><li><p>Solution</p><p>  Add the build environment to <code>/.spack/linux/compilers.yaml</code></p></li></ul><p><img src="bug.png" alt="avatar"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Pytorch入门指南</title>
+      <link href="/2022/01/08/Pytorch%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/"/>
+      <url>/2022/01/08/Pytorch%E5%85%A5%E9%97%A8%E6%8C%87%E5%8D%97/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>article title</title>
+      <link href="/2021/11/17/article-title/"/>
+      <url>/2021/11/17/article-title/</url>
+      
+        <content type="html"><![CDATA[<h3 id="new"><a href="#new" class="headerlink" title="new"></a>new</h3><p>test</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2021/11/17/hello-world/"/>
+      <url>/2021/11/17/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
