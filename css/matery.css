@@ -40,7 +40,7 @@ body {
     overflow-x: hidden;
     overflow-y: auto;
     /* background: linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)) 0% 0% / cover, url("https://ae01.alicdn.com/kf/H18a4b998752a4ae68b8e85d432a5aef0l.png"), url("https://ae01.alicdn.com/kf/H21b5f6b8496141a1979a33666e1074d9x.jpg") 0px 0px; */
-    background: url('../pic/pomo.png');
+    background: url('../pic/background.jpg');
     background-attachment: fixed;
     margin: 0;
     color: #7F95D1;
@@ -248,7 +248,7 @@ mark {
 .bg-color {
     /* background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%); */
     background-image: linear-gradient(to right, rgb(52, 51, 51), black 100%);
-    opacity: 0.80;
+    opacity: 0.85;
 }
 
 .text-color {
