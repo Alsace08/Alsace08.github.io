@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    2.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    7 分
                 </div>
                 
 
@@ -526,7 +526,12 @@
 <h3 id="2-2-参考数据集"><a href="#2-2-参考数据集" class="headerlink" title="2.2 参考数据集"></a>2.2 参考数据集</h3><p>首先是参考数据集的构建。对于一个完整的数据集，从中提取出一个样本作为中心样本，我们需要判断这个样本是良性的还是对抗样本。之后，从这个完整的数据集中提取出一个样本子集，作为候选样本。</p>
 <p>接下来有两种数据集的构建方法，第一种是直接把样本子集和中心样本给合起来，作为一个参考数据集，称为良性数据集。第二种是先对这个样本子集进行数据增强，也就是子集中的每个样本都利用对抗算法获得一个对抗样本，之后把扩充后的样本子集和中心样本合并起来，作为一个新的参考数据集，称为对抗数据集。</p>
 <p><img src="/pic/LNG/reference_dataset.png" alt="参考数据集构建流程（自己画的）"></p>
-<h3 id="2-3-潜在邻近图"><a href="#2-3-潜在邻近图" class="headerlink" title="2.3 潜在邻近图"></a>2.3 潜在邻近图</h3><h4 id="2-3-1-结点构造"><a href="#2-3-1-结点构造" class="headerlink" title="2.3.1 结点构造"></a>2.3.1 结点构造</h4><h4 id="2-3-2-边构造"><a href="#2-3-2-边构造" class="headerlink" title="2.3.2 边构造"></a>2.3.2 边构造</h4><h3 id="2-4-图分类器"><a href="#2-4-图分类器" class="headerlink" title="2.4 图分类器"></a>2.4 图分类器</h3><h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h2><h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3>
+<h3 id="2-3-潜在邻近图"><a href="#2-3-潜在邻近图" class="headerlink" title="2.3 潜在邻近图"></a>2.3 潜在邻近图</h3><p>接下来是核心步骤 —— 构图。</p>
+<h4 id="2-3-1-结点构造"><a href="#2-3-1-结点构造" class="headerlink" title="2.3.1 结点构造"></a>2.3.1 结点构造</h4><p>首先是图节点的选择。对于中心节点来说，从参考数据集中选出最近的 k 个节点作为邻居。其次，引入了多跳邻居的思想，不仅可以选择中心节点的 k 邻近节点，还可以选择邻居的 k 邻近节点。具体来说，设置一个阈值 L，表示可以迭代的邻居次数。例如 L=2，就可以选择中心节点的邻居，这是一轮，以及邻居的邻居，这是第二轮，那 L=3,4 以此类推，相当于一个广度优先搜索的思想。但是所有选出的点不会超出参考数据集的范围。</p>
+<h4 id="2-3-2-边构造"><a href="#2-3-2-边构造" class="headerlink" title="2.3.2 边构造"></a>2.3.2 边构造</h4><p>接下来是节点之间边的表示，主要还是利用欧氏距离来进行表征，并且为了归一化尺度，用 sigmoid 函数做了一个映射，将边权映射到0到1的区间上。此外，这个 sigmoid 函数中有两个参数 $t$ 和 $\theta$，是放在网络中用来学习的参数。</p>
+<p>$$<br>A_{i,j} = \frac{1}{1 + e^{-t \cdot d(i,j) + \theta}}<br>$$</p>
+<h3 id="2-4-图分类器"><a href="#2-4-图分类器" class="headerlink" title="2.4 图分类器"></a>2.4 图分类器</h3><p>最后一部分是图分类器，用来判定中心节点是良性样本还是对抗样本。文章采用的是经典的图注意力网络模型 GAT，模型的输入是所有样本的 embedding 以及邻接矩阵，输出是一个二维向量。</p>
+<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h2><h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3>
                 
             </div>
             <hr/>
@@ -1359,7 +1364,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">9.1k</span>
+                        class="white-color">9.4k</span>
             
             
             
