@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="论文精读 —— Adversarial Example Detection Using Latent Neighborhood Graph, Ym.Wang&#39;s Blog">
-    <meta name="description" content="本论文介绍了一种全新的对抗样本检测方式 —— 潜在邻近图模型，该工作于 2021 年发表在 ICCV 会议上。">
+    <meta name="keywords" content="无监督学习, Ym.Wang&#39;s Blog">
+    <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>论文精读 —— Adversarial Example Detection Using Latent Neighborhood Graph | Ym.Wang&#39;s Blog</title>
+    <title>无监督学习 | Ym.Wang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -292,12 +292,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/lng.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">论文精读 —— Adversarial Example Detection Using Latent Neighborhood Graph</h1>
+                    <h1 class="description center-align post-title">无监督学习</h1>
                 </div>
             </div>
         </div>
@@ -411,25 +411,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E5%AF%B9%E6%8A%97%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">对抗机器学习</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="post-category">
-                                论文精读
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -438,7 +425,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-17
+                    2022-07-22
                 </div>
                 
 
@@ -452,14 +439,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    1 分
                 </div>
                 
 
@@ -482,60 +469,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>本文探讨的论文标题为《Adversarial Example Detection Using Latent Neighborhood Graph》。文章标题开门见山，两个关键部分，一个是对抗样本检测（Adversarial Example Detection），这是描述了这篇文章所要完成的任务，另一个是潜在邻近图（Latent Neighborhood Graph），也就是说，文章很可能是要用一个图模型来完成样本检测的任务。带着这两个关键词，我们来详细分析一下这篇 ICCV 会议上的文章。</p>
-</blockquote>
-<p><img src="/pic/LNG/LNG-%E4%B8%BB.png" alt="LNG 概念图"></p>
-<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h2><h3 id="1-1-任务背景"><a href="#1-1-任务背景" class="headerlink" title="1.1 任务背景"></a>1.1 任务背景</h3><p>任务动机很朴素，当前的深度学习技术被广泛应用在了各个领域里面，但是一些攻击者会对整个深度模型进行操控，通过对模型的输入加入一些微小的扰动，来在人们难以察觉的情况下破坏整个模型的预测结果。这样的事情如果发生在一些安全系统当中，比如身份验证之类的重要环节，就会造成毁灭性的影响。因此深度模型的对抗训练必须被重视。</p>
-<p><img src="/pic/LNG/%E4%BB%BB%E5%8A%A1%E8%83%8C%E6%99%AF.png" alt="一些深度模型微扰的例子，涉及cv、nlp等诸多领域"></p>
-<h3 id="1-2-主流方法"><a href="#1-2-主流方法" class="headerlink" title="1.2 主流方法"></a>1.2 主流方法</h3><p>具体来说，为了让深度模型能够更好地去抵御这些扰动样本，目前比较主流的方法可以被归为两大类：主动防御和被动防御。</p>
-<p>第一种是<font color=Red>主动防御</font>的方法。这种方法在模型训练中较为常见，即我们在训练时考虑到输入扰动的情况，然后手动加入一些对抗样本，这样能够提高模型的一个鲁棒性，而整个解空间更加平滑，而不会因为一个微扰让整个预测结果发生了根本性的变化。但是这种方法有一个非常关键的难点在于，它的训练代价比较大。试想一下，对于一个以及部署好了的已经被投放应用的模型，这时候说要让它的防御能力更强一点，势必要去重新训练整个模型，这个带来的代价是极大的，尤其是在真实的工业场景下。</p>
-<p>另一种相对应的方法是<font color=Red>被动防御</font>方法。这种方式简单明了，不需要在训练时加入对抗样本提高鲁棒性，而是只需要在训练之前，就过滤出样本中的对抗样本即可。这样使得输入样本均为干净样本，训练出来的结果自然符合预期。这种方式对于已部署的系统来说很有价值，因为可以避免模型的重新训练。其次，它还可以帮助输入样本进行一次安全性检查，可以有效拦截一些不安全因素。</p>
-<p>本文主要聚焦于被动防御方法，也就是对抗样本的检测。</p>
-<h3 id="1-3-研究动机"><a href="#1-3-研究动机" class="headerlink" title="1.3 研究动机"></a>1.3 研究动机</h3><p>提到对抗样本检测，那就不得不提一下 Dknn 这个深度模型，这也是本文idea的一个核心的参考架构。</p>
-<p>Dknn 是检测对抗样本的一个深度方法，它采用了 knn 的算法思想。我们要判断某个中心样本是否是对抗样本，首先将所有样本输入模型，之后在网络的每一层，每个样本都会得到一个 embedding。之后，沿用 knn 的思想，选择这个中心样本最相近的 k 个邻居，并将这 k 个邻居和中心样本的类别进行比较。如果这些样本基本属于同一类，说明这个中心样本不太可能是对抗样本，如果它们之间对应的类别有明显的不一致，例如，这个中心样本的类别是熊猫，但是它的 k 个邻居里面有一半是表示汽车的样本，那么这时候就可以怀疑这个中心样本可能存在问题。</p>
-<p><img src="/pic/LNG/dknn.png" alt="DkNN 架构的核心思路示意图"></p>
-<p>受到 Dknn 的启发，作者认为，Dknn 在检测对抗样本的时候，是利用了输入样本和它邻近样本之间的联系来判断的，那么可以利用一个动态的图结构，来更加具体地表示这种邻近关系。于是诞生了本文的核心模型，也就是 latent neighboorhood graph（以下简称LNG）。图模型的好处在于，它不光能够表示中心节点和它的邻近点，还能够通过建边来表示点和点之间的关系，这是 Dknn 方法做不到的。其次，把图模型构建出来之后，可以转化成一个二分类问题，利用图神经网络等方法进行分类。</p>
-<h3 id="1-4-优势对比"><a href="#1-4-优势对比" class="headerlink" title="1.4 优势对比"></a>1.4 优势对比</h3><table>
-    <tr>
-        <td>LNG</td><td>Dknn</td>
-    </tr>
-    <tr>
-        <td>cover multi-hop heighbors of inputs’ local manifolds
-</td><td>only cover inputs’ local manifolds
-</td>
-    </tr>
-        <tr>
-        <td>richer information, aggregate the connectivity learned on the embedding space
-</td><td>only cover the information of class labels
-</td>
-    </tr>
-        <tr>
-        <td>incorporate both adversarial and benign neighbors
-</td><td>only utilize benign neighbors
-</td>
-    </tr>
-</table>
-
-<p>相比于dknn，LNG 的优势在于：<br>（1）图模型的信息表达更加丰富，它不光有节点的信息，也就是中心节点的邻居信息，还聚合了边的信息，也就是节点和节点之间的联系。我们可以通过距离来量化点和点之间的关联。<br>（2）LNG 引入了邻居多跳机制，可以把中心节点的邻居的邻居也给选择进来，让整个图模型的信息进一步丰富起来。</p>
-<h2 id="2-方法架构"><a href="#2-方法架构" class="headerlink" title="2 方法架构"></a>2 方法架构</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p>LNG 的方法流程如下所示：</p>
-<p><img src="/pic/LNG/%E6%B5%81%E7%A8%8B.png" alt="LNG 方法流程图"></p>
-<p>第一步，从完整的输入样本中提取出一个子集，称作是参考数据集，这个数据集的是用来构建图模型中的结点的，也就是图模型的结点范围不会超出这个参考数据集。</p>
-<p>第二步，构建完数据集之后需要建图。建图分成两部分，首先是选择节点，其次是将点和点之间构建无向边，从而形成最终的图模型。</p>
-<p>第三步，二分类问题，也就是判断中心节点是否是对抗样本。</p>
-<h3 id="2-2-参考数据集"><a href="#2-2-参考数据集" class="headerlink" title="2.2 参考数据集"></a>2.2 参考数据集</h3><p>首先是参考数据集的构建。对于一个完整的数据集，从中提取出一个样本作为中心样本，我们需要判断这个样本是良性的还是对抗样本。之后，从这个完整的数据集中提取出一个样本子集，作为候选样本。</p>
-<p>接下来有两种数据集的构建方法，第一种是直接把样本子集和中心样本给合起来，作为一个参考数据集，称为良性数据集。第二种是先对这个样本子集进行数据增强，也就是子集中的每个样本都利用对抗算法获得一个对抗样本，之后把扩充后的样本子集和中心样本合并起来，作为一个新的参考数据集，称为对抗数据集。</p>
-<p><img src="/pic/LNG/reference_dataset.png" alt="参考数据集构建流程（自己画的）"></p>
-<h3 id="2-3-潜在邻近图"><a href="#2-3-潜在邻近图" class="headerlink" title="2.3 潜在邻近图"></a>2.3 潜在邻近图</h3><p>接下来是核心步骤 —— 构图。</p>
-<h4 id="2-3-1-结点构造"><a href="#2-3-1-结点构造" class="headerlink" title="2.3.1 结点构造"></a>2.3.1 结点构造</h4><p>首先是图节点的选择。对于中心节点来说，从参考数据集中选出最近的 k 个节点作为邻居。其次，引入了多跳邻居的思想，不仅可以选择中心节点的 k 邻近节点，还可以选择邻居的 k 邻近节点。具体来说，设置一个阈值 L，表示可以迭代的邻居次数。例如 L=2，就可以选择中心节点的邻居，这是一轮，以及邻居的邻居，这是第二轮，那 L=3,4 以此类推，相当于一个广度优先搜索的思想。但是所有选出的点不会超出参考数据集的范围。</p>
-<h4 id="2-3-2-边构造"><a href="#2-3-2-边构造" class="headerlink" title="2.3.2 边构造"></a>2.3.2 边构造</h4><p>接下来是节点之间边的表示，主要还是利用欧氏距离来进行表征，并且为了归一化尺度，用 sigmoid 函数做了一个映射，将边权映射到0到1的区间上。此外，这个 sigmoid 函数中有两个参数 $t$ 和 $\theta$，是放在网络中用来学习的参数。</p>
-<p>$$<br>A_{i,j} = \frac{1}{1 + e^{-t \cdot d(i,j) + \theta}}<br>$$</p>
-<h3 id="2-4-图分类器"><a href="#2-4-图分类器" class="headerlink" title="2.4 图分类器"></a>2.4 图分类器</h3><p>最后一部分是图分类器，用来判定中心节点是良性样本还是对抗样本。文章采用的是经典的图注意力网络模型 GAT，模型的输入是所有样本的 embedding 以及邻接矩阵，输出是一个二维向量。</p>
-<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h2><h3 id="3-1-实验设置"><a href="#3-1-实验设置" class="headerlink" title="3.1 实验设置"></a>3.1 实验设置</h3><p>实验共采用了 5 种经典的对抗样本生成方法，包括 FGSM，PGD 等，这是在构建参考数据集的时候，对原数据做数据增强用的。Baseline 主要用了 DKNN 和 KNN 架构，以及 LID 和Hu 等人提出的方法。数据集采用了图像领域经典的几个数据集，包括有 CIFAR-10，ImageNet 和 STL-10。</p>
-<h3 id="3-2-实验细节"><a href="#3-2-实验细节" class="headerlink" title="3.2 实验细节"></a>3.2 实验细节</h3><p>对于每个数据集，分成三个部分：训练集、参考集和测试集，这里的参考集是用来选取超参数的，比如多跳邻居机制里面的参数 L。验证集是从测试集里单独划分出来的，例如对于CIFAR-10 数据集，本实验从测试集中，每个类别随机选了 100 个样本组成了新的验证集。此外，同一个数据集上只能用一种对抗攻击方法，以及在主实验中，使用的是加入对抗样本的参考数据集。</p>
-<p>超参数设置方面，主要是多跳邻居机制的阈值 L 和 knn 算法里面的 k。文章设置了 L=2，k=5。还有一个是 baseline 里面的dknn算法，也要有具体 k 值的设置。实验在三个数据集上的 k 值设置分别为200，40 和 40。</p>
-<p>最后是对于 LNG 图的输出结果的处理。在训练过程中，所有的边的结果是通过欧氏距离和sigmoid 映射来产生的。从模型输出之后，所有的边的信息又被映射为一个 0-1 空间。具体来说，如果这条边的大小大于某个阈值 t，那么认为这条边存在，赋值为 1，否则认为不存在，赋值为 0。</p>
-<h3 id="3-3-threat-model"><a href="#3-3-threat-model" class="headerlink" title="3.3 threat model"></a>3.3 threat model</h3><h4 id="3-3-1-白盒测试"><a href="#3-3-1-白盒测试" class="headerlink" title="3.3.1 白盒测试"></a>3.3.1 白盒测试</h4><h4 id="3-3-2-黑盒测试"><a href="#3-3-2-黑盒测试" class="headerlink" title="3.3.2 黑盒测试"></a>3.3.2 黑盒测试</h4><h3 id="3-4-主实验"><a href="#3-4-主实验" class="headerlink" title="3.4 主实验"></a>3.4 主实验</h3><h4 id="3-4-1-检测已知攻击"><a href="#3-4-1-检测已知攻击" class="headerlink" title="3.4.1 检测已知攻击"></a>3.4.1 检测已知攻击</h4><h4 id="3-4-2-检测未知攻击"><a href="#3-4-2-检测未知攻击" class="headerlink" title="3.4.2 检测未知攻击"></a>3.4.2 检测未知攻击</h4><h3 id="3-5-消融实验"><a href="#3-5-消融实验" class="headerlink" title="3.5 消融实验"></a>3.5 消融实验</h3><h3 id="3-6-图的拓扑结构讨论"><a href="#3-6-图的拓扑结构讨论" class="headerlink" title="3.6 图的拓扑结构讨论"></a>3.6 图的拓扑结构讨论</h3>
+                
                 
             </div>
             <hr/>
@@ -561,7 +495,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/07/17/LNG/">http://example.com/2022/07/17/LNG/</a>
+                    <a href="http://example.com/2022/07/22/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">http://example.com/2022/07/22/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -598,11 +532,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E5%AF%B9%E6%8A%97%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">对抗机器学习</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -1040,49 +970,39 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/07/17/%E5%BD%A2%E6%80%81%E5%AD%A6/">
+                <a href="/2022/07/22/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="形态学：语言的词汇">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="无监督学习">
                         
-                        <span class="card-title">形态学：语言的词汇</span>
+                        <span class="card-title">无监督学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文主要探究语言学中最基础的形态学，它是语法学的一个分支，即研究单词的内部构造和构词规则。
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/" class="post-category">
-                                    语言学
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Yiming Wang
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/">
-                        <span class="chip bg-color">形态学</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -1093,43 +1013,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/17/bert/">
+                <a href="/2022/07/22/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/bert.png" class="responsive-img" alt="论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers">
                         
-                        <span class="card-title">论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers</span>
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="文本摘要">
+                        
+                        <span class="card-title">文本摘要</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本论文介绍了 nlp 领域的经典预训练语言模型 BERT，该模型由 Google 团队提出，于 2018 年发表在 NAACL-HLT 会议上。
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" class="post-category">
-                                    论文精读
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Yiming Wang
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
-                        <span class="chip bg-color">自然语言处理</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1295,13 +1204,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 
