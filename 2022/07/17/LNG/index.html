@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-17
+                    2022-07-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -492,8 +492,31 @@
 <p>另一种相对应的方法是<font color=Red>被动防御</font>方法。这种方式简单明了，不需要在训练时加入对抗样本提高鲁棒性，而是只需要在训练之前，就过滤出样本中的对抗样本即可。这样使得输入样本均为干净样本，训练出来的结果自然符合预期。这种方式对于已部署的系统来说很有价值，因为可以避免模型的重新训练。其次，它还可以帮助输入样本进行一次安全性检查，可以有效拦截一些不安全因素。</p>
 <p>本文主要聚焦于被动防御方法，也就是对抗样本的检测。</p>
 <h3 id="1-3-研究动机"><a href="#1-3-研究动机" class="headerlink" title="1.3 研究动机"></a>1.3 研究动机</h3><p>提到对抗样本检测，那就不得不提一下 Dknn 这个深度模型，这也是本文idea的一个核心的参考架构。</p>
-<p>Dknn 是检测对抗样本的一个深度方法，它采用了knn的算法思想。我们要判断某个中心样本是否是对抗样本，首先将所有样本输入模型，之后在网络的每一层，每个样本都会得到一个embedding。之后，沿用 knn 的思想，选择这个中心样本最相近的 k 个邻居，并将这 k 个邻居和中心样本的类别进行比较。如果这些样本基本属于同一类，说明这个中心样本不太可能是对抗样本，如果它们之间对应的类别有明显的不一致，例如，这个中心样本的类别是熊猫，但是它的 k 个邻居里面有一半是表示汽车的样本，那么这时候就可以怀疑这个中心样本可能存在问题。</p>
+<p>Dknn 是检测对抗样本的一个深度方法，它采用了 knn 的算法思想。我们要判断某个中心样本是否是对抗样本，首先将所有样本输入模型，之后在网络的每一层，每个样本都会得到一个 embedding。之后，沿用 knn 的思想，选择这个中心样本最相近的 k 个邻居，并将这 k 个邻居和中心样本的类别进行比较。如果这些样本基本属于同一类，说明这个中心样本不太可能是对抗样本，如果它们之间对应的类别有明显的不一致，例如，这个中心样本的类别是熊猫，但是它的 k 个邻居里面有一半是表示汽车的样本，那么这时候就可以怀疑这个中心样本可能存在问题。</p>
 <p><img src="/pic/LNG/dknn.png" alt="DkNN 架构的核心思路示意图"></p>
+<p>受到 Dknn 的启发，作者认为，Dknn 在检测对抗样本的时候，是利用了输入样本和它邻近样本之间的联系来判断的，那么可以利用一个动态的图结构，来更加具体地表示这种邻近关系。于是诞生了本文的核心模型，也就是 latent neighboorhood graph（以下简称LNG）。图模型的好处在于，它不光能够表示中心节点和它的邻近点，还能够通过建边来表示点和点之间的关系，这是 Dknn 方法做不到的。其次，把图模型构建出来之后，可以转化成一个二分类问题，利用图神经网络等方法进行分类。</p>
+<h3 id="1-4-优势对比"><a href="#1-4-优势对比" class="headerlink" title="1.4 优势对比"></a>1.4 优势对比</h3><table>
+    <tr>
+        <td>LNG</td><td>Dknn</td>
+    </tr>
+    <tr>
+        <td>cover multi-hop heighbors of inputs’ local manifolds
+</td><td>only cover inputs’ local manifolds
+</td>
+    </tr>
+        <tr>
+        <td>richer information, aggregate the connectivity learned on the embedding space
+</td><td>only cover the information of class labels
+</td>
+    </tr>
+        <tr>
+        <td>incorporate both adversarial and benign neighbors
+</td><td>only utilize benign neighbors
+</td>
+    </tr>
+</table>
+
+<p>相比于dknn，LNG 的优势在于：（1）图模型的信息表达更加丰富，它不光有节点的信息，也就是中心节点的邻居信息，还聚合了边的信息，也就是节点和节点之间的联系。我们可以通过距离来量化点和点之间的关联。（2）LNG 引入了邻居多跳机制，可以把中心节点的邻居的邻居也给选择进来，让整个图模型的信息进一步丰富起来。</p>
 <h2 id="2-方法架构"><a href="#2-方法架构" class="headerlink" title="2 方法架构"></a>2 方法架构</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><h3 id="2-2-参考数据集"><a href="#2-2-参考数据集" class="headerlink" title="2.2 参考数据集"></a>2.2 参考数据集</h3><h3 id="2-3-潜在邻近图"><a href="#2-3-潜在邻近图" class="headerlink" title="2.3 潜在邻近图"></a>2.3 潜在邻近图</h3><h4 id="2-3-1-结点构造"><a href="#2-3-1-结点构造" class="headerlink" title="2.3.1 结点构造"></a>2.3.1 结点构造</h4><h4 id="2-3-2-边构造"><a href="#2-3-2-边构造" class="headerlink" title="2.3.2 边构造"></a>2.3.2 边构造</h4><h3 id="2-4-图分类器"><a href="#2-4-图分类器" class="headerlink" title="2.4 图分类器"></a>2.4 图分类器</h3><h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h2><h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3>
                 
             </div>
@@ -1327,7 +1350,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">8.1k</span>
+                        class="white-color">8.7k</span>
             
             
             
