@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    2.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    9 分
                 </div>
                 
 
@@ -531,7 +531,11 @@
 <h4 id="2-3-2-边构造"><a href="#2-3-2-边构造" class="headerlink" title="2.3.2 边构造"></a>2.3.2 边构造</h4><p>接下来是节点之间边的表示，主要还是利用欧氏距离来进行表征，并且为了归一化尺度，用 sigmoid 函数做了一个映射，将边权映射到0到1的区间上。此外，这个 sigmoid 函数中有两个参数 $t$ 和 $\theta$，是放在网络中用来学习的参数。</p>
 <p>$$<br>A_{i,j} = \frac{1}{1 + e^{-t \cdot d(i,j) + \theta}}<br>$$</p>
 <h3 id="2-4-图分类器"><a href="#2-4-图分类器" class="headerlink" title="2.4 图分类器"></a>2.4 图分类器</h3><p>最后一部分是图分类器，用来判定中心节点是良性样本还是对抗样本。文章采用的是经典的图注意力网络模型 GAT，模型的输入是所有样本的 embedding 以及邻接矩阵，输出是一个二维向量。</p>
-<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h2><h3 id="3-1"><a href="#3-1" class="headerlink" title="3.1"></a>3.1</h3>
+<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h2><h3 id="3-1-实验设置"><a href="#3-1-实验设置" class="headerlink" title="3.1 实验设置"></a>3.1 实验设置</h3><p>实验共采用了 5 种经典的对抗样本生成方法，包括 FGSM，PGD 等，这是在构建参考数据集的时候，对原数据做数据增强用的。Baseline 主要用了 DKNN 和 KNN 架构，以及 LID 和Hu 等人提出的方法。数据集采用了图像领域经典的几个数据集，包括有 CIFAR-10，ImageNet 和 STL-10。</p>
+<h3 id="3-2-实验细节"><a href="#3-2-实验细节" class="headerlink" title="3.2 实验细节"></a>3.2 实验细节</h3><p>对于每个数据集，分成三个部分：训练集、参考集和测试集，这里的参考集是用来选取超参数的，比如多跳邻居机制里面的参数 L。验证集是从测试集里单独划分出来的，例如对于CIFAR-10 数据集，本实验从测试集中，每个类别随机选了 100 个样本组成了新的验证集。此外，同一个数据集上只能用一种对抗攻击方法，以及在主实验中，使用的是加入对抗样本的参考数据集。</p>
+<p>超参数设置方面，主要是多跳邻居机制的阈值 L 和 knn 算法里面的 k。文章设置了 L=2，k=5。还有一个是 baseline 里面的dknn算法，也要有具体 k 值的设置。实验在三个数据集上的 k 值设置分别为200，40 和 40。</p>
+<p>最后是对于 LNG 图的输出结果的处理。在训练过程中，所有的边的结果是通过欧氏距离和sigmoid 映射来产生的。从模型输出之后，所有的边的信息又被映射为一个 0-1 空间。具体来说，如果这条边的大小大于某个阈值 t，那么认为这条边存在，赋值为 1，否则认为不存在，赋值为 0。</p>
+<h3 id="3-3-threat-model"><a href="#3-3-threat-model" class="headerlink" title="3.3 threat model"></a>3.3 threat model</h3><h4 id="3-3-1-白盒测试"><a href="#3-3-1-白盒测试" class="headerlink" title="3.3.1 白盒测试"></a>3.3.1 白盒测试</h4><h4 id="3-3-2-黑盒测试"><a href="#3-3-2-黑盒测试" class="headerlink" title="3.3.2 黑盒测试"></a>3.3.2 黑盒测试</h4><h3 id="3-4-主实验"><a href="#3-4-主实验" class="headerlink" title="3.4 主实验"></a>3.4 主实验</h3><h4 id="3-4-1-检测已知攻击"><a href="#3-4-1-检测已知攻击" class="headerlink" title="3.4.1 检测已知攻击"></a>3.4.1 检测已知攻击</h4><h4 id="3-4-2-检测未知攻击"><a href="#3-4-2-检测未知攻击" class="headerlink" title="3.4.2 检测未知攻击"></a>3.4.2 检测未知攻击</h4><h3 id="3-5-消融实验"><a href="#3-5-消融实验" class="headerlink" title="3.5 消融实验"></a>3.5 消融实验</h3><h3 id="3-6-图的拓扑结构讨论"><a href="#3-6-图的拓扑结构讨论" class="headerlink" title="3.6 图的拓扑结构讨论"></a>3.6 图的拓扑结构讨论</h3>
                 
             </div>
             <hr/>
@@ -1364,7 +1368,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">9.4k</span>
+                        class="white-color">9.9k</span>
             
             
             
