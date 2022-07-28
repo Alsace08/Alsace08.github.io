@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>LSTM+CRF</title>
+      <link href="/2022/07/28/LSTM-CRF/"/>
+      <url>/2022/07/28/LSTM-CRF/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 自然语言处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 序列标注 </tag>
+            
+            <tag> 命名实体识别 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>无监督学习</title>
       <link href="/2022/07/22/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/"/>
       <url>/2022/07/22/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/</url>
