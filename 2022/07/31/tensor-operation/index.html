@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    246
+                    475
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -488,6 +488,9 @@
 <h2 id="维度变形：torch-view-shape"><a href="#维度变形：torch-view-shape" class="headerlink" title="维度变形：torch.view(shape)"></a>维度变形：torch.view(shape)</h2><blockquote>
 <p>新旧张量数据元素相同，但是尺寸不同</p>
 </blockquote>
+<ul>
+<li>shape - 变形后的尺寸</li>
+</ul>
 <pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.randn(4, 4, 2)
 print(a.size())     # torch.Size([4, 4, 2])
 a &#x3D; a.view(2, 16)
@@ -500,6 +503,28 @@ print(a.size())     # RuntimeError: shape &#39;[8, 3]&#39; is invalid for input 
 <ul>
 <li>注：若某一维度的 shape 为 -1 ，则自动计算维度后填充，如例 3</li>
 </ul>
+<h2 id="维度压缩：torch-squeeze-input-dim-None-out-None"><a href="#维度压缩：torch-squeeze-input-dim-None-out-None" class="headerlink" title="维度压缩：torch.squeeze(input, dim=None, out=None)"></a>维度压缩：torch.squeeze(input, dim=None, out=None)</h2><blockquote>
+<p>除去输入张量 input 中维数为 1 的维度。例如，输入张量维度为 (a * 1 * b * c * 1)：（1）若不指定维度 dim 的具体数值，则返回张量的维度为 (a * b * c)；（2）若指定维度，当对应维度的维数为 1，则在对应维度上压缩，例如 dim = 1，当对应维度的维数不为 1，则不进行压缩操作，例如 dim = 0。</p>
+</blockquote>
+<ul>
+<li>input (Tensor) – 输入张量</li>
+<li>dim (int, optional) – 如果给定，则只会在给定维度压缩</li>
+<li>out (Tensor, optional) – 输出张量</li>
+</ul>
+<pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.randn(4, 4, 1, 2, 1)
+a &#x3D; torch.squeeze(a)
+print(a.size())     # torch.Size([4, 4, 2])
+
+a &#x3D; torch.randn(4, 4, 1, 2, 1)
+a &#x3D; torch.squeeze(a, dim&#x3D;2)
+print(a.size())     # torch.Size([4, 4, 2, 1])
+
+a &#x3D; torch.randn(4, 4, 1, 2, 1)
+a &#x3D; torch.squeeze(a, dim&#x3D;1)
+print(a.size())     # torch.Size([4, 4, 1, 2, 1])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
 
                 
             </div>
@@ -1345,7 +1370,7 @@ print(a.size())     # RuntimeError: shape &#39;[8, 3]&#39; is invalid for input 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">14.8k</span>
+                        class="white-color">15k</span>
             
             
             
