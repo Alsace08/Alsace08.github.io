@@ -247,7 +247,7 @@ mark {
 
 .bg-color {
     /* background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%); */
-    background-image: linear-gradient(to right, rgb(52, 51, 51), black 100%);
+    background-image: linear-gradient(to right, skyblue, rgb(7, 150, 207) 100%);
     opacity: 0.85;
 }
 
