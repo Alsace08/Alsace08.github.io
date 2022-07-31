@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.7k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    7 分
+                    8 分
                 </div>
                 
 
@@ -583,6 +583,17 @@ print(a.size())
 # torch.Size([2, 5, 4])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="/pic/tensor/Fpad.png" alt="torch.nn.functional 中的 padding 操作示意图"></p>
+<h3 id="1-5-维度置换"><a href="#1-5-维度置换" class="headerlink" title="1.5 维度置换"></a>1.5 维度置换</h3><blockquote>
+<p>torch.permute(dims)：对张量进行对应维度上的置换，维数值不变。</p>
+</blockquote>
+<ul>
+<li>dims：指定换位顺序，例如 dims=(1, 0, 2)，则维度 0 和维度 1 置换顺序。</li>
+</ul>
+<pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.randn(6, 3, 7)
+print(a.size())     # torch.Size([6, 3, 7])
+a &#x3D; x.permute(2, 0, 1)
+print(a.size())     # torch.Size([7, 6, 3])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2-多个张量的维度操作"><a href="#2-多个张量的维度操作" class="headerlink" title="2 多个张量的维度操作"></a>2 多个张量的维度操作</h2><p>对于多个张量的操作，常见的有张量之间的拼接与拆分。</p>
 <h3 id="2-1-维度合并"><a href="#2-1-维度合并" class="headerlink" title="2.1 维度合并"></a>2.1 维度合并</h3><h4 id="2-1-1-不产生新维度"><a href="#2-1-1-不产生新维度" class="headerlink" title="2.1.1 不产生新维度"></a>2.1.1 不产生新维度</h4><blockquote>
 <p>torch.cat(input, dim)：将两个相同维度的张量合并成一个新的张量。想要拼接的维度上的数值可以不同，但其余维度上的数值应完全一致</p>
@@ -1237,7 +1248,7 @@ print(b.size())
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文介绍 nlp 领域中的一项重要任务 —— 命名实体识别的深度模型实现方法，该方法混合了 LSTM 和 CRF 两大经典模型
+                            本文介绍 nlp 领域中的一项重要任务 —— 命名实体识别的深度模型实现方法，该方法混合了 LSTM 和 CRF 两大经典模型。
                         
                     </div>
                     <div class="publish-info">
