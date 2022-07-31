@@ -485,7 +485,7 @@
                 <blockquote>
 <p>我们在使用训练深度网络时，不可避免地会涉及到对张量（tensor）的操作，例如维度变换、数据填充等。每种操作都在 torch 或 numpy 库中有对应的操作，然而，由于操作种类繁多，我们很难记住所有命令并将其区分开来，且容易造成混淆。因此，本文罗列了若干常用的张量操作命令及对应的参数设置，方便以后在进行深度模型的部署时进行查询调用。</p>
 </blockquote>
-<h3 id="维度变形：torch-view-shape"><a href="#维度变形：torch-view-shape" class="headerlink" title="维度变形：torch.view(shape)"></a>维度变形：torch.view(shape)</h3><blockquote>
+<h2 id="维度变形：torch-view-shape"><a href="#维度变形：torch-view-shape" class="headerlink" title="维度变形：torch.view(shape)"></a>维度变形：torch.view(shape)</h2><blockquote>
 <p>新旧张量数据元素相同，但是尺寸不同</p>
 </blockquote>
 <pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.randn(4, 4, 2)
@@ -497,8 +497,9 @@ print(a.size())     # torch.Size([8, 4])
 a &#x3D; a.view(8, 3)
 print(a.size())     # RuntimeError: shape &#39;[8, 3]&#39; is invalid for input of size 32<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<pre><code>注：若某一维度的 shape 为 -1 ，则自动计算维度后填充，如例 3
-</code></pre>
+<ul>
+<li>注：若某一维度的 shape 为 -1 ，则自动计算维度后填充，如例 3</li>
+</ul>
 
                 
             </div>
