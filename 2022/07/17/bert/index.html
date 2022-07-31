@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers, Ym.Wang&#39;s Blog">
+    <meta name="keywords" content="论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers for Language Understanding, Ym.Wang&#39;s Blog">
     <meta name="description" content="本论文介绍了 nlp 领域的经典预训练语言模型 BERT，该模型由 Google 团队提出，于 2018 年发表在 NAACL-HLT 会议上。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers | Ym.Wang&#39;s Blog</title>
+    <title>论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers for Language Understanding | Ym.Wang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -297,7 +297,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers</h1>
+                    <h1 class="description center-align post-title">论文精读 —— BERT：Pre-training of Deep Bidirectional Transformers for Language Understanding</h1>
                 </div>
             </div>
         </div>
@@ -483,7 +483,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>本文所探讨的论文标题为 《BERT：Pre-training of Deep Bidirectional Transformers for Language Understanding》。文章引入了名为 BERT 的预训练模型，该模型基于 Transformer 架构实现，是一种全新的双向编码器语言模型。与ELMo、GPT等单向语言模型不同，BERT 旨在构建一个双向的语言模型，来更好地捕获语句间的上下文语义，使其在更多的下游任务上具有更强的泛化能力。因此，预训练完成的 BERT 模型被迁移到下游任务时，只需要在添加一个额外的输出层便可以进行微调，例如问答和语言推理任务，并不需要针对具体的任务进行模型架构的修改。BERT 模型在概念上简单却具有强大的性能，它在11项经典的自然语言处理任务上取得了最优的效果，包括将 GLUE 数据集的得到提升至80.5%（相比于之前的最优模型提升了7.7%），将SQuAD v1.1问答测试数据集的 F1 值至 93.2（提升了1.5个点），以及将SQuAD v2.0 数据集的 F1 值到 83.1（提升了5.1个点）。</p>
+<p>本文所探讨的论文标题为 《BERT：Pre-training of Deep Bidirectional Transformers for Language Understanding》。BERT 可以称作是预训练语言模型的开山之作了，和 OpenAI 的 GPT 模型是同时期的产物，但性能优于 GPT。BERT 模型基于 Transformer 架构实现，是一种全新的双向编码器语言模型。与ELMo、GPT等单向语言模型不同，BERT 旨在构建一个双向的语言模型，来更好地捕获语句间的上下文语义，使其在更多的下游任务上具有更强的泛化能力。因此，预训练完成的 BERT 模型被迁移到下游任务时，只需要在添加一个额外的输出层便可以进行微调，例如问答和语言推理任务，并不需要针对具体的任务进行模型架构的修改。BERT 模型在概念上简单却具有强大的性能，它在11项经典的自然语言处理任务上取得了最优的效果，包括将 GLUE 数据集的得到提升至80.5%（相比于之前的最优模型提升了7.7%），将SQuAD v1.1问答测试数据集的 F1 值至 93.2（提升了1.5个点），以及将SQuAD v2.0 数据集的 F1 值到 83.1（提升了5.1个点）。</p>
 </blockquote>
 <h2 id="1-研究概述"><a href="#1-研究概述" class="headerlink" title="1 研究概述"></a>1 研究概述</h2><h3 id="1-1-研究背景"><a href="#1-1-研究背景" class="headerlink" title="1.1 研究背景"></a>1.1 研究背景</h3><p>大规模标注语料库的匮乏，成为了制约NLP（Natural Language Processing）领域发展的一大重要因素。为了使NLP模型能够充分地利用海量廉价的无标注数据信息，预训练语言模型（Pre-trained Models, PTMs）应运而生。通过模型预训练，我们可以从海量数据集中初步获取潜在的特征规律，再将这些共性特征移植到特定的任务模型中去，将学习到的知识进行迁移。具体来说，我们需要将模型在一个通用任务上进行参数训练，得到一套初始化参数，再将该初始化模型放置到具体任务中，通过进一步的训练来完成更加特殊的任务。预训练模型的推广，使得许多NLP任务的性能获得了显著提升，它为模型提供了更好的初始化参数，大大提高了其泛化能力。至此，NLP领域进入了一个新的研究阶段。</p>
 <h3 id="1-2-问题分析与解决"><a href="#1-2-问题分析与解决" class="headerlink" title="1.2 问题分析与解决"></a>1.2 问题分析与解决</h3><p>当前的预训练模型主要分为基于特征和微调两大类，但它们大都基于单向的语言模型来进行语言学习表征，这使得许多句子级别的下游任务无法达到最优的训练效果。因此，本文提出了名为BERT的双向预训练表征模型，很大程度上缓解了单向模型带来的约束。同时，引入了“完形填空”和“上下句匹配”分别作为单词级别和句子级别的两大通用任务，对BERT模型进行训练。实验表明， BERT模型的应用使得当前的11个NLP任务均取得了SOTA的效果。</p>
@@ -498,6 +498,7 @@
 <p><img src="/pic/bert/%E6%9E%B6%E6%9E%84.png" alt="BERT的pre-training和fine-tuning架构"></p>
 <h4 id="2-3-1-模型架构"><a href="#2-3-1-模型架构" class="headerlink" title="2.3.1 模型架构"></a>2.3.1 模型架构</h4><p>BERT模型采用了Transformer中的Encoder架构，通过引入多头注意力机制，将Encoder块进行堆叠，形成最终的BERT架构。为了适应不同规模的任务，BERT将其结构分为了base和large两类。较小规模的base结构含有12个Encoder单元，每个单元中含有12个Attention块，词向量维度为768；较大规模的large结构含有24个Encoder单元，每个单元中含有16个Attention块，词向量维度为1024。通过使用Transformer作为模型的主要框架，BERT能够更彻底地捕获语句中的双向关系，极大地提升了预训练模型在具体任务中的性能。</p>
 <p>BERT 模型的输入由三部分组成。除了传统意义上的 token 词向量外，BERT 还引入了位置词向量和句子词向量。位置词向量的思想与 Transformer 一致，但 BERT 并未使用其计算公式，而是随机初始化后放入模型一同训练；句子词向量实质上是一个0-1表征，目的是区分输入段落中的上下句。这三种不同意义的词向量相加，构成了最终输入模型的词向量。</p>
+<p><img src="/pic/bert/%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%85%A5.png" alt="BERT的输入格式"></p>
 <h4 id="2-3-2-预训练"><a href="#2-3-2-预训练" class="headerlink" title="2.3.2 预训练"></a>2.3.2 预训练</h4><p>BERT的预训练（pre-training）部分使用了完形填空和上下句匹配两项无监督任务。“完形填空”代表了词语级别的预训练任务，该任务对输入句子中若干随机位置的字符进行遮盖，并利用上下文语境对遮盖字符进行预测。“上下句匹配”代表了句子级别的预训练任务，该任务给出两个句子，利用句子之间的语义连贯性判定这两个句子是否存在上下句关系。这两项预训练任务对于大量NLP任务的架构具有更好的代表性，同时也更能匹配模型本身的双向架构，对模型的泛化能力有着巨大的提升帮助。</p>
 <h4 id="2-3-3-微调"><a href="#2-3-3-微调" class="headerlink" title="2.3.3 微调"></a>2.3.3 微调</h4><p>训练具体任务时，我们只需将具体任务中的输入输出传入预训练完成的 BERT 模型，继续调整参数直至模型再次收敛。该过程称为微调（fine-tuning）。相比于预训练来说，微调的代价是极小的。在大部分NLP任务中，我们只需要在GPU上对模型进行几个小时的微调，便可使模型在具体任务上收敛，完成训练。</p>
 <h2 id="3-实验分析与结论"><a href="#3-实验分析与结论" class="headerlink" title="3 实验分析与结论"></a>3 实验分析与结论</h2><h3 id="3-1-实验设置"><a href="#3-1-实验设置" class="headerlink" title="3.1 实验设置"></a>3.1 实验设置</h3><p>本文将BERT模型迁移至11个NLP基准任务上进行了微调训练，均取得了SOTA的效果。另外，为了探究模型的不同组成部分对整体性能的影响，本文还进行了若干消融实验，对BERT的预训练任务、模型规模等要素进行了实验评估，充分论证了双向模型的重要性。</p>
@@ -1078,7 +1079,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="2022计算机保研记录 | 夏令营经历分享">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2022计算机保研记录 | 夏令营经历分享">
                         
                         <span class="card-title">2022计算机保研记录 | 夏令营经历分享</span>
                     </div>
