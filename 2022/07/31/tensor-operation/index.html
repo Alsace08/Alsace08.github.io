@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    475
+                    912
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -485,7 +485,7 @@
                 <blockquote>
 <p>我们在使用训练深度网络时，不可避免地会涉及到对张量（tensor）的操作，例如维度变换、数据填充等。每种操作都在 torch 或 numpy 库中有对应的操作，然而，由于操作种类繁多，我们很难记住所有命令并将其区分开来，且容易造成混淆。因此，本文罗列了若干常用的张量操作命令及对应的参数设置，方便以后在进行深度模型的部署时进行查询调用。</p>
 </blockquote>
-<h2 id="维度变形：torch-view-shape"><a href="#维度变形：torch-view-shape" class="headerlink" title="维度变形：torch.view(shape)"></a>维度变形：torch.view(shape)</h2><blockquote>
+<h2 id="单个张量的维度操作"><a href="#单个张量的维度操作" class="headerlink" title="单个张量的维度操作"></a>单个张量的维度操作</h2><h3 id="维度变形：torch-view-shape"><a href="#维度变形：torch-view-shape" class="headerlink" title="维度变形：torch.view(shape)"></a>维度变形：torch.view(shape)</h3><blockquote>
 <p>新旧张量数据元素相同，但是尺寸不同</p>
 </blockquote>
 <ul>
@@ -503,7 +503,7 @@ print(a.size())     # RuntimeError: shape &#39;[8, 3]&#39; is invalid for input 
 <ul>
 <li>注：若某一维度的 shape 为 -1 ，则自动计算维度后填充，如例 3</li>
 </ul>
-<h2 id="维度压缩：torch-squeeze-input-dim-None-out-None"><a href="#维度压缩：torch-squeeze-input-dim-None-out-None" class="headerlink" title="维度压缩：torch.squeeze(input, dim=None, out=None)"></a>维度压缩：torch.squeeze(input, dim=None, out=None)</h2><blockquote>
+<h3 id="维度压缩：torch-squeeze-input-dim-None-out-None"><a href="#维度压缩：torch-squeeze-input-dim-None-out-None" class="headerlink" title="维度压缩：torch.squeeze(input, dim=None, out=None)"></a>维度压缩：torch.squeeze(input, dim=None, out=None)</h3><blockquote>
 <p>除去输入张量 input 中维数为 1 的维度。例如，输入张量维度为 (a * 1 * b * c * 1)：（1）若不指定维度 dim 的具体数值，则返回张量的维度为 (a * b * c)；（2）若指定维度，当对应维度的维数为 1，则在对应维度上压缩，例如 dim = 1，当对应维度的维数不为 1，则不进行压缩操作，例如 dim = 0。</p>
 </blockquote>
 <ul>
@@ -523,9 +523,64 @@ a &#x3D; torch.randn(4, 4, 1, 2, 1)
 a &#x3D; torch.squeeze(a, dim&#x3D;1)
 print(a.size())     # torch.Size([4, 4, 1, 2, 1])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
+<h3 id="维度扩展：torch-unsqueeze-input-dim-None-out-None"><a href="#维度扩展：torch-unsqueeze-input-dim-None-out-None" class="headerlink" title="维度扩展：torch.unsqueeze(input, dim=None, out=None)"></a>维度扩展：torch.unsqueeze(input, dim=None, out=None)</h3><blockquote>
+<p>有维度压缩，就有维度扩展，即对输入张量 input 的指定维度插入维数 1。</p>
+</blockquote>
+<ul>
+<li>tensor (Tensor) – 输入张量</li>
+<li>dim (int) – 插入维度的索引</li>
+<li>out (Tensor, optional) – 输出张量</li>
+</ul>
+<pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.randn(4, 4, 2)
+print(a.size())     # torch.Size([4, 4, 2])
+a &#x3D; torch.unsqueeze(a, dim&#x3D;1)
+print(a.size())     # torch.Size([4, 1, 4, 2])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="维度填充：torch-nn-functional-pad-input-pad-mode-’constant’-value-0"><a href="#维度填充：torch-nn-functional-pad-input-pad-mode-’constant’-value-0" class="headerlink" title="维度填充：torch.nn.functional.pad(input, pad, mode=’constant’, value=0)"></a>维度填充：torch.nn.functional.pad(input, pad, mode=’constant’, value=0)</h3><blockquote>
+<p>不改变维度，仅改变维数值，在某个维度上进行参数的扩充</p>
+</blockquote>
+<ul>
+<li>pad - 扩充维度，预先定义出某维度上的扩充参数（具体见示例）</li>
+<li>mode - 扩充方法：’constant’, ‘reflect’ 和 ‘replicate’ 三种模式，分别表示常量，反射，复制</li>
+<li>value - 扩充时指定补充值，仅在 mode = ‘constant’ 时有效</li>
+</ul>
+<pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.zeros(2, 2, 1)
+print(a)
+# tensor([[[0.],
+#          [0.]],
+#         [[0.],
+#          [0.]]])
+print(a.size())
+# torch.Size([2, 2, 1])
+
+a &#x3D; torch.zeros(2, 2, 1)
+a &#x3D; F.pad(a, pad&#x3D;(1, 2), mode&#x3D;&#39;constant&#39;, value&#x3D;1)  # 在倒数第一个维度上，左边填充 1 个维数，右边填充 2 个维数
+print(a)
+# tensor([[[1., 0., 1., 1.],
+#          [1., 0., 1., 1.]],
+#         [[1., 0., 1., 1.],
+#          [1., 0., 1., 1.]]])
+print(a.size())
+# torch.Size([2, 2, 4])
+
+a &#x3D; torch.zeros(2, 2, 1)
+a &#x3D; F.pad(a, pad&#x3D;(1, 2, 2, 1), mode&#x3D;&#39;constant&#39;, value&#x3D;1)    # 在倒数第一个维度上，左边填充 1 个维数，右边填充 2 个维数；在倒数第二个维度上，左边填充 2 个维数，右边填充 1 个维数
+print(a)
+# tensor([[[1., 1., 1., 1.],
+#          [1., 1., 1., 1.],
+#          [1., 0., 1., 1.],
+#          [1., 0., 1., 1.],
+#          [1., 1., 1., 1.]],
+#         [[1., 1., 1., 1.],
+#          [1., 1., 1., 1.],
+#          [1., 0., 1., 1.],
+#          [1., 0., 1., 1.],
+#          [1., 1., 1., 1.]]])
+print(a.size())
+# torch.Size([2, 5, 4])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-
+<h2 id="多个张量的维度操作"><a href="#多个张量的维度操作" class="headerlink" title="多个张量的维度操作"></a>多个张量的维度操作</h2>
                 
             </div>
             <hr/>
@@ -1370,7 +1425,7 @@ print(a.size())     # torch.Size([4, 4, 1, 2, 1])<span aria-hidden="true" class=
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15k</span>
+                        class="white-color">15.5k</span>
             
             
             
