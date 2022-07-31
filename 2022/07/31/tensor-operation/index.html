@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    971
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -483,7 +483,7 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <blockquote>
-<p>我们在使用训练深度网络时，不可避免地会涉及到对张量（tensor）的操作，例如维度变换、数据填充等。每种操作都在 torch 或 numpy 库中有对应的操作，然而，由于操作种类繁多，我们很难记住所有命令并将其区分开来，且容易造成混淆。因此，本文罗列了若干常用的张量操作命令及对应的参数设置，方便以后在进行深度模型的部署时进行查询调用。</p>
+<p>我们在使用训练深度网络时，不可避免地会涉及到对张量（tensor）的操作，例如维度变换、数据填充等。每种操作都在 torch 库中有对应的操作，然而，由于操作种类繁多，我们很难记住所有命令并将其区分开来，且容易造成混淆。因此，本文罗列了若干常用的张量操作命令及对应的参数设置，方便以后在进行深度模型的部署时进行查询调用。</p>
 </blockquote>
 <h2 id="单个张量的维度操作"><a href="#单个张量的维度操作" class="headerlink" title="单个张量的维度操作"></a>单个张量的维度操作</h2><p>对于单个张量的操作，常见的有维度的变形、扩张、压缩，以及在指定维度下的填充等操作。</p>
 <h3 id="维度变形"><a href="#维度变形" class="headerlink" title="维度变形"></a>维度变形</h3><blockquote>
@@ -538,7 +538,7 @@ a &#x3D; torch.unsqueeze(a, dim&#x3D;1)
 print(a.size())     # torch.Size([4, 1, 4, 2])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="维度填充"><a href="#维度填充" class="headerlink" title="维度填充"></a>维度填充</h3><blockquote>
-<p>torch.nn.functional.pad(input, pad, mode=’constant’, value=0)：不改变维度，仅改变维数值，在某个维度上进行参数的扩充</p>
+<p>torch.nn.functional.pad(input, pad, mode=’constant’, value=0)：不改变维度，仅改变维度数值，在某个维度上进行参数的扩充</p>
 </blockquote>
 <ul>
 <li>pad - 扩充维度，预先定义出某维度上的扩充参数（具体见示例）</li>
@@ -582,7 +582,38 @@ print(a.size())
 
 <p><img src="/pic/tensor/Fpad.png" alt="torch.nn.functional 中的 padding 操作示意图"></p>
 <h2 id="多个张量的维度操作"><a href="#多个张量的维度操作" class="headerlink" title="多个张量的维度操作"></a>多个张量的维度操作</h2><p>对于多个张量的操作，常见的有张量之间的拼接与拆分。</p>
+<h3 id="维度合并"><a href="#维度合并" class="headerlink" title="维度合并"></a>维度合并</h3><h4 id="不产生新维度"><a href="#不产生新维度" class="headerlink" title="不产生新维度"></a>不产生新维度</h4><blockquote>
+<p>torch.cat(input, dim)：将两个相同维度的张量合并成一个新的张量。想要拼接的维度上的数值可以不同，但其余维度上的数值应完全一致</p>
+</blockquote>
+<ul>
+<li>input：输入张量</li>
+<li>dim：按照维度 dim 进行合并</li>
+</ul>
+<pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.rand(4, 32, 8)
+b &#x3D; torch.rand(5, 32, 8)
+c &#x3D; torch.cat([a, b], dim&#x3D;0)
+print(c.size())     # torch.Size([9, 32, 8])
 
+a &#x3D; torch.rand(4, 32, 8)
+b &#x3D; torch.rand(5, 32, 8)
+c &#x3D; torch.cat([a, b], dim&#x3D;1)
+print(c.size())     # RuntimeError: Sizes of tensors must match except in dimension 1. Got 4 and 5 in dimension 0 (The offending index is 1)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="产生新维度"><a href="#产生新维度" class="headerlink" title="产生新维度"></a>产生新维度</h4><blockquote>
+<p>torch.stack(input, dim)：将若干维度相同，每个维度的数值也相同的张量合并成一个新的张量，并在最外层扩张一个新的维度，该维度的维数即为合并的张量的数目</p>
+</blockquote>
+<ul>
+<li>input：输入张量</li>
+<li>dim：按照维度 dim 进行合并</li>
+</ul>
+<pre class="line-numbers language-py" data-language="py"><code class="language-py">a &#x3D; torch.rand(32, 8)
+b &#x3D; torch.rand(32, 8)
+c &#x3D; torch.rand(32, 8)
+d &#x3D; torch.stack([a, b, c], dim&#x3D;0)
+print(d.size())     # torch.Size([3, 32, 8])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="维度拆分"><a href="#维度拆分" class="headerlink" title="维度拆分"></a>维度拆分</h3>
                 
             </div>
             <hr/>
@@ -1427,7 +1458,7 @@ print(a.size())
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">15.5k</span>
+                        class="white-color">15.8k</span>
             
             
             
