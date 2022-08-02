@@ -4,13 +4,27 @@
   
     
     <entry>
-      <title>textcnn</title>
+      <title>TextCNN 实现文本情感分类任务</title>
       <link href="/2022/07/31/textcnn/"/>
       <url>/2022/07/31/textcnn/</url>
       
         <content type="html"><![CDATA[]]></content>
       
       
+      <categories>
+          
+          <category> 自然语言处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自然语言处理 </tag>
+            
+            <tag> 文本分类 </tag>
+            
+        </tags>
       
     </entry>
     
@@ -35,6 +49,8 @@
             
             <tag> pytorch </tag>
             
+            <tag> 深度学习 </tag>
+            
         </tags>
       
     </entry>
@@ -58,7 +74,7 @@
       
         <tags>
             
-            <tag> 序列标注 </tag>
+            <tag> 自然语言处理 </tag>
             
             <tag> 命名实体识别 </tag>
             
@@ -100,7 +116,7 @@
             
             <tag> 自然语言处理 </tag>
             
-            <tag> 自动摘要生成 </tag>
+            <tag> 文本摘要生成 </tag>
             
         </tags>
       
@@ -170,7 +186,7 @@
       
       <categories>
           
-          <category> 论文精读 </category>
+          <category> 对抗机器学习 </category>
           
       </categories>
       
@@ -178,6 +194,8 @@
         <tags>
             
             <tag> 对抗机器学习 </tag>
+            
+            <tag> 论文精读 </tag>
             
         </tags>
       
@@ -195,7 +213,7 @@
       
       <categories>
           
-          <category> 论文精读 </category>
+          <category> 自然语言处理 </category>
           
       </categories>
       
@@ -203,6 +221,8 @@
         <tags>
             
             <tag> 自然语言处理 </tag>
+            
+            <tag> 论文精读 </tag>
             
         </tags>
       
