@@ -289,6 +289,19 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
 
 
 
@@ -445,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-08-02
                 </div>
                 
 
@@ -482,7 +495,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
+                <p><img src="/pic/bert.png" alt="Google 公司推出的 Bert 预训练语言模型"></p>
+<blockquote>
 <p>本文所探讨的论文标题为 《BERT：Pre-training of Deep Bidirectional Transformers for Language Understanding》。BERT 可以称作是预训练语言模型的开山之作了，和 OpenAI 的 GPT 模型是同时期的产物，但性能优于 GPT。BERT 模型基于 Transformer 架构实现，是一种全新的双向编码器语言模型。与ELMo、GPT等单向语言模型不同，BERT 旨在构建一个双向的语言模型，来更好地捕获语句间的上下文语义，使其在更多的下游任务上具有更强的泛化能力。因此，预训练完成的 BERT 模型被迁移到下游任务时，只需要在添加一个额外的输出层便可以进行微调，例如问答和语言推理任务，并不需要针对具体的任务进行模型架构的修改。BERT 模型在概念上简单却具有强大的性能，它在11项经典的自然语言处理任务上取得了最优的效果，包括将 GLUE 数据集的得到提升至80.5%（相比于之前的最优模型提升了7.7%），将SQuAD v1.1问答测试数据集的 F1 值至 93.2（提升了1.5个点），以及将SQuAD v2.0 数据集的 F1 值到 83.1（提升了5.1个点）。</p>
 </blockquote>
 <h2 id="1-研究概述"><a href="#1-研究概述" class="headerlink" title="1 研究概述"></a>1 研究概述</h2><h3 id="1-1-研究背景"><a href="#1-1-研究背景" class="headerlink" title="1.1 研究背景"></a>1.1 研究背景</h3><p>大规模标注语料库的匮乏，成为了制约NLP（Natural Language Processing）领域发展的一大重要因素。为了使NLP模型能够充分地利用海量廉价的无标注数据信息，预训练语言模型（Pre-trained Models, PTMs）应运而生。通过模型预训练，我们可以从海量数据集中初步获取潜在的特征规律，再将这些共性特征移植到特定的任务模型中去，将学习到的知识进行迁移。具体来说，我们需要将模型在一个通用任务上进行参数训练，得到一套初始化参数，再将该初始化模型放置到具体任务中，通过进一步的训练来完成更加特殊的任务。预训练模型的推广，使得许多NLP任务的性能获得了显著提升，它为模型提供了更好的初始化参数，大大提高了其泛化能力。至此，NLP领域进入了一个新的研究阶段。</p>
@@ -1030,7 +1044,7 @@
                 <a href="/2022/07/17/LNG/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/lng.png" class="responsive-img" alt="论文精读 —— 潜在邻近图对抗样本检测">
+                        <img src="/medias/featureimages/graph.png" class="responsive-img" alt="论文精读 —— 潜在邻近图对抗样本检测">
                         
                         <span class="card-title">论文精读 —— 潜在邻近图对抗样本检测</span>
                     </div>
@@ -1079,7 +1093,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/bert.png" class="responsive-img" alt="2022计算机保研记录 | 夏令营经历分享">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2022计算机保研记录 | 夏令营经历分享">
                         
                         <span class="card-title">2022计算机保研记录 | 夏令营经历分享</span>
                     </div>
@@ -1351,7 +1365,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.8k</span>
+                        class="white-color">13.7k</span>
             
             
             

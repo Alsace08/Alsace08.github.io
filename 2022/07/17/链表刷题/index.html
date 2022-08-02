@@ -289,10 +289,23 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -1002,7 +1015,7 @@
                 <a href="/2022/07/22/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/Automatic-Summarization.png" class="responsive-img" alt="浅谈自动摘要生成任务">
+                        <img src="/medias/featureimages/summarization.png" class="responsive-img" alt="浅谈自动摘要生成任务">
                         
                         <span class="card-title">浅谈自动摘要生成任务</span>
                     </div>
@@ -1055,7 +1068,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="形态学：语言的词汇">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="形态学：语言的词汇">
                         
                         <span class="card-title">形态学：语言的词汇</span>
                     </div>
@@ -1327,7 +1340,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.8k</span>
+                        class="white-color">13.7k</span>
             
             
             

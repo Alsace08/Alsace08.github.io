@@ -289,10 +289,23 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/tensor.png')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/PyTorch_Blog-Post_Hero.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -445,7 +458,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-31
+                    2022-08-02
                 </div>
                 
 
@@ -482,7 +495,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
+                <p><img src="/pic/tensor.png" alt="scalar - vector - tensor"></p>
+<blockquote>
 <p>我们在训练深度网络时，不可避免地会涉及到对张量（tensor）的操作，例如维度变换、数据填充等。每种操作都在 torch 库中有对应的函数，然而，由于操作种类繁多，我们很难记住所有命令并将其区分开来，且容易造成混淆。因此，本文罗列了若干常用的张量操作命令及对应的参数设置，方便以后在进行深度模型的部署时进行查询调用。</p>
 </blockquote>
 <h2 id="1-单个张量的维度操作"><a href="#1-单个张量的维度操作" class="headerlink" title="1 单个张量的维度操作"></a>1 单个张量的维度操作</h2><p>对于单个张量的操作，常见的有维度的变形、扩张、压缩，以及在指定维度下的填充等操作。</p>
@@ -1191,7 +1205,7 @@ print(b.size())
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="textcnn">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="textcnn">
                         
                         <span class="card-title">textcnn</span>
                     </div>
@@ -1227,7 +1241,8 @@ print(b.size())
                 <a href="/2022/07/28/LSTM-CRF/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/LSTM+CRF.jpg" class="responsive-img" alt="LSTM+CRF 实现命名实体识别任务">
+                        
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="LSTM+CRF 实现命名实体识别任务">
                         
                         <span class="card-title">LSTM+CRF 实现命名实体识别任务</span>
                     </div>
@@ -1510,7 +1525,7 @@ print(b.size())
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.8k</span>
+                        class="white-color">13.7k</span>
             
             
             

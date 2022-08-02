@@ -289,10 +289,23 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/Automatic-Summarization.png')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/summarization.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -449,7 +462,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-01
+                    2022-08-02
                 </div>
                 
 
@@ -486,7 +499,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-抽取式摘要"><a href="#1-抽取式摘要" class="headerlink" title="1 抽取式摘要"></a>1 抽取式摘要</h2><blockquote>
+                <p><img src="/pic/Automatic-Summarization.png" alt="自动文本摘要生成"></p>
+<h2 id="1-抽取式摘要"><a href="#1-抽取式摘要" class="headerlink" title="1 抽取式摘要"></a>1 抽取式摘要</h2><blockquote>
 <p>抽取式摘要任务本质上已经变成了一个序列标注任务，即对每个句子打标签，判定这个句子到底要不要被放在摘要里面。当然，这里的标注不一定是标注整个句子，也可以是一些更细粒度的特征，后面会介绍几个相应的算法。对于通用模型架构而言，首先是 encoder，经过句子级别的 encoder 和文档级别的 encoder，获得原文句子和文章级别的 embedding 表征。之后是 decoder，利用输出的摘要语句和原文的语义编码，来映射到对应的序列标注，获取最终抽取的结果。</p>
 </blockquote>
 <p><img src="/pic/summarization/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8.png" alt="序列标注任务：encoder-decoder 架构"></p>
@@ -1033,7 +1047,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="无监督学习">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="无监督学习">
                         
                         <span class="card-title">无监督学习</span>
                     </div>
@@ -1070,7 +1084,7 @@
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="链表刷题">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="链表刷题">
                         
                         <span class="card-title">链表刷题</span>
                     </div>
@@ -1353,7 +1367,7 @@
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.8k</span>
+                        class="white-color">13.7k</span>
             
             
             

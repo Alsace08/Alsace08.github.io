@@ -289,10 +289,23 @@
 </header>
 
     
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/hpctoolkit.png')">
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/nvidia-geforce-windows7.jpgs')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
@@ -445,14 +458,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-07-17
+                    2022-08-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    109
+                    130
                 </div>
                 
 
@@ -482,44 +495,47 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Source-Code-Installation"><a href="#Source-Code-Installation" class="headerlink" title="Source Code Installation"></a>Source Code Installation</h2><p>We now use Spack for building HPCToolkit’s prerequisites (replacing the old hpctoolkit externals). You can install HPCToolkit with the “One Button” spack install hpctoolkit method.</p>
+                <p><img src="/pic/hpctoolkit.png" alt="hpctoolkit 工作流程图"></p>
+<h2 id="源码安装"><a href="#源码安装" class="headerlink" title="源码安装"></a>源码安装</h2><!-- We now use Spack for building HPCToolkit's prerequisites (replacing the old hpctoolkit externals). You can install HPCToolkit with the "One Button" spack install hpctoolkit method. -->
+
+<p>本文采用 Spack 来构建 HPCToolkit 的 prerequisites（不使用原有的 hpctoolkit 外部组件）。 </p>
 <ul>
-<li>Clone Spack Repositories on GitHub.</li>
+<li>clone spack 对应的 github 仓库</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;spack&#x2F;spack<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
-<li>Create Environment Variables</li>
+<li>创建环境变量</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">export SPACK_ROOT&#x3D;&#96;pwd&#96;&#x2F;spack
 export PATH&#x3D;$&#123;SPACK_ROOT&#125;&#x2F;bin:$PATH<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 <ul>
-<li>Refresh Shell Environment</li>
+<li>刷新 shell 环境</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source $&#123;SPACK_ROOT&#125;&#x2F;share&#x2F;spack&#x2F;setup-env.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
-<li>Check the Build Environment</li>
+<li>检测安装环境</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">spack compiler find<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <ul>
-<li>Install</li>
+<li>安装</li>
 </ul>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">spack install hpctoolkit<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="Typical-bug"><a href="#Typical-bug" class="headerlink" title="Typical bug"></a>Typical bug</h2><p><img src="/pic/bug1.png" alt="avatar"></p>
-<p><img src="/pic/bug2.png" alt="avatar"></p>
+<h2 id="常见-bug"><a href="#常见-bug" class="headerlink" title="常见 bug"></a>常见 bug</h2><p><img src="/pic/hpctoolkit/bug1.png" alt="bug 1"></p>
+<p><img src="/pic/hpctoolkit/bug2.png" alt="bug 2"></p>
 <ul>
-<li><p>Reasons</p>
-<p>  fortran build environment is not set</p>
+<li><p>原因</p>
+<p>  未设置 fortran 编译环境</p>
 </li>
-<li><p>Solution</p>
-<p>  Add the build environment to <code>/.spack/linux/compilers.yaml</code></p>
+<li><p>解决方法</p>
+<p>  将安装环境加入 <code>/.spack/linux/compilers.yaml</code> 文件中</p>
 </li>
 </ul>
-<p><img src="/pic/bug.png" alt="avatar"></p>
+<p><img src="/pic/hpctoolkit/bug.png" alt="解决方案"></p>
 
                 
             </div>
@@ -1033,7 +1049,7 @@ export PATH&#x3D;$&#123;SPACK_ROOT&#125;&#x2F;bin:$PATH<span aria-hidden="true" 
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/bert.png" class="responsive-img" alt="2022计算机保研记录 | 夏令营经历分享">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="2022计算机保研记录 | 夏令营经历分享">
                         
                         <span class="card-title">2022计算机保研记录 | 夏令营经历分享</span>
                     </div>
@@ -1081,7 +1097,7 @@ export PATH&#x3D;$&#123;SPACK_ROOT&#125;&#x2F;bin:$PATH<span aria-hidden="true" 
                 <a href="/2022/01/19/hpctoolkit/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/hpctoolkit.png" class="responsive-img" alt="hpctoolkit安装与使用">
+                        <img src="/medias/featureimages/nvidia-geforce-windows7.jpgs" class="responsive-img" alt="hpctoolkit安装与使用">
                         
                         <span class="card-title">hpctoolkit安装与使用</span>
                     </div>
@@ -1354,7 +1370,7 @@ export PATH&#x3D;$&#123;SPACK_ROOT&#125;&#x2F;bin:$PATH<span aria-hidden="true" 
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">19.8k</span>
+                        class="white-color">13.7k</span>
             
             
             
