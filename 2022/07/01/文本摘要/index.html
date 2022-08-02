@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="论文精读 —— 潜在邻近图对抗样本检测, Ym.Wang&#39;s Blog">
-    <meta name="description" content="本论文介绍了一种全新的对抗样本检测方式 —— 潜在邻近图模型，该工作于 2021 年发表在 ICCV 会议上。">
+    <meta name="keywords" content="浅谈自动摘要生成任务, Ym.Wang&#39;s Blog">
+    <meta name="description" content="本文将介绍自然语言处理领域中的经典任务 —— 文本摘要生成中的一些经典模型，以及近年来的一些创新方法。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>论文精读 —— 潜在邻近图对抗样本检测 | Ym.Wang&#39;s Blog</title>
+    <title>浅谈自动摘要生成任务 | Ym.Wang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -305,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/graph.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/summarization.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">论文精读 —— 潜在邻近图对抗样本检测</h1>
+                    <h1 class="description center-align post-title">浅谈自动摘要生成任务</h1>
                 </div>
             </div>
         </div>
@@ -426,12 +426,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%AF%B9%E6%8A%97%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">对抗机器学习</span>
+                            <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
+                                <span class="chip bg-color">自然语言处理</span>
                             </a>
                         
-                            <a href="/tags/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">
-                                <span class="chip bg-color">论文精读</span>
+                            <a href="/tags/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">
+                                <span class="chip bg-color">文本摘要生成</span>
                             </a>
                         
                     </div>
@@ -442,8 +442,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AF%B9%E6%8A%97%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                对抗机器学习
+                            <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
+                                自然语言处理
                             </a>
                         
                     </div>
@@ -455,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-17
+                    2022-07-01
                 </div>
                 
 
@@ -469,14 +469,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    3.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    9 分
+                    11 分
                 </div>
                 
 
@@ -499,60 +499,38 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>本文探讨的论文标题为《Adversarial Example Detection Using Latent Neighborhood Graph》。文章标题开门见山，两个关键部分，一个是对抗样本检测（Adversarial Example Detection），这是描述了这篇文章所要完成的任务，另一个是潜在邻近图（Latent Neighborhood Graph），也就是说，文章很可能是要用一个图模型来完成样本检测的任务。带着这两个关键词，我们来详细分析一下这篇 ICCV 会议上的文章。</p>
+                <p><img src="/pic/Automatic-Summarization.png" alt="自动文本摘要生成"></p>
+<h2 id="1-抽取式摘要"><a href="#1-抽取式摘要" class="headerlink" title="1 抽取式摘要"></a>1 抽取式摘要</h2><blockquote>
+<p>抽取式摘要任务本质上已经变成了一个序列标注任务，即对每个句子打标签，判定这个句子到底要不要被放在摘要里面。当然，这里的标注不一定是标注整个句子，也可以是一些更细粒度的特征，后面会介绍几个相应的算法。对于通用模型架构而言，首先是 encoder，经过句子级别的 encoder 和文档级别的 encoder，获得原文句子和文章级别的 embedding 表征。之后是 decoder，利用输出的摘要语句和原文的语义编码，来映射到对应的序列标注，获取最终抽取的结果。</p>
 </blockquote>
-<p><img src="/pic/LNG/LNG-%E4%B8%BB.png" alt="LNG 概念图"></p>
-<h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h2><h3 id="1-1-任务背景"><a href="#1-1-任务背景" class="headerlink" title="1.1 任务背景"></a>1.1 任务背景</h3><p>任务动机很朴素，当前的深度学习技术被广泛应用在了各个领域里面，但是一些攻击者会对整个深度模型进行操控，通过对模型的输入加入一些微小的扰动，来在人们难以察觉的情况下破坏整个模型的预测结果。这样的事情如果发生在一些安全系统当中，比如身份验证之类的重要环节，就会造成毁灭性的影响。因此深度模型的对抗训练必须被重视。</p>
-<p><img src="/pic/LNG/%E4%BB%BB%E5%8A%A1%E8%83%8C%E6%99%AF.png" alt="一些深度模型微扰的例子，涉及cv、nlp等诸多领域"></p>
-<h3 id="1-2-主流方法"><a href="#1-2-主流方法" class="headerlink" title="1.2 主流方法"></a>1.2 主流方法</h3><p>具体来说，为了让深度模型能够更好地去抵御这些扰动样本，目前比较主流的方法可以被归为两大类：主动防御和被动防御。</p>
-<p>第一种是<font color=Red>主动防御</font>的方法。这种方法在模型训练中较为常见，即我们在训练时考虑到输入扰动的情况，然后手动加入一些对抗样本，这样能够提高模型的一个鲁棒性，而整个解空间更加平滑，而不会因为一个微扰让整个预测结果发生了根本性的变化。但是这种方法有一个非常关键的难点在于，它的训练代价比较大。试想一下，对于一个以及部署好了的已经被投放应用的模型，这时候说要让它的防御能力更强一点，势必要去重新训练整个模型，这个带来的代价是极大的，尤其是在真实的工业场景下。</p>
-<p>另一种相对应的方法是<font color=Red>被动防御</font>方法。这种方式简单明了，不需要在训练时加入对抗样本提高鲁棒性，而是只需要在训练之前，就过滤出样本中的对抗样本即可。这样使得输入样本均为干净样本，训练出来的结果自然符合预期。这种方式对于已部署的系统来说很有价值，因为可以避免模型的重新训练。其次，它还可以帮助输入样本进行一次安全性检查，可以有效拦截一些不安全因素。</p>
-<p>本文主要聚焦于被动防御方法，也就是对抗样本的检测。</p>
-<h3 id="1-3-研究动机"><a href="#1-3-研究动机" class="headerlink" title="1.3 研究动机"></a>1.3 研究动机</h3><p>提到对抗样本检测，那就不得不提一下 Dknn 这个深度模型，这也是本文idea的一个核心的参考架构。</p>
-<p>Dknn 是检测对抗样本的一个深度方法，它采用了 knn 的算法思想。我们要判断某个中心样本是否是对抗样本，首先将所有样本输入模型，之后在网络的每一层，每个样本都会得到一个 embedding。之后，沿用 knn 的思想，选择这个中心样本最相近的 k 个邻居，并将这 k 个邻居和中心样本的类别进行比较。如果这些样本基本属于同一类，说明这个中心样本不太可能是对抗样本，如果它们之间对应的类别有明显的不一致，例如，这个中心样本的类别是熊猫，但是它的 k 个邻居里面有一半是表示汽车的样本，那么这时候就可以怀疑这个中心样本可能存在问题。</p>
-<p><img src="/pic/LNG/dknn.png" alt="DkNN 架构的核心思路示意图"></p>
-<p>受到 Dknn 的启发，作者认为，Dknn 在检测对抗样本的时候，是利用了输入样本和它邻近样本之间的联系来判断的，那么可以利用一个动态的图结构，来更加具体地表示这种邻近关系。于是诞生了本文的核心模型，也就是 latent neighboorhood graph（以下简称LNG）。图模型的好处在于，它不光能够表示中心节点和它的邻近点，还能够通过建边来表示点和点之间的关系，这是 Dknn 方法做不到的。其次，把图模型构建出来之后，可以转化成一个二分类问题，利用图神经网络等方法进行分类。</p>
-<h3 id="1-4-优势对比"><a href="#1-4-优势对比" class="headerlink" title="1.4 优势对比"></a>1.4 优势对比</h3><table>
-    <tr>
-        <td>LNG</td><td>Dknn</td>
-    </tr>
-    <tr>
-        <td>cover multi-hop heighbors of inputs’ local manifolds
-</td><td>only cover inputs’ local manifolds
-</td>
-    </tr>
-        <tr>
-        <td>richer information, aggregate the connectivity learned on the embedding space
-</td><td>only cover the information of class labels
-</td>
-    </tr>
-        <tr>
-        <td>incorporate both adversarial and benign neighbors
-</td><td>only utilize benign neighbors
-</td>
-    </tr>
-</table>
+<p><img src="/pic/summarization/%E5%BA%8F%E5%88%97%E6%A0%87%E6%B3%A8.png" alt="序列标注任务：encoder-decoder 架构"></p>
+<h3 id="1-1-基于句子的抽取"><a href="#1-1-基于句子的抽取" class="headerlink" title="1.1 基于句子的抽取"></a>1.1 基于句子的抽取</h3><p>比较常用的是 RNN 和 Transformer 的架构。RNN 的这篇文章在构建文档级别的语义表征的时候，不仅利用了句子级别的含义表征，还掺杂了一些其他的元素，比如句子的显著性、新颖性、绝对和相对位置等因素，通过词嵌入的形式加入在最终的表征里面。之后 Transformer 出现，Transformer 就取代了 RNN 成为了新的主流架构。Bertsum 这篇文章，是利用 Bert 模型在摘要任务上面做的微调。它是将每个句子开头的 CLS 字符的词嵌入作为整个句子的表征，经过 BERT 输出之后，新建了一个摘要层，用来微调抽取式摘要任务，它里面给了 MLP、RNN、Transformer 三种类型的架构。这也是Transformer 架构用在抽取式摘要上的一个主流方法，直到现在很多做抽取式摘要的还把它作为 baseline 来对比实验。</p>
+<p><img src="/pic/summarization/RNN+transformer.png" alt="（左）SummaRuNNer，即 RNN 架构；（右）BertSum，即 Transformer 架构"></p>
+<p>这是两个主流架构，并没有引入过多的摘要任务的归纳偏置，之后的很多研究也继续在抽取句子这个级别上做了很多延展性的工作，主要还是基于<font color=Red>如何表征句子的语义</font>，让句子表征蕴含更多有价值的信息。我们可以看下这篇文章，这是 20 年 ACL 上的一篇抽取式摘要的文章，它仍然是对原文中句子层面的内容进行的抽取，但是在进行句子表征时，加入了一个叫做关键词的内容。因为一个句子中肯定存在很多不重要的信息，关键的东西就那么几个，比方说人物、地点之类的，那它的思路就是要把每个句子中的关键词信息充分地融在句子表征当中，首先构建了一个叫做 nerual topic 的 model 来提取句子中的关键词，之后对关键词和句子构建图模型，最后利用图神经网络对图中的句子结点进行分类，获得句子的序列标注。近两年来这种图模型的方法不断地涌现出来，包括复旦大学之前做过几篇也是用图来构建摘要文本的，这里不赘述。图模型对于文本及其之间的关联，能够非常好的表现出来。</p>
+<p><img src="/pic/summarization/graphsum.png" alt="GraphSum 模型架构"></p>
+<h3 id="1-2-基于子句的抽取"><a href="#1-2-基于子句的抽取" class="headerlink" title="1.2 基于子句的抽取"></a>1.2 基于子句的抽取</h3><p>句子层面的抽取做到这个地步很难继续深入了，所以相关研究人员开始不满足于句子的抽取，把思路转向了更加细粒度的方法，比如说将一个句子拆分若干子句，然后标注子句是否被提取。这里介绍两个模型，一个是 DiscoBert，这个模型的思想跟上面 GraphSum 比较像，也是构图，只不过那个是构建的句子中的关键词和句子之间的图，并且只对句子结点进行标注，但这个模型是把句子拆成子句，然后构建子句之间的图模型，并且对子句进行了序列标注，在粒度上更细了一步。</p>
+<p>它的子句采用了 RST 树来进行提取，是一种句法分析树，利用句法分析来获取子句之间的关系。之后还是先用 Transformer 对每个子句进行编码，然后把图模型放进图神经网络里面进行结果预测，得到最终每个子句的标注。</p>
+<p><img src="/pic/summarization/DiscoBert.png" alt="DiscoBert 模型架构"></p>
+<p>同样的，还有一个 SSE 模型，也是做了子句粒度上的抽取。这个似乎更加简单，它甚至没有构图，纯粹是用句法树抽了一下子句（基于 Penn Treebank），然后放进 Transformer 里面做了一个二分类任务。</p>
+<p><img src="/pic/summarization/SSE.png" alt="SSE 模型架构：（左）子句抽取；（右）二分类编码器"></p>
+<p>所以我们发现，如果这个提取的粒度是介于词语和整句之间的，大多数现有的工作都是通过一些基础性的句法分析模型来获取句子结构，之后构建子句之间的联系来回归到原有的 RNN 或者 Transfomer 框架之中。</p>
+<h3 id="1-3-混合粒度抽取"><a href="#1-3-混合粒度抽取" class="headerlink" title="1.3 混合粒度抽取"></a>1.3 混合粒度抽取</h3><p>当然，如果粒度更细一点的话，可能就不需要做这些预处理的工作（句法分析等），比如说这一篇名叫 swap-net 的工作，它是考虑了句子粒度和词语粒度这两个混合粒度。也就是说，在抽取的摘要中，可能会同时包含原文中的整句和词语，因为原文中可能会有一些很重要的关键词，如果放在整句当中，它的重要性可能不会那么显著，甚至会被忽视，为了避免这种现象的出现，它在 Decoder 解码时设计了一个交换机制。每一步的解码进行一个判定，判定抽取原文中的句子还是词语。如果抽句子，给原文中的所有句子输出一个概率分布，然后选取概率最高的句子，如果抽词语，同理给词语输出概率分布。这样一个交换机制，能够使得抽取的摘要在保证语法和逻辑完整的同时，嵌入了更多重要的关键词。</p>
+<p><img src="/pic/summarization/swapnet.png" alt="Swap-net 模型架构"></p>
+<h3 id="1-4-总结"><a href="#1-4-总结" class="headerlink" title="1.4 总结"></a>1.4 总结</h3><p>总结了这些关于抽取式摘要的方法，不管是抽整句也好，还是抽子句、抽词语，总之现在的方法正在不断地往更细粒度的方向去发展，更加注重模型对于句间逻辑关系，表述灵活性等等方面的表征。但是我在调研的时候并没有发现纯抽词语的方法，就算是抽词语，像上面提到的swap-net，也是边抽词语边抽句子的。</p>
+<p>究其原因，个人认为，首先抽取式摘要相比较生成式摘要的一个最大的优势，便是我们从原文中抽取出的句子，至少是合乎语法并且逻辑通顺的，唯一需要处理的是句子和句子之间的关联是否足够强，以及信息冗余的问题，这是生成式摘要所具有挑战性的任务。生成式摘要由于是从词表里面抽词语，所以拼成的句子合不合语法与逻辑还要另说。那对于抽取式摘要来说，如果单抽词语，那它的最大优势，也就是合乎语法以及句内逻辑通顺，就利用不上了。另一个是，如果变成了单抽词语，抽取式摘要这个问题就退化成了生成式摘要问题，甚至应该叫进化，但是进化的不完全。因为生成式摘要是从一个很庞大的外部词表里面去抽词语，但是抽取式摘要是从原文包含的词语构成的词表里面去抽，从这点上来看，抽取式摘要的灵活性就被大大局限住了。虽然可能对原文中的关键词抽取的会更加准确，但是从整个摘要级别来看，可能整个语句的组织和含义会非常受限，语法也不能够得到保证。所以单做词语级别的抽取式摘要，不如直接做生成式摘要。</p>
+<p>因此，它为生成式摘要方法也算是提供了一些启发，因为原文中的词语构成的词表，对于摘要来说一定是一个核心词表，单从外部词表来抽词语的话，可能会提取不清原文中的关键词。所以就出现了生成式摘要中的一个非常经典的架构，叫做指针生成网络。这个网络它不仅抽取外部词表中的词语，还有一定的概率回过头抽取原文中的关键词，可以说是利用到了抽取式摘要的一些特性，最大限度地保留住了原文中的一些琐碎的信息。</p>
+<h2 id="2-生成式摘要"><a href="#2-生成式摘要" class="headerlink" title="2 生成式摘要"></a>2 生成式摘要</h2><h3 id="2-1-seq2seq-方法-——-初代指针网络"><a href="#2-1-seq2seq-方法-——-初代指针网络" class="headerlink" title="2.1 seq2seq 方法 —— 初代指针网络"></a>2.1 seq2seq 方法 —— 初代指针网络</h3><p>最早的指针-生成网络是在 16 年被提出的，当时的生成式模型主要是基于 RNN 模型。纯 RNN 模型的思路就是，每次解码的时候，都从外部词表中选取最大概率的那一个，作为当前步生成的词语。但是这就带来一个问题，原文中的关键词可能会被忽视掉，一些细节很难被保留。于是出现了指针生成网络。<font color=Red>指针指的是指向原文中的关键词，生成就是从外部词表中选取词语。</font>这篇文章里面除了指针网络还给了这样几个技巧。一个是缩减了词表，只保留了一些高频词和原文中的词语，还有是在词向量中嵌入了一些语言学特征。这些方法对于摘要任务的速度和精度上都有所提升。因为我们知道，相比于抽取式摘要，生成式摘要最大的缺点，一个是训练速度慢，一个是可能语法逻辑不通顺。</p>
+<blockquote>
+<p>Trick 1：LVT 方法 —— 考虑到摘要的多数词来自原文，采用 LVT 方法，用于缩减 decoder 词汇表，只保留一定数量的高频词和原文所包含的词。这样做大大降低了decoder的soft-max计算耗时，并且加速模型收敛(模型只需关注核心词)。<br>Trick 2：词向量融合语言特征 —— 词嵌入中融入了一些语言学特征，包括NER，TF，IDF，以及词性POS。转为离散值，用one-hot向量表示，与词向量一起拼接为一个较长的向量。<br>Trick 3：指针-生成转换器 —— Decoder中，G表示generator(基于Seq2seq生成一个词)，P表示pointer(直接copy原文中的一个词)。当switch开关为1时，采用generator；当switch开关为0时，采用pointer。pointer计算Attention分布，基于Attention分布生成一个pointer位置指针，直接copy原文中与位置指针对应的词即可。</p>
+</blockquote>
+<p><img src="/pic/summarization/%E5%A2%9E%E5%BC%BA%E7%89%88RNN.png" alt="基于 RNN 的 seq2seq 模型"></p>
+<p>指针生成网络的核心思想在于，既能够抽取外部词表中的词语，又能够抽取原文中的词语，这样能够最大限度地去锁住原文中的关键信息。最早的指针生成网络机制是，在每一步解码的时候，有一个 switch机制，先去判定是生成原文中的词语，还是从词表里面选择词语，这就有点像刚刚提到的 swap-net 模型，因为它也是解码的时候用 switch 机制来判定输出整句还是输出词语。之后利用attention 权值来选择最大概率的词语。</p>
+<p><img src="/pic/summarization/%E5%A2%9E%E5%BC%BA%E7%89%88RNN2.png" alt="初代指针网络模型架构"></p>
+<h3 id="2-2-增强版指针-生成网络"><a href="#2-2-增强版指针-生成网络" class="headerlink" title="2.2 增强版指针-生成网络"></a>2.2 增强版指针-生成网络</h3><p>但是初代的指针网络，在选择指针和生成器的时候是分离开来的。也就是说，模型会先判断用外部词表还是原文词表，之后就只盯着某一个具体的词表去抽。在这个基础上，改良版本的指针网络被提出，这个方法的改进之处在于，模型同时去考虑外部的词表和原文的词表，把这两个词表生成词语的概率做一个加权的叠加，来选择最终的生成词语。</p>
+<p>改进后的指针-生成网络，可以看到，每一步解码的时候，原文中的每个词语都有一个 attention 权重，外部词表也会有一个生成的概率分布。之后，通过设置一个概率 p，来衡量到底是多考虑一些原文中的词语，还是外部的词语，将两个概率分布相加之后，得到最终的概率分布。如果是未登录词，概率就设置为 0。相比较最初的指针生成网络而言，这样的生成方式可能会加入一些综合考量的因素在里面，能够在保留原文关键信息的同时，让整个生成的语句更加的连贯，这比单独考虑某一个词表会更好一些。</p>
+<p><img src="/pic/summarization/pointernet.png" alt="改良版指针-生成网络架构"></p>
+<p>之后还提到了一个叫汇聚机制（coverage）的小 trick，它的目的主要是消除一些生成词语的重复现象，比如说再前面某个关键词被提取出来了，尽管很重要，但是他不能被一直重复提取，一是冗余，二是可能会使得其他一样也比较重要的信息被忽略了，目光只盯着这一个关键点了。所以说这个机制就是累加了之前所有的 attention 的得分，并且设置一个惩罚机制，惩罚你提取重复的单词。</p>
 
-<p>相比于dknn，LNG 的优势在于：<br>（1）图模型的信息表达更加丰富，它不光有节点的信息，也就是中心节点的邻居信息，还聚合了边的信息，也就是节点和节点之间的联系。我们可以通过距离来量化点和点之间的关联。<br>（2）LNG 引入了邻居多跳机制，可以把中心节点的邻居的邻居也给选择进来，让整个图模型的信息进一步丰富起来。</p>
-<h2 id="2-方法架构"><a href="#2-方法架构" class="headerlink" title="2 方法架构"></a>2 方法架构</h2><h3 id="2-1-概述"><a href="#2-1-概述" class="headerlink" title="2.1 概述"></a>2.1 概述</h3><p>LNG 的方法流程如下所示：</p>
-<p><img src="/pic/LNG/%E6%B5%81%E7%A8%8B.png" alt="LNG 方法流程图"></p>
-<p>第一步，从完整的输入样本中提取出一个子集，称作是参考数据集，这个数据集的是用来构建图模型中的结点的，也就是图模型的结点范围不会超出这个参考数据集。</p>
-<p>第二步，构建完数据集之后需要建图。建图分成两部分，首先是选择节点，其次是将点和点之间构建无向边，从而形成最终的图模型。</p>
-<p>第三步，二分类问题，也就是判断中心节点是否是对抗样本。</p>
-<h3 id="2-2-参考数据集"><a href="#2-2-参考数据集" class="headerlink" title="2.2 参考数据集"></a>2.2 参考数据集</h3><p>首先是参考数据集的构建。对于一个完整的数据集，从中提取出一个样本作为中心样本，我们需要判断这个样本是良性的还是对抗样本。之后，从这个完整的数据集中提取出一个样本子集，作为候选样本。</p>
-<p>接下来有两种数据集的构建方法，第一种是直接把样本子集和中心样本给合起来，作为一个参考数据集，称为良性数据集。第二种是先对这个样本子集进行数据增强，也就是子集中的每个样本都利用对抗算法获得一个对抗样本，之后把扩充后的样本子集和中心样本合并起来，作为一个新的参考数据集，称为对抗数据集。</p>
-<p><img src="/pic/LNG/reference_dataset.png" alt="参考数据集构建流程（自己画的）"></p>
-<h3 id="2-3-潜在邻近图"><a href="#2-3-潜在邻近图" class="headerlink" title="2.3 潜在邻近图"></a>2.3 潜在邻近图</h3><p>接下来是核心步骤 —— 构图。</p>
-<h4 id="2-3-1-结点构造"><a href="#2-3-1-结点构造" class="headerlink" title="2.3.1 结点构造"></a>2.3.1 结点构造</h4><p>首先是图节点的选择。对于中心节点来说，从参考数据集中选出最近的 k 个节点作为邻居。其次，引入了多跳邻居的思想，不仅可以选择中心节点的 k 邻近节点，还可以选择邻居的 k 邻近节点。具体来说，设置一个阈值 L，表示可以迭代的邻居次数。例如 L=2，就可以选择中心节点的邻居，这是一轮，以及邻居的邻居，这是第二轮，那 L=3,4 以此类推，相当于一个广度优先搜索的思想。但是所有选出的点不会超出参考数据集的范围。</p>
-<h4 id="2-3-2-边构造"><a href="#2-3-2-边构造" class="headerlink" title="2.3.2 边构造"></a>2.3.2 边构造</h4><p>接下来是节点之间边的表示，主要还是利用欧氏距离来进行表征，并且为了归一化尺度，用 sigmoid 函数做了一个映射，将边权映射到0到1的区间上。此外，这个 sigmoid 函数中有两个参数 $t$ 和 $\theta$，是放在网络中用来学习的参数。</p>
-<p>$$<br>A_{i,j} = \frac{1}{1 + e^{-t \cdot d(i,j) + \theta}}<br>$$</p>
-<h3 id="2-4-图分类器"><a href="#2-4-图分类器" class="headerlink" title="2.4 图分类器"></a>2.4 图分类器</h3><p>最后一部分是图分类器，用来判定中心节点是良性样本还是对抗样本。文章采用的是经典的图注意力网络模型 GAT，模型的输入是所有样本的 embedding 以及邻接矩阵，输出是一个二维向量。</p>
-<h2 id="3-实验"><a href="#3-实验" class="headerlink" title="3 实验"></a>3 实验</h2><h3 id="3-1-实验设置"><a href="#3-1-实验设置" class="headerlink" title="3.1 实验设置"></a>3.1 实验设置</h3><p>实验共采用了 5 种经典的对抗样本生成方法，包括 FGSM，PGD 等，这是在构建参考数据集的时候，对原数据做数据增强用的。Baseline 主要用了 DKNN 和 KNN 架构，以及 LID 和Hu 等人提出的方法。数据集采用了图像领域经典的几个数据集，包括有 CIFAR-10，ImageNet 和 STL-10。</p>
-<h3 id="3-2-实验细节"><a href="#3-2-实验细节" class="headerlink" title="3.2 实验细节"></a>3.2 实验细节</h3><p>对于每个数据集，分成三个部分：训练集、参考集和测试集，这里的参考集是用来选取超参数的，比如多跳邻居机制里面的参数 L。验证集是从测试集里单独划分出来的，例如对于CIFAR-10 数据集，本实验从测试集中，每个类别随机选了 100 个样本组成了新的验证集。此外，同一个数据集上只能用一种对抗攻击方法，以及在主实验中，使用的是加入对抗样本的参考数据集。</p>
-<p>超参数设置方面，主要是多跳邻居机制的阈值 L 和 knn 算法里面的 k。文章设置了 L=2，k=5。还有一个是 baseline 里面的dknn算法，也要有具体 k 值的设置。实验在三个数据集上的 k 值设置分别为200，40 和 40。</p>
-<p>最后是对于 LNG 图的输出结果的处理。在训练过程中，所有的边的结果是通过欧氏距离和sigmoid 映射来产生的。从模型输出之后，所有的边的信息又被映射为一个 0-1 空间。具体来说，如果这条边的大小大于某个阈值 t，那么认为这条边存在，赋值为 1，否则认为不存在，赋值为 0。</p>
-<h3 id="3-3-threat-model"><a href="#3-3-threat-model" class="headerlink" title="3.3 threat model"></a>3.3 threat model</h3><h4 id="3-3-1-白盒测试"><a href="#3-3-1-白盒测试" class="headerlink" title="3.3.1 白盒测试"></a>3.3.1 白盒测试</h4><h4 id="3-3-2-黑盒测试"><a href="#3-3-2-黑盒测试" class="headerlink" title="3.3.2 黑盒测试"></a>3.3.2 黑盒测试</h4><h3 id="3-4-主实验"><a href="#3-4-主实验" class="headerlink" title="3.4 主实验"></a>3.4 主实验</h3><h4 id="3-4-1-检测已知攻击"><a href="#3-4-1-检测已知攻击" class="headerlink" title="3.4.1 检测已知攻击"></a>3.4.1 检测已知攻击</h4><h4 id="3-4-2-检测未知攻击"><a href="#3-4-2-检测未知攻击" class="headerlink" title="3.4.2 检测未知攻击"></a>3.4.2 检测未知攻击</h4><h3 id="3-5-消融实验"><a href="#3-5-消融实验" class="headerlink" title="3.5 消融实验"></a>3.5 消融实验</h3><h3 id="3-6-图的拓扑结构讨论"><a href="#3-6-图的拓扑结构讨论" class="headerlink" title="3.6 图的拓扑结构讨论"></a>3.6 图的拓扑结构讨论</h3>
                 
             </div>
             <hr/>
@@ -578,7 +556,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/07/17/LNG/">http://example.com/2022/07/17/LNG/</a>
+                    <a href="http://example.com/2022/07/01/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/">http://example.com/2022/07/01/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -616,12 +594,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%AF%B9%E6%8A%97%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">对抗机器学习</span>
+                                <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
+                                    <span class="chip bg-color">自然语言处理</span>
                                 </a>
                             
-                                <a href="/tags/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">
-                                    <span class="chip bg-color">论文精读</span>
+                                <a href="/tags/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">
+                                    <span class="chip bg-color">文本摘要生成</span>
                                 </a>
                             
                         </div>
@@ -1065,30 +1043,30 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2022/07/17/%E5%BD%A2%E6%80%81%E5%AD%A6/">
+                <a href="/2022/07/01/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/grammar.jpg" class="responsive-img" alt="形态学：语言的词汇">
+                        <img src="/medias/featureimages/unsupervised.jpg" class="responsive-img" alt="无监督学习">
                         
-                        <span class="card-title">形态学：语言的词汇</span>
+                        <span class="card-title">无监督学习</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文主要探究语言学中最基础的形态学，它是语法学的一个分支，即研究单词的内部构造和构词规则。
+                            本文将介绍深度学习中的一项经典训练范式 —— 无监督学习。文章将从自监督、自训练和对偶学习三部分展开叙述。
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/" class="post-category">
-                                    语言学
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
                                 </a>
                             
                             
@@ -1098,8 +1076,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/">
-                        <span class="chip bg-color">形态学</span>
+                    <a href="/tags/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">无监督学习</span>
                     </a>
                     
                 </div>
@@ -1113,7 +1091,7 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/17/bert/">
+                <a href="/2022/06/19/bert/">
                     <div class="card-image">
                         
                         <img src="/medias/featureimages/bert.png" class="responsive-img" alt="论文精读 —— BERT 预训练语言模型">
@@ -1129,7 +1107,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-19
                             </span>
                         <span class="publish-author">
                             
