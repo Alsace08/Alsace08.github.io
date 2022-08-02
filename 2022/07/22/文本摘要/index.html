@@ -510,7 +510,7 @@
 <p><img src="/pic/summarization/graphsum.png" alt="GraphSum 模型架构"></p>
 <h3 id="1-2-基于子句的抽取"><a href="#1-2-基于子句的抽取" class="headerlink" title="1.2 基于子句的抽取"></a>1.2 基于子句的抽取</h3><p>句子层面的抽取做到这个地步很难继续深入了，所以相关研究人员开始不满足于句子的抽取，把思路转向了更加细粒度的方法，比如说将一个句子拆分若干子句，然后标注子句是否被提取。这里介绍两个模型，一个是 DiscoBert，这个模型的思想跟上面 GraphSum 比较像，也是构图，只不过那个是构建的句子中的关键词和句子之间的图，并且只对句子结点进行标注，但这个模型是把句子拆成子句，然后构建子句之间的图模型，并且对子句进行了序列标注，在粒度上更细了一步。</p>
 <p>它的子句采用了 RST 树来进行提取，是一种句法分析树，利用句法分析来获取子句之间的关系。之后还是先用 Transformer 对每个子句进行编码，然后把图模型放进图神经网络里面进行结果预测，得到最终每个子句的标注。</p>
-<p><img src="/pic/summarization/DiscoBert.png" alt="GraphSum 模型架构"></p>
+<p><img src="/pic/summarization/DiscoBert.png" alt="DiscoBert 模型架构"></p>
 <p>同样的，还有一个 SSE 模型，也是做了子句粒度上的抽取。这个似乎更加简单，它甚至没有构图，纯粹是用句法树抽了一下子句（基于 Penn Treebank），然后放进 Transformer 里面做了一个二分类任务。</p>
 <p><img src="/pic/summarization/SSE.png" alt="SSE 模型架构：（左）子句抽取；（右）二分类编码器"></p>
 <p>所以我们发现，如果这个提取的粒度是介于词语和整句之间的，大多数现有的工作都是通过一些基础性的句法分析模型来获取句子结构，之后构建子句之间的联系来回归到原有的 RNN 或者 Transfomer 框架之中。</p>
@@ -1046,8 +1046,7 @@
                 <a href="/2022/07/22/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">
                     <div class="card-image">
                         
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="无监督学习">
+                        <img src="/medias/featureimages/unsupervised.jpg" class="responsive-img" alt="无监督学习">
                         
                         <span class="card-title">无监督学习</span>
                     </div>
@@ -1055,7 +1054,7 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            本文将介绍深度学习中的一项经典训练范式 —— 无监督学习。文章将从自监督、自训练和对偶学习三部分展开叙述。
                         
                     </div>
                     <div class="publish-info">
@@ -1064,11 +1063,23 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Yiming Wang
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">无监督学习</span>
+                    </a>
+                    
                 </div>
                 
             </div>
