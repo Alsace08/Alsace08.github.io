@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>nlp 中的神经网络基础</title>
+      <link href="/2022/08/04/nlp-model/"/>
+      <url>/2022/08/04/nlp-model/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 自然语言处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自然语言处理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>TextCNN 实现文本情感分类任务</title>
       <link href="/2022/07/31/textcnn/"/>
       <url>/2022/07/31/textcnn/</url>
