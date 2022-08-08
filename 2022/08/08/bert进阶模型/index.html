@@ -4,8 +4,8 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LSTM+CRF 实现命名实体识别任务, Ym.Wang&#39;s Blog">
-    <meta name="description" content="本文介绍 nlp 领域中的一项重要任务 —— 命名实体识别的深度模型实现方法，该方法混合了 LSTM 和 CRF 两大经典模型。">
+    <meta name="keywords" content="bert进阶模型, Ym.Wang&#39;s Blog">
+    <meta name="description" content="本文将介绍 BERT 模型的若干变种，并阐述它们基于 BERT 模型进行的改良优化，以及相比于原有的 BERT 模型的优势。">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +17,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LSTM+CRF 实现命名实体识别任务 | Ym.Wang&#39;s Blog</title>
+    <title>bert进阶模型 | Ym.Wang&#39;s Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -305,12 +305,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/berts.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LSTM+CRF 实现命名实体识别任务</h1>
+                    <h1 class="description center-align post-title">bert进阶模型</h1>
                 </div>
             </div>
         </div>
@@ -430,8 +430,8 @@
                                 <span class="chip bg-color">自然语言处理</span>
                             </a>
                         
-                            <a href="/tags/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/">
-                                <span class="chip bg-color">命名实体识别</span>
+                            <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+                                <span class="chip bg-color">预训练语言模型</span>
                             </a>
                         
                     </div>
@@ -455,14 +455,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-07-28
+                    2022-08-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-02
+                    2022-08-08
                 </div>
                 
 
@@ -499,8 +499,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="/pic/LSTM+CRF.jpg" alt="LSTM+CRF 模型架构图"></p>
-
+                
                 
             </div>
             <hr/>
@@ -526,7 +525,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/07/28/LSTM-CRF/">http://example.com/2022/07/28/LSTM-CRF/</a>
+                    <a href="http://example.com/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/">http://example.com/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -568,8 +567,8 @@
                                     <span class="chip bg-color">自然语言处理</span>
                                 </a>
                             
-                                <a href="/tags/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/">
-                                    <span class="chip bg-color">命名实体识别</span>
+                                <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+                                    <span class="chip bg-color">预训练语言模型</span>
                                 </a>
                             
                         </div>
@@ -1009,49 +1008,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/07/31/tensor-operation/">
+                <a href="/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/PyTorch_Blog-Post_Hero.png" class="responsive-img" alt="pytorch 中常见的 tensor 操作">
+                        <img src="/medias/featureimages/berts.png" class="responsive-img" alt="bert进阶模型">
                         
-                        <span class="card-title">pytorch 中常见的 tensor 操作</span>
+                        <span class="card-title">bert进阶模型</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文介绍深度学习框架 pytorch 中的一些常见的张量操作，在部署深度模型时，可作为基础的查询文档使用。
+                            本文将介绍 BERT 模型的若干变种，并阐述它们基于 BERT 模型进行的改良优化，以及相比于原有的 BERT 模型的优势。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-07-31
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
+                            <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
+                                    自然语言处理
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/pytorch/">
-                        <span class="chip bg-color">pytorch</span>
+                    <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
+                        <span class="chip bg-color">自然语言处理</span>
                     </a>
                     
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
+                    <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
+                        <span class="chip bg-color">预训练语言模型</span>
                     </a>
                     
                 </div>
@@ -1065,30 +1066,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/07/17/%E9%93%BE%E8%A1%A8%E5%88%B7%E9%A2%98/">
+                <a href="/2022/08/04/nlp-model/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/lianbiao.png" class="responsive-img" alt="链表刷题">
+                        <img src="/medias/featureimages/nlp.png" class="responsive-img" alt="nlp 中的神经网络基础">
                         
-                        <span class="card-title">链表刷题</span>
+                        <span class="card-title">nlp 中的神经网络基础</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文记载了一些在链表这一知识点中常见的编程题，主要介绍解题思路，对于代码细节不再详述。
+                            本文将介绍 nlp 领域中常用的模型方法，
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
+                            <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
+                                    自然语言处理
                                 </a>
                             
                             
@@ -1098,12 +1099,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E9%A2%98%E5%BA%93/">
-                        <span class="chip bg-color">题库</span>
-                    </a>
-                    
-                    <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                        <span class="chip bg-color">链表</span>
+                    <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
+                        <span class="chip bg-color">自然语言处理</span>
                     </a>
                     
                 </div>
@@ -1271,13 +1268,6 @@
 
 </main>
 
-
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
-    });
-</script>
 
 
 

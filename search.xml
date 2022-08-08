@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>bert进阶模型</title>
+      <link href="/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/"/>
+      <url>/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 自然语言处理 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 自然语言处理 </tag>
+            
+            <tag> 预训练语言模型 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nlp 中的神经网络基础</title>
       <link href="/2022/08/04/nlp-model/"/>
       <url>/2022/08/04/nlp-model/</url>
@@ -258,6 +285,8 @@
             <tag> 自然语言处理 </tag>
             
             <tag> 论文精读 </tag>
+            
+            <tag> 预训练语言模型 </tag>
             
         </tags>
       
