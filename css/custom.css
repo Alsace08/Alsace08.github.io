@@ -1,7 +1,7 @@
 /* 自定义字体 字体放在source/fonts/目录下 */
 @font-face {
     font-family: 'SourceHanSerif';
-    src: url('../fonts/SourceHanSerif-Light.ttc');
+    src: url('../../fonts/SourceHanSerif-Light.ttc');
 }
 
 /* 页脚透明 */
