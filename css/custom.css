@@ -1,0 +1,109 @@
+/* 自定义字体 字体放在source/fonts/目录下 */
+@font-face {
+    font-family: 'SourceHanSerif';
+    src: url('../fonts/SourceHanSerif-Light.ttc');
+}
+
+/* 页脚透明 */
+#footer {
+    background: transparent !important;
+}
+
+/*页脚自定义字段字体颜色*/
+/* 也就是配置文件里的footer_custom_text */
+.footer_custom_text {
+    color: #00c4b6;
+}
+
+/* 版权链接去掉下划线 */
+.layout_post .post-copyright .post-copyright-info a {
+    text-decoration: none;
+}
+
+/*移动端优化：去除归档、标签、最新文章、公告、、只保留网站统计*/
+@media screen and (max-width: 800px) {
+    #aside_content div:not(:last-child) {
+        display: none;
+        font-size: 13px;
+    }
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #e58a8a;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0.4) 75%, transparent 75%, transparent);
+    border-radius: 2em;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
+
+::-moz-selection {
+    color: #fff;
+    background-color: #e58a8a;
+}
+
+/* 侧边栏天气时钟去掉背景色 */
+#aside-content.aside-content > .sticky_layout > .card-widget.card-clock > .card-glass > .card-background {
+    background-color: unset;
+    box-shadow: unset;
+}
+
+/* 透明度修改 */
+/* 首页文章卡片 */
+#recent-posts > .recent-post-item {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 首页侧栏卡片 */
+.card-widget {
+    background: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* 文章页面正文背景 */
+div#post {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 分页页面 */
+div#page {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 归档页面 */
+div#archive {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 标签页面 */
+div#tag {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 分类页面 */
+div#category {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* 鼠标样式修改 */
+body {
+    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/default.cur),
+    default;
+}
+
+a,
+img {
+    cursor: url(https://cdn.jsdelivr.net/gh/sviptzk/HexoStaticFile@latest/Hexo/img/pointer.cur),
+    default;
+}
+
+/* 搜索框圆角 */
+.search-dialog {
+    border-radius: 10px;
+}
