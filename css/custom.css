@@ -1,13 +1,13 @@
 /* 自定义字体 字体放在source/fonts/目录下 */
 @font-face {
-    font-family: 'SourceHanSerif';
-    src: url('../../fonts/SourceHanSerif-Light.ttc');
+    font-family: 'SourceHanSerif-Light';
+    src: url('../fonts/SourceHanSerif-Light.ttc');
 }
 
 /* 页脚透明 */
-#footer {
+/* #footer {
     background: transparent !important;
-}
+} */
 
 /*页脚自定义字段字体颜色*/
 /* 也就是配置文件里的footer_custom_text */
