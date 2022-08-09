@@ -1,1513 +1,222 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ym.Wang's Blog - In me the tiger sniffs the rose.</title><meta name="author" content="Yiming Wang"><meta name="copyright" content="Yiming Wang"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Welcome to my blog! Leave your footprints.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ym.Wang&#39;s Blog">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Ym.Wang&#39;s Blog">
+<meta property="og:description" content="Welcome to my blog! Leave your footprints.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="Yiming Wang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ym.Wang\'s Blog',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-08-09 18:36:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
 
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
 
-<head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="Ym.Wang&#39;s Blog">
-    <meta name="description" content="Welcome to my blog! Leave your footprints.">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
 
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
 
-    <title>Ym.Wang&#39;s Blog</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
-
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
-
-    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
-
-<!-- hexo injector head_end start -->
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Ym.Wang's Blog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Ym.Wang's Blog</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/" title="bert进阶模型">bert进阶模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-08T04:42:15.000Z" title="发表于 2022-08-08 12:42:15">2022-08-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/04/nlp-model/" title="nlp 中的神经网络基础">nlp 中的神经网络基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-04T10:50:35.000Z" title="发表于 2022-08-04 18:50:35">2022-08-04</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/31/textcnn/" title="TextCNN 实现文本情感分类任务">TextCNN 实现文本情感分类任务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-31T07:54:38.000Z" title="发表于 2022-07-31 15:54:38">2022-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/31/tensor-operation/" title="pytorch 中常见的 tensor 操作">pytorch 中常见的 tensor 操作</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-31T02:51:52.000Z" title="发表于 2022-07-31 10:51:52">2022-07-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="content">
+
+我们在训练深度网络时，不可避免地会涉及到对张量（tensor）的操作，例如维度变换、数据填充等。每种操作都在 torch 库中有对应的函数，然而，由于操作种类繁多，我们很难记住所有命令并将其区分开来，且容易造成混淆。因此，本文罗列了若干常用的张量操作命令及对应的参数设置，方便以后在进行深度模型的部署时进行查询调用。
+
+1 单个张量的维度操作对于单个张量的操作，常见的有维度的变形、扩张、压缩，以及在指定维度下的填充等操作。
+1.1 维度变形
+torch.view(shape)：新旧张量数据元素相同，但是尺寸不同
 
 
+shape - 变形后的尺寸
+
+a &#x3D; torch.randn(4, 4, 2)
+print(a.size())     # torch.Size([4, 4, 2])
+a &#x3D; a.view(2, 16)
+print(a.size())     # torch.Size([2, 16])
+a &#x3D; a.view(8, -1)
+print(a.size())     # torch.Size([8, 4])
+a &#x3D; a.view(8,  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/28/LSTM-CRF/" title="LSTM+CRF 实现命名实体识别任务">LSTM+CRF 实现命名实体识别任务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-28T10:08:04.000Z" title="发表于 2022-07-28 18:08:04">2022-07-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></span></div><div class="content">
+</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/17/%E9%93%BE%E8%A1%A8%E5%88%B7%E9%A2%98/" title="链表——经典题型总结">链表——经典题型总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-17T15:51:24.000Z" title="发表于 2022-07-17 23:51:24">2022-07-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">数据结构与算法</a></span></div><div class="content">反转链表维护三个结点，分别是当前结点 now，下一个结点 nxt，上一个结点 last，每次更新 now-&gt;next = last，之后三个结点依次右移，直至结尾。
+检测链表中的环，并判断入口位置快慢指针
+使用两个指针 fast 和 slow，slow 每次向后移动一个，fast 每次移动两个。slow 指针进入环后，在遍历完整个环之前，一定会和 fast 指针相遇。
+相遇后，新增一个 ptr 指针，和 slow 指针同时移动，相遇点即为环入口。
+
+检测两链表中的重合节点方法一：双指针求解链表长度
+首先求解链表 A 和 B 的长度 $L_A$ 和 $L_B$，之后让长的那个链表先走 $|L_B - L_A|$ 的距离，之后同时出发，直到相遇。
+方法二：双指针无重新遍历
+设 A 链表的不重合部分长度为 a，B 链表的不重合部分长度为 b，两链表重合部分长度为 c。
+headA 和 headB 分别指向 A 和 B 的头结点，同时开始向右移动，到达尾结点时，转到另一个链表的头部继续移动，直到相遇。两个指针相遇时，均正好走过 a + b + c 的距离。
+返回链表倒数第N个节点方法一： ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/17/%E5%BD%A2%E6%80%81%E5%AD%A6/" title="形态学：语言的词汇">形态学：语言的词汇</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-17T08:49:57.000Z" title="发表于 2022-07-17 16:49:57">2022-07-17</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/">语言学</a></span></div><div class="content">
+本文所述内容参考《语言引论》一书的第三章。
+
+词汇是语言知识的重要一环，并构成我们心理语法的一个组成部分。懂得一个词，就意味着知道某个特定的语音序列与特定的语义相关联。每个词都是一个音义结合的单位，因此我们的心理词库所储存的每个词必须列出其独特的语音表征，决定词的发音，并附上语义。
+音义关系具有任意性。有些词发音相同，但意义不同（例如 bear 和 bare）；另一些词意义相同，但发音不同（例如 sofa 和 couch）。
+1 词典绝大多数词典，均以“规范”而非“描写”语词为己任。
+对于词典中的每个词，都需要提供下列信息：（1）拼写；（2）标准发音；（3）一个或多个语义定义；（4）词性。
+2 实义词和功能词
+实义词：名词、动词、形容词、副词等我们可以加以考虑的事物、行为、属性、观念等概念，又称开放类词。
+
+功能词：连词、介词、冠词、代词等用来界定语法关系，几乎没有语义内容的词汇，又称封闭类词。
 
 
-<body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">Ym.Wang&#39;s Blog</span>
-                </a>
+人脑处理功能词和实义词的方式不同，脑损害患者和其他有特定语言障碍的病人对于理解功能词，比理解实义词困难得多。
+实义词用来表达语义，功能词则将实义词与更大的语法语境连成一体。两者在语言中各 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/16/%E4%BF%9D%E7%A0%941/" title="2022计算机保研记录 | 夏令营经历分享">2022计算机保研记录 | 夏令营经历分享</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-16T09:49:19.000Z" title="发表于 2022-07-16 17:49:19">2022-07-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E4%BF%9D%E7%A0%94/">保研</a></span></div><div class="content">0 写在前面的话1 个人背景
+本科院校：北京航空航天大学
+
+专业：人工智能 
+
+排名（前五学期）：3/31（10%）
+
+英语：CET-4 581，CET-6 549
+
+竞赛&amp;荣誉：数竞、蓝桥杯省一，美赛H，若干校级科创竞赛奖项，以及校级和企业奖学金
+
+科研&amp;项目：两段科研经历，均为自然语言处理方向。一篇 ICDM（DM, CCF-B） 二作，一篇 COLING（NLP，CCF-B） 一作，夏令营时均为在投状态；无横向项目经历
+
+
+根据我参加夏令营的经验，个人认为在初审阶段，各项指标的重要程度大致排序为：院校 $\approx$ 排名 &gt; 科研 &gt; 竞赛 &gt; 英语，这里的竞赛指的是数学、数模，包括蓝桥杯等普通编程类竞赛，但是如果是 ACM 竞赛，其含金量应该等同于一项优质的科研经历。
+那么就我个人的背景而言，首次，最占优的是本科院校和科研经历。本科就读于中上游 985，科研经历较为丰富，且不是类似于大创、互联网+这种横向课题经历，而是真正的研究经历，且方向较为纯粹，始终聚焦于自然语言处理（这也是我研究生阶段坚定选择的研究方向）。其次，竞赛和英语平平无奇， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/01/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" title="无监督学习">无监督学习</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-01T07:22:22.000Z" title="发表于 2022-07-01 15:22:22">2022-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/07/01/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/" title="浅谈自动摘要生成任务">浅谈自动摘要生成任务</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-07-01T07:22:14.000Z" title="发表于 2022-07-01 15:22:14">2022-07-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></span></div><div class="content">
+1 抽取式摘要
+抽取式摘要任务本质上已经变成了一个序列标注任务，即对每个句子打标签，判定这个句子到底要不要被放在摘要里面。当然，这里的标注不一定是标注整个句子，也可以是一些更细粒度的特征，后面会介绍几个相应的算法。对于通用模型架构而言，首先是 encoder，经过句子级别的 encoder 和文档级别的 encoder，获得原文句子和文章级别的 embedding 表征。之后是 decoder，利用输出的摘要语句和原文的语义编码，来映射到对应的序列标注，获取最终抽取的结果。
+
+
+1.1 基于句子的抽取比较常用的是 RNN 和 Transformer 的架构。RNN 的这篇文章在构建文档级别的语义表征的时候，不仅利用了句子级别的含义表征，还掺杂了一些其他的元素，比如句子的显著性、新颖性、绝对和相对位置等因素，通过词嵌入的形式加入在最终的表征里面。之后 Transformer 出现，Transformer 就取代了 RNN 成为了新的主流架构。Bertsum 这篇文章，是利用 Bert 模型在摘要任务上面做的微调。它是将每个句子开头的 CLS 字符的词嵌入作为整个句子的表征，经过 BER ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/19/bert/" title="论文精读 —— BERT 预训练语言模型">论文精读 —— BERT 预训练语言模型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-19T01:48:13.000Z" title="发表于 2022-06-19 09:48:13">2022-06-19</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a></span></div><div class="content">
+
+本文所探讨的论文标题为 《BERT：Pre-training of Deep Bidirectional Transformers for Language Understanding》。BERT 可以称作是预训练语言模型的开山之作了，和 OpenAI 的 GPT 模型是同时期的产物，但性能优于 GPT。BERT 模型基于 Transformer 架构实现，是一种全新的双向编码器语言模型。与ELMo、GPT等单向语言模型不同，BERT 旨在构建一个双向的语言模型，来更好地捕获语句间的上下文语义，使其在更多的下游任务上具有更强的泛化能力。因此，预训练完成的 BERT 模型被迁移到下游任务时，只需要在添加一个额外的输出层便可以进行微调，例如问答和语言推理任务，并不需要针对具体的任务进行模型架构的修改。BERT 模型在概念上简单却具有强大的性能，它在11项经典的自然语言处理任务上取得了最优的效果，包括将 GLUE 数据集的得到提升至80.5%（相比于之前的最优模型提升了7.7%），将SQuAD v1.1问答测试数据集的 F1 值至 93.2（提升了1.5个点），以及将SQuAD v2.0 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/06/08/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BC%98%E5%8C%96/" title="综述：深度学习中的优化方法">综述：深度学习中的优化方法</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-06-08T06:41:49.000Z" title="发表于 2022-06-08 14:41:49">2022-06-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a></span></div><div class="content">
+优化是深度学习中的关键组成部分。在深度模型中，我们通常需要设计一个模型的损失函数来约束训练过程，并朝着最小化代价函数的方向去训练。然而，由于深度网络的复杂性，使得深度学习中的优化问题面临着诸多困难和挑战，至今仍未得到一个完美的解决方案。目前，深度神经网络的参数学习主要是通过梯度下降法来寻找一组可以最小化结构风险的参数。本文从梯度下降法出发，通过探寻深度优化问题中的若干可改进点，对优化算法的变体进行归类探究。除此之外，文章还简要分析了模型的初始化参数和输入值尺度这两个重要方面，辅助优化算法在深度模型上获得更好的效果。
+
+1 引言优化算法是深度学习中十分重要的环节。深度学习中的优化，往往是通过给定一个以模型参数为变量的函数，一般称为损失函数或目标函数，通过具体算法找到合适的参数值，使得该函数最小化[17]。从理论上来说，对于一个存在解析形式的函数，一定能够通过最优性条件[1;13]求解出显式最优解。然而，由于方程求解的难度过大，往往使用基于迭代的数值计算方法去优化目标。较为常见的有梯度下降法、牛顿法、共轭梯度法等。
+摒弃了传统机器学习对于人工特征工程的高度依赖，深度学习往往通过构建复杂度 ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/page/2/#content-inner">2</a><a class="extend next" rel="next" href="/page/2/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Yiming Wang</div><div class="author-info__description">Welcome to my blog! Leave your footprints.</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">14</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/" title="bert进阶模型">bert进阶模型</a><time datetime="2022-08-08T04:42:15.000Z" title="发表于 2022-08-08 12:42:15">2022-08-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/08/04/nlp-model/" title="nlp 中的神经网络基础">nlp 中的神经网络基础</a><time datetime="2022-08-04T10:50:35.000Z" title="发表于 2022-08-04 18:50:35">2022-08-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/07/31/textcnn/" title="TextCNN 实现文本情感分类任务">TextCNN 实现文本情感分类任务</a><time datetime="2022-07-31T07:54:38.000Z" title="发表于 2022-07-31 15:54:38">2022-07-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/07/31/tensor-operation/" title="pytorch 中常见的 tensor 操作">pytorch 中常见的 tensor 操作</a><time datetime="2022-07-31T02:51:52.000Z" title="发表于 2022-07-31 10:51:52">2022-07-31</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/07/28/LSTM-CRF/" title="LSTM+CRF 实现命名实体识别任务">LSTM+CRF 实现命名实体识别任务</a><time datetime="2022-07-28T10:08:04.000Z" title="发表于 2022-07-28 18:08:04">2022-07-28</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            
             </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>主页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>工具</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
-
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">Ym.Wang&#39;s Blog</div>
-        <div class="logo-desc">
-            
-            Welcome to my blog! Leave your footprints.
-            
-        </div>
-    </div>
-
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			主页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			工具
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
-    </ul>
-</div>
-
-
-        </div>
-
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
-    </nav>
-
-</header>
-
-    
-<style>
-    .carousel-control {
-        width: 45px;
-        height: 45px;
-        line-height: 55px;
-        border-radius: 45px;
-        background: transparent;
-        cursor: pointer;
-        z-index: 100;
-    }
-
-    #prev-cover {
-        position: absolute;
-        top: 48%;
-        left: 8px;
-    }
-
-    #next-cover {
-        position: absolute;
-        top: 48%;
-        right: 8px;;
-    }
-
-    #prev-cover i {
-        margin-right: 3px;
-    }
-
-    #next-cover i {
-        margin-left: 3px;
-    }
-
-    .carousel-control:hover {
-        background-color: rgba(0, 0, 0, .4);
-    }
-
-    .carousel-control i {
-        color: #fff;
-        font-size: 2.4rem;
-    }
-</style>
-
-
-
-<div class="carousel carousel-slider center index-cover" data-indicators="true" style="margin-top: -64px;">
-    
-
-    <div class="carousel-item  white-text bg-cover about-cover">
-        <div class="container">
-            <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                In me the tiger sniffs the rose.
-                
-            </div>
-
-            <div class="description center-align">
-                
-                <span id="subtitle"></span>
-                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "脚踏实地，仰望星空。",
-                            
-                                "Look up at the starry sky, and stand on solid ground.",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
-
-
-
-            <div class="cover-btns">
-                <a href="#indexCard" class="waves-effect waves-light btn">
-                    <i class="fa fa-angle-double-down"></i>开始阅读
-                </a>
-
-                
-                    <a href="https://github.com/Alsace08" class="waves-effect waves-light btn" target="_blank">
-                        <i class="fab fa-github-alt"></i>Github
-                    </a>
-                
-            </div>
-            <div class="cover-social-link">
-    <a href="https://github.com/Alsace08" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:alsaceym@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=794868055" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 794868055" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-    <a href="https://www.zhihu.com/people/yikou-niao-93" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/yikou-niao-93" data-position="top" data-delay="50">
-        <i class="fab fa-zhihu1">知</i>
-    </a>
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-        </div>
-    </div>
-
-    
-</div>
-
-<script>
-    $(function () {
-        let coverSlider = $('.carousel');
-
-        //用户触摸轮播自动 restartPlay 是否生效
-        let initUserPressedOrDraggedActive = false
-
-        //用户触摸轮播自动 restartPlay
-        function initUserPressedOrDragged(instance) {
-            setInterval(() => {
-                if (instance.pressed || instance.dragged) {
-                    // console.log('initUserPressedOrDragged: ',instance.pressed,instance.dragged)
-                    restartPlay()
-                }
-            }, 1000)
-        }
-
-        coverSlider.carousel({
-            duration: Number('120'),
-            fullWidth: true,
-            indicators: 'true' === 'true',
-            onCycleTo() {
-                if (!initUserPressedOrDraggedActive) {
-                    // console.log('initUserPressedOrDraggedActive')
-                    initUserPressedOrDragged(this)
-                    initUserPressedOrDraggedActive = true
-                }
-            },
-        })
-
-        let carouselIntervalId;
-        
-        // Loop to call the next cover article picture.
-        let autoCarousel = function () {
-            carouselIntervalId = setInterval(function () {
-                coverSlider.carousel('next');
-            }, 5000);
-        };
-        autoCarousel();
-        
-
-        function restartPlay() {
-            
-            clearInterval(carouselIntervalId);
-            autoCarousel();
-            
-        };
-
-        
-        // prev and next cover post.
-        $('#prev-cover').click(function () {
-            coverSlider.carousel('prev');
-            restartPlay();
-        });
-        $('#next-cover').click(function () {
-            coverSlider.carousel('next');
-            restartPlay();
-        });
-        
-    });
-</script>
-
-
-
-<main class="content">
-
-    
-    <div id="indexCard" class="index-card">
-        <div class="container ">
-            <div class="card">
-                <div class="card-content">
-                    
-                        <div class="dream">
-    
-    <div class="title center-align">
-        <i class="far fa-lightbulb"></i>&nbsp;&nbsp;我的梦想
-    </div>
-    
-    <div class="row">
-        <div class="col l8 offset-l2 m10 offset-m1 s10 offset-s1 center-align text">
-            不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
-        </div>
-    </div>
-</div>
-
-                    
-
-                    
-
-                    
-
-                    
-                    <div id="recommend-sections" class="recommend">
-                        
-
-
-
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    
-
-    
-
-    <!-- 所有文章卡片 -->
-    <article id="articles" class="container articles">
-        <div class="row article-row">
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/08/bert%E8%BF%9B%E9%98%B6%E6%A8%A1%E5%9E%8B/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/berts.png" class="responsive-img" alt="bert进阶模型">
-                            
-                            <span class="card-title">bert进阶模型</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文将介绍 BERT 模型的若干变种，并阐述它们基于 BERT 模型进行的改良优化，以及相比于原有的 BERT 模型的优势。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
-                                    自然语言处理
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
-                            <span class="chip bg-color">自然语言处理</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
-                            <span class="chip bg-color">预训练语言模型</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/08/04/nlp-model/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/nlp.png" class="responsive-img" alt="nlp 中的神经网络基础">
-                            
-                            <span class="card-title">nlp 中的神经网络基础</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文将介绍 nlp 领域中常用的模型方法，
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-08-04
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
-                                    自然语言处理
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
-                            <span class="chip bg-color">自然语言处理</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/31/textcnn/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/Sentiment%20classification.jpg" class="responsive-img" alt="TextCNN 实现文本情感分类任务">
-                            
-                            <span class="card-title">TextCNN 实现文本情感分类任务</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文将采用 TextCNN 模型来实现文本情感分类任务，任务相关背景与数据集来源于 Kaggle 对应竞赛。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-31
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
-                                    自然语言处理
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
-                            <span class="chip bg-color">自然语言处理</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/">
-                            <span class="chip bg-color">文本分类</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/31/tensor-operation/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/PyTorch_Blog-Post_Hero.png" class="responsive-img" alt="pytorch 中常见的 tensor 操作">
-                            
-                            <span class="card-title">pytorch 中常见的 tensor 操作</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文介绍深度学习框架 pytorch 中的一些常见的张量操作，在部署深度模型时，可作为基础的查询文档使用。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-31
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/pytorch/">
-                            <span class="chip bg-color">pytorch</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">深度学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/28/LSTM-CRF/">
-                        <div class="card-image">
-                            
-                            
-                            <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="LSTM+CRF 实现命名实体识别任务">
-                            
-                            <span class="card-title">LSTM+CRF 实现命名实体识别任务</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文介绍 nlp 领域中的一项重要任务 —— 命名实体识别的深度模型实现方法，该方法混合了 LSTM 和 CRF 两大经典模型。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-28
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
-                                    自然语言处理
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
-                            <span class="chip bg-color">自然语言处理</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/">
-                            <span class="chip bg-color">命名实体识别</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/17/%E9%93%BE%E8%A1%A8%E5%88%B7%E9%A2%98/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/lianbiao.png" class="responsive-img" alt="链表——经典题型总结">
-                            
-                            <span class="card-title">链表——经典题型总结</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文记载了链表这一数据结构中常见的编程题。文章主要介绍对应的解题思路，对于代码细节不再详述。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
-                                    数据结构与算法
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E9%A2%98%E5%BA%93/">
-                            <span class="chip bg-color">题库</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%93%BE%E8%A1%A8/">
-                            <span class="chip bg-color">链表</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/17/%E5%BD%A2%E6%80%81%E5%AD%A6/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/grammar.jpg" class="responsive-img" alt="形态学：语言的词汇">
-                            
-                            <span class="card-title">形态学：语言的词汇</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文主要探究语言学中最基础的形态学，它是语法学的一个分支，即研究单词的内部构造和构词规则。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-17
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/" class="post-category">
-                                    语言学
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/">
-                            <span class="chip bg-color">形态学</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/16/%E4%BF%9D%E7%A0%941/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/beihang.jpg" class="responsive-img" alt="2022计算机保研记录 | 夏令营经历分享">
-                            
-                            <span class="card-title">2022计算机保研记录 | 夏令营经历分享</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文主要介绍笔者的夏令营经历，并分享一些报名与考核经验。所述内容均为亲身经历与体会，个人主观性较强，请多包涵。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-16
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E4%BF%9D%E7%A0%94/" class="post-category">
-                                    保研
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E4%BF%9D%E7%A0%94%E5%A4%8F%E4%BB%A4%E8%90%A5/">
-                            <span class="chip bg-color">保研夏令营</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/01/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/unsupervised.jpg" class="responsive-img" alt="无监督学习">
-                            
-                            <span class="card-title">无监督学习</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文将介绍深度学习中的一项经典训练范式 —— 无监督学习。文章将从自监督、自训练和对偶学习三部分展开叙述。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">无监督学习</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/07/01/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/summarization.png" class="responsive-img" alt="浅谈自动摘要生成任务">
-                            
-                            <span class="card-title">浅谈自动摘要生成任务</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文将介绍自然语言处理领域中的经典任务 —— 文本摘要生成中的一些经典模型，以及近年来的一些创新方法。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-07-01
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
-                                    自然语言处理
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
-                            <span class="chip bg-color">自然语言处理</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">
-                            <span class="chip bg-color">文本摘要生成</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/06/19/bert/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/bert.png" class="responsive-img" alt="论文精读 —— BERT 预训练语言模型">
-                            
-                            <span class="card-title">论文精读 —— BERT 预训练语言模型</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本论文介绍了 nlp 领域的经典预训练语言模型 BERT，该模型由 Google 团队提出，于 2018 年发表在 NAACL-HLT 会议上。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-19
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" class="post-category">
-                                    自然语言处理
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">
-                            <span class="chip bg-color">自然语言处理</span>
-                        </a>
-                        
-                        <a href="/tags/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/">
-                            <span class="chip bg-color">论文精读</span>
-                        </a>
-                        
-                        <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/">
-                            <span class="chip bg-color">预训练语言模型</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-             <!-- 隐藏某个文章 -->
-            <div class="article col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2022/06/08/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%BC%98%E5%8C%96/">
-                        <div class="card-image">
-                            
-                            <img src="/medias/featureimages/optimization.jpg" class="responsive-img" alt="综述：深度学习中的优化方法">
-                            
-                            <span class="card-title">综述：深度学习中的优化方法</span>
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                本文将详细介绍当下主流的深度学习优化算法的发展脉络以及理论方法，并将这些方法进行归类分析。
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-06-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                            <span class="chip bg-color">深度学习</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/">
-                            <span class="chip bg-color">最优化理论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-              <!-- 隐藏某个文章 -->
-            
-        </div>
-    </article>
-
-</main>
-
-
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a class="left btn-floating btn-large disabled">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/2/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
-
-
-
-
-    <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="503838841"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='random'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="/libs/aplayer/Meting.min.js"></script>
-
-    
-
-    <div class="container row center-align"
-         style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            
-                <span id="year">2019-2022</span>
-            
-            <a href="/about" target="_blank">Yiming Wang</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">31k</span>
-            
-            
-            
-                
-            
-            
-                <span id="busuanzi_container_site_pv">
-                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
-                    <span id="busuanzi_value_site_pv" class="white-color"></span>
-            </span>
-            
-            
-                <span id="busuanzi_container_site_uv">
-                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
-                    <span id="busuanzi_value_site_uv" class="white-color"></span>
-            </span>
-            
-            <br>
-
-            <!-- 运行天数提醒. -->
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/Alsace08" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:alsaceym@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=794868055" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 794868055" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-    <a href="https://www.zhihu.com/people/yikou-niao-93" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/yikou-niao-93" data-position="top" data-delay="50">
-        <i class="fab fa-zhihu1">知</i>
-    </a>
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
-    </div>
-</footer>
-
-<div class="progress-bar"></div>
-
-
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
-        </div>
-        <div id="searchResult"></div>
-    </div>
-</div>
-
-<script type="text/javascript">
-$(function () {
-    var searchFunc = function (path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-            url: path,
-            dataType: "xml",
-            success: function (xmlResponse) {
-                // get the contents from search data
-                var datas = $("entry", xmlResponse).map(function () {
-                    return {
-                        title: $("title", this).text(),
-                        content: $("content", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
-                var $input = document.getElementById(search_id);
-                var $resultContent = document.getElementById(content_id);
-                $input.addEventListener('input', function () {
-                    var str = '<ul class=\"search-result-list\">';
-                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                    $resultContent.innerHTML = "";
-                    if (this.value.trim().length <= 0) {
-                        return;
-                    }
-                    // perform local searching
-                    datas.forEach(function (data) {
-                        var isMatch = true;
-                        var data_title = data.title.trim().toLowerCase();
-                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
-                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
-                        var index_title = -1;
-                        var index_content = -1;
-                        var first_occur = -1;
-                        // only match artiles with not empty titles and contents
-                        if (data_title !== '' && data_content !== '') {
-                            keywords.forEach(function (keyword, i) {
-                                index_title = data_title.indexOf(keyword);
-                                index_content = data_content.indexOf(keyword);
-                                if (index_title < 0 && index_content < 0) {
-                                    isMatch = false;
-                                } else {
-                                    if (index_content < 0) {
-                                        index_content = 0;
-                                    }
-                                    if (i === 0) {
-                                        first_occur = index_content;
-                                    }
-                                }
-                            });
-                        }
-                        // show search results
-                        if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                            var content = data.content.trim().replace(/<[^>]+>/g, "");
-                            if (first_occur >= 0) {
-                                // cut out 100 characters
-                                var start = first_occur - 20;
-                                var end = first_occur + 80;
-                                if (start < 0) {
-                                    start = 0;
-                                }
-                                if (start === 0) {
-                                    end = 100;
-                                }
-                                if (end > content.length) {
-                                    end = content.length;
-                                }
-                                var match_content = content.substr(start, end);
-                                // highlight all keywords
-                                keywords.forEach(function (keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
-                                });
-
-                                str += "<p class=\"search-result\">" + match_content + "...</p>"
-                            }
-                            str += "</li>";
-                        }
-                    });
-                    str += "</ul>";
-                    $resultContent.innerHTML = str;
-                });
-            }
-        });
-    };
-
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
-</div>
-
-
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
-
-    
-
-    
-
-    <!-- 雪花特效 -->
-    
-
-    <!-- 鼠标星星特效 -->
-    
-
-     
-        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
-        <script src="/libs/others/TencentCaptcha.js"></script>
-        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
-    
-
-    <!-- Baidu Analytics -->
-
-    <!-- Baidu Push -->
-
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
-</script>
-
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
-
-    
-
-    
-
-    <!--腾讯兔小巢-->
-    
-    
-
-    
-
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
-
-    <!--动态线条背景-->
-    <!-- <script type="text/javascript"
-    color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
-    </script> -->
-
-</body>
-
-</html>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E4%BF%9D%E7%A0%94/"><span class="card-category-list-name">保研</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%AF%B9%E6%8A%97%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">对抗机器学习</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%B9%B6%E8%A1%8C%E8%AE%A1%E7%AE%97/"><span class="card-category-list-name">并行计算</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/"><span class="card-category-list-name">数据结构与算法</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">深度学习</span><span class="card-category-list-count">3</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/"><span class="card-category-list-name">自然语言处理</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E8%AF%AD%E8%A8%80%E5%AD%A6/"><span class="card-category-list-name">语言学</span><span class="card-category-list-count">1</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/pytorch/" style="font-size: 1.1em; color: #999">pytorch</a> <a href="/tags/%E4%BF%9D%E7%A0%94%E5%A4%8F%E4%BB%A4%E8%90%A5/" style="font-size: 1.1em; color: #999">保研夏令营</a> <a href="/tags/%E5%91%BD%E5%90%8D%E5%AE%9E%E4%BD%93%E8%AF%86%E5%88%AB/" style="font-size: 1.1em; color: #999">命名实体识别</a> <a href="/tags/%E5%AF%B9%E6%8A%97%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">对抗机器学习</a> <a href="/tags/%E5%BD%A2%E6%80%81%E5%AD%A6/" style="font-size: 1.1em; color: #999">形态学</a> <a href="/tags/%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB/" style="font-size: 1.1em; color: #999">文本分类</a> <a href="/tags/%E6%96%87%E6%9C%AC%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/" style="font-size: 1.1em; color: #999">文本摘要生成</a> <a href="/tags/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/" style="font-size: 1.1em; color: #999">无监督学习</a> <a href="/tags/%E6%9C%80%E4%BC%98%E5%8C%96%E7%90%86%E8%AE%BA/" style="font-size: 1.1em; color: #999">最优化理论</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 1.3em; color: #99a1ac">深度学习</a> <a href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/" style="font-size: 1.5em; color: #99a9bf">自然语言处理</a> <a href="/tags/%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB/" style="font-size: 1.3em; color: #99a1ac">论文精读</a> <a href="/tags/%E9%93%BE%E8%A1%A8/" style="font-size: 1.1em; color: #999">链表</a> <a href="/tags/%E9%A2%84%E8%AE%AD%E7%BB%83%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%9E%8B/" style="font-size: 1.3em; color: #99a1ac">预训练语言模型</a> <a href="/tags/%E9%A2%98%E5%BA%93/" style="font-size: 1.1em; color: #999">题库</a> <a href="/tags/%E9%AB%98%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%B7%A5%E5%85%B7/" style="font-size: 1.1em; color: #999">高性能分析工具</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/08/"><span class="card-archive-list-date">八月 2022</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/07/"><span class="card-archive-list-date">七月 2022</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/06/"><span class="card-archive-list-date">六月 2022</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2022/01/"><span class="card-archive-list-date">一月 2022</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">14</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2022-08-09T10:36:15.435Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Yiming Wang</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
