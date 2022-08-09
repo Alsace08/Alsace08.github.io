@@ -500,27 +500,27 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="反转链表"><a href="#反转链表" class="headerlink" title="反转链表"></a>反转链表</h2><p>维护三个结点，分别是当前结点 now，下一个结点 nxt，上一个结点 last，每次更新 now-&gt;next = last，之后三个结点依次右移，直至结尾。</p>
-<h2 id="检测链表中的环，并判断入口位置"><a href="#检测链表中的环，并判断入口位置" class="headerlink" title="检测链表中的环，并判断入口位置"></a>检测链表中的环，并判断入口位置</h2><p><code>快慢指针</code></p>
+<h2 id="检测链表中的环，并判断入口位置"><a href="#检测链表中的环，并判断入口位置" class="headerlink" title="检测链表中的环，并判断入口位置"></a>检测链表中的环，并判断入口位置</h2><p><font color=Red>快慢指针</font></p>
 <p>使用两个指针 fast 和 slow，slow 每次向后移动一个，fast 每次移动两个。slow 指针进入环后，在遍历完整个环之前，一定会和 fast 指针相遇。</p>
 <p>相遇后，新增一个 ptr 指针，和 slow 指针同时移动，相遇点即为环入口。</p>
 <p><img src="/pic/%E9%93%BE%E8%A1%A8/%E9%93%BE%E8%A1%A8%E7%8E%AF%E6%A3%80%E6%B5%8B.png" alt="链表环检测"></p>
-<h2 id="检测两链表中的重合节点"><a href="#检测两链表中的重合节点" class="headerlink" title="检测两链表中的重合节点"></a>检测两链表中的重合节点</h2><p><code>方法一：双指针求解链表长度</code></p>
+<h2 id="检测两链表中的重合节点"><a href="#检测两链表中的重合节点" class="headerlink" title="检测两链表中的重合节点"></a>检测两链表中的重合节点</h2><p><font color=Red>方法一：双指针求解链表长度</font></p>
 <p>首先求解链表 A 和 B 的长度 $L_A$ 和 $L_B$，之后让长的那个链表先走 $|L_B - L_A|$ 的距离，之后同时出发，直到相遇。</p>
-<p><code>方法二：双指针无重新遍历</code></p>
+<p><font color=Red>方法二：双指针无重新遍历</font></p>
 <p>设 A 链表的不重合部分长度为 a，B 链表的不重合部分长度为 b，两链表重合部分长度为 c。</p>
 <p>headA 和 headB 分别指向 A 和 B 的头结点，同时开始向右移动，到达尾结点时，转到另一个链表的头部继续移动，直到相遇。两个指针相遇时，均正好走过 a + b + c 的距离。</p>
-<h2 id="返回链表倒数第N个节点"><a href="#返回链表倒数第N个节点" class="headerlink" title="返回链表倒数第N个节点"></a>返回链表倒数第N个节点</h2><p><code>方法一：简单遍历</code></p>
+<h2 id="返回链表倒数第N个节点"><a href="#返回链表倒数第N个节点" class="headerlink" title="返回链表倒数第N个节点"></a>返回链表倒数第N个节点</h2><p><font color=Red>方法一：简单遍历</font></p>
 <p>先遍历求出链表长度 $L$，再遍历找出第 $L-N+1$ 个元素。</p>
-<p><code>方法二：栈</code></p>
+<p><font color=Red>方法二：栈</font></p>
 <p>首次遍历时将元素入栈，之后从栈顶弹出第 $N$ 个元素。（考虑栈的特性，当需要从链表的尾部往前遍历时，都可以使用栈来操作）</p>
-<p><code>方法三：双指针（常用思路）</code></p>
+<p><font color=Red>方法三：双指针（常用思路）</font></p>
 <p>使用两个指针 first 和 second，其中 first 比 second 超前 $n$ 位，当 first 到达末尾（判定 first-&gt;next == NULL即可）。second 刚好到达倒数第 $n$ 位。</p>
 <h2 id="链表相加"><a href="#链表相加" class="headerlink" title="链表相加"></a>链表相加</h2><p><img src="/pic/%E9%93%BE%E8%A1%A8/%E9%93%BE%E8%A1%A8%E7%9B%B8%E5%8A%A0.png" alt="链表相加"></p>
 <p>链表压栈，后弹栈求和；或先反转链表，之后顺序求和。</p>
 <h2 id="链表重排"><a href="#链表重排" class="headerlink" title="链表重排"></a>链表重排</h2><p><img src="/pic/%E9%93%BE%E8%A1%A8/%E9%93%BE%E8%A1%A8%E9%87%8D%E6%8E%92.png" alt="链表重排"></p>
-<p><code>方法一：线性表</code></p>
+<p><font color=Red>方法一：线性表</font></p>
 <p>将链表转化为数组，之后就可以随机访问了。</p>
-<p><code>方法二：链表中点+反转链表+合并</code></p>
+<p><font color=Red>方法二：链表中点+反转链表+合并</font></p>
 <h2 id="回文链表"><a href="#回文链表" class="headerlink" title="回文链表"></a>回文链表</h2><p>利用快慢双指针找到中间数，之后反转前半部分链表，最后从中间数开始向两边遍历，进行判断。</p>
 <h2 id="链表排序"><a href="#链表排序" class="headerlink" title="链表排序"></a>链表排序</h2><p><img src="/pic/%E9%93%BE%E8%A1%A8/%E9%93%BE%E8%A1%A8%E6%8E%92%E5%BA%8F.png" alt="链表排序"></p>
 
