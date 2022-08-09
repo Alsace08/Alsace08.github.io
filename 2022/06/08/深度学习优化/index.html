@@ -462,7 +462,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-08-02
+                    2022-08-09
                 </div>
                 
 
@@ -570,11 +570,14 @@
 <p>自适应学习率是一种适应于参数的动态学习率设置方法，该方法根据参数收敛的不同情况，分别设置对应的学习率。接下来介绍三种经典的自适应学习率算法 —— AdaGrad、RMSprop、AdaDelta。</p>
 <h4 id="4-5-1-AdaGrad"><a href="#4-5-1-AdaGrad" class="headerlink" title="4.5.1 AdaGrad"></a>4.5.1 AdaGrad</h4><p>AdaGrad 算法[5]采用累计平方梯度来独立适应所有模型参数的学习率，其学习率设置与梯度历史平方值总和呈现反比关系。若该参数的损失偏导较大，则学习率衰减速度较快，若损失偏导较小，则学习率下降较慢。其目的是让参数在更为平缓的倾斜方向上取得更大的进步。</p>
 <p>首先，在第 $t$ 次迭代时，我们需要计算每个参数梯度平方的累计值<br>$$<br>    G_t = \sum_{\tau=1}^{t} g_{\tau} \odot g_{\tau}<br>$$</p>
-<p>其中，$\odot$ 为按元素乘积，$g_{\tau} \in \mathbb{R}^{|\theta|}$ 为第 $\tau$ 次迭代时的梯度。则 AdaGrad 最终的参数更新为<br>$$<br>    \begin{aligned}<br>        \theta_{t+1} &amp;= \theta_t + \Delta \theta \<br>        &amp;= \theta_t - \frac{\alpha}{\sqrt{G_t + \epsilon}}\odot g_t<br>    \end{aligned}<br>$$</p>
+<p>其中，$\odot$ 为按元素乘积，$g_{\tau} \in \mathbb{R}^{|\theta|}$ 为第 $\tau$ 次迭代时的梯度。则 AdaGrad 最终的参数更新为</p>
+<p>$$<br>\begin{aligned}<br>\theta_{t+1} &amp;= \theta_t + \Delta \theta \<br>&amp;= \theta_t - \frac{\alpha}{\sqrt{G_t + \epsilon}}\odot g_t<br>\end{aligned}<br>$$</p>
 <p>尽管 AdaGrad 算法考虑到了不同参数的梯度变化情况，但是当经过一定迭代次数之后，若仍然未找到最优点，则由于学习率较小，会很难继续找到最优点。</p>
 <h4 id="4-5-2-RMSprop"><a href="#4-5-2-RMSprop" class="headerlink" title="4.5.2 RMSprop"></a>4.5.2 RMSprop</h4><p>AdaGrad 算法采用了历史累计平方梯度来适应参数学习率，这会使得学习率迅速衰减，因此。RMSprop[20]在此基础上进行了优化，采用指数衰减平均来丢弃遥远的历史。具体来说，它将梯度积累方法改变为指数加权的移动平均方法，使得过于遥远的梯度在调整学习率时的重要性降低。这样的改进，使得学习率并不完全呈现衰减趋势，可变小也可变大，避免了过早衰减的问题。</p>
-<p>方法的整体迭代流程与 AdaGrad 类似，唯一不同的是将累计梯度平方改为了指数衰减移动平均。具体计算方法为<br>$$<br>    \begin{aligned}<br>    G_t &amp;= \beta G_{t-1} + (1 - \beta) g_t \odot g_t \<br>    &amp;= (1 - \beta) \sum_{\tau = 1}^t \beta^{t-\tau} g_{\tau} \odot g_{\tau}<br>    \end{aligned}<br>$$</p>
-<p>同样的，RMSprop 最终的参数更新为<br>$$<br>    \begin{aligned}<br>        \theta_{t+1} &amp;= \theta_t + \Delta \theta \<br>        &amp;= \theta_t - \frac{\alpha}{\sqrt{G_t + \epsilon}}\odot g_t<br>    \end{aligned}<br>$$</p>
+<p>方法的整体迭代流程与 AdaGrad 类似，唯一不同的是将累计梯度平方改为了指数衰减移动平均。具体计算方法为</p>
+<p>$$<br>\begin{aligned}<br>G_t &amp;= \beta G_{t-1} + (1 - \beta) g_t \odot g_t \<br>&amp;= (1 - \beta) \sum_{\tau = 1}^t \beta^{t-\tau} g_{\tau} \odot g_{\tau}<br>\end{aligned}<br>$$</p>
+<p>同样的，RMSprop 最终的参数更新为</p>
+<p>$$<br>\begin{aligned}<br>\theta_{t+1} &amp;= \theta_t + \Delta \theta \<br>&amp;= \theta_t - \frac{\alpha}{\sqrt{G_t + \epsilon}}\odot g_t<br>\end{aligned}<br>$$</p>
 <p>其中，$\beta$ 为衰减率，一般设置为 0.9；$\alpha$ 为初始学习率，一般设置为 0.001。</p>
 <h4 id="4-5-3-AdaDelta"><a href="#4-5-3-AdaDelta" class="headerlink" title="4.5.3 AdaDelta"></a>4.5.3 AdaDelta</h4><p>AdaDelta[22]在 RMSprop 的基础上做了进一步的改进。和 RMSprop 一样，在调整学习率时采用了指数衰减移动平均的方法。唯一不同的时，AdaDelta 在进行参数更新时，其参数更新差值 $\Delta \theta$ 也采用了指数衰减平均的方式进行动态变化。</p>
 <p>具体的，该方法将参数更新表达式中的初始学习率 $\alpha$ 替换为一个随时间变化的参数 $\sqrt{\Delta X^2_{t-1} + \epsilon}$，其中微小量 $\epsilon$ 用来保证数值稳定。则 $\Delta \theta$ 的指数衰减移动平均计算方式为</p>
@@ -587,9 +590,9 @@
 <p><img src="/pic/optimization/%E5%8A%A8%E9%87%8F.png" alt="图 4：引入动量法前后的梯度下降收敛过程。左侧为引入动量法前的收敛过程，收敛的振荡现象较为严重；右侧为引入动量法后的收敛过程，梯度的更新方向更加准确，减少了收敛的不确定性，也加速了整个收敛过程。"></p>
 <p>动量法实质上来自于一个物理类比。动量是质量和速度的乘积，我们规定单位质量，则动量大小即为速度大小，在迭代公式中即为 $\Delta  \theta$。我们将收敛过程抽象成一个小球从山顶向山谷滚去，在更新公式中，当前时刻的梯度值 $-\alpha g_t$ 即为力的提供者，推动小球沿着最为陡峭的方向向下滚动，从而累计动量，速度不断加快。另外，累计梯度 $\rho \Delta \theta_{t-1}$ 代表了粘滞阻力，当小球遇到上坡或障碍时，该阻力的存在能够及时阻止其偏离方向，从而阻止其发生大幅度振荡，加速其滚动至最低点。</p>
 <h3 id="5-2-Nesterov-加速梯度动量"><a href="#5-2-Nesterov-加速梯度动量" class="headerlink" title="5.2 Nesterov 加速梯度动量"></a>5.2 Nesterov 加速梯度动量</h3><p>动量法中，单一梯度被修正为累计加权平均梯度，有效缓解了振荡现象的发生。然而，这样的方法仍然存在一定的问题。仍以小球滚动为例，动量法中，只有当小球开始产生振荡，偏离最速下降方向之后，它才会意识到错误，开始进行相应的调整。而更科学高效的方法应该是，在小球意识到将要偏离方向之前，就开始有意识地对自身的下降方向进行调整。它应当具备一定的预测判断能力。</p>
-<p>动量法中，我们首先计算了当前时候的负梯度值 $-g_t$，并与上一时刻的梯度更新方向 $\Delta \theta_{t-1}$ 进行加权求和，获取当前时刻的梯度更新结果。而在 Nesterov 加速梯度动量~\cite{nesterov1983method}中，梯度计算的执行被安排在施加当前速度之后。具体的计算公式如下</p>
-<p>$$<br>    \begin{aligned}<br>    \theta_t &amp;= \theta_{t-1} + \Delta \theta_t \<br>    &amp;= \theta_{t-1} + \rho \Delta \theta_{t-1} - \alpha \nabla_{\theta}(\theta_{t-1} + \rho \Delta \theta_{t-1})<br>    \end{aligned}<br>$$</p>
-<p>Nesterov 动量可以解释为往标准动量方法中添加了一个校正因子。在动量法中，梯度更新方式可以被拆分为两步。首先，利用累计梯度校正参数，即 $\hat{\theta}<em>t = \theta</em>{t-1} + \rho \Delta \theta_{t-1}$，之后，再加入当前梯度值，进行梯度下降，即 $\theta_{t} = \hat{\theta}<em>t - \alpha g_t$。然而，我们在首先对参数进行了校正后，仍然对当前时刻的梯度进行了计算，一种更合理的方式应该是，对校正后的参数进行梯度计算，能够进一步缓解当前梯度的随机性带来的误差。因此，将 $\alpha g_t$ 改为 $\alpha \nabla</em>{\theta}(\theta_{t-1} + \rho \Delta \theta_{t-1})$，便得到了 Nesterov 动量的核心思想。该方法与原始动量方法的可视化比较如图~\ref{fig:comparison} 所示。</p>
+<p>动量法中，我们首先计算了当前时候的负梯度值 $-g_t$，并与上一时刻的梯度更新方向 $\Delta \theta_{t-1}$ 进行加权求和，获取当前时刻的梯度更新结果。而在 Nesterov 加速梯度动量[14]中，梯度计算的执行被安排在施加当前速度之后。具体的计算公式如下</p>
+<p>$$<br>\begin{aligned}<br>    \theta_t &amp;= \theta_{t-1} + \Delta \theta_t \<br>    &amp;= \theta_{t-1} + \rho \Delta \theta_{t-1} - \alpha \nabla_{\theta}(\theta_{t-1} + \rho \Delta \theta_{t-1})<br>\end{aligned}<br>$$</p>
+<p>Nesterov 动量可以解释为往标准动量方法中添加了一个校正因子。在动量法中，梯度更新方式可以被拆分为两步。首先，利用累计梯度校正参数，即 $\hat{\theta}<em>t = \theta</em>{t-1} + \rho \Delta \theta_{t-1}$，之后，再加入当前梯度值，进行梯度下降，即 $\theta_{t} = \hat{\theta}<em>t - \alpha g_t$。然而，我们在首先对参数进行了校正后，仍然对当前时刻的梯度进行了计算，一种更合理的方式应该是，对校正后的参数进行梯度计算，能够进一步缓解当前梯度的随机性带来的误差。因此，将 $\alpha g_t$ 改为 $\alpha \nabla</em>{\theta}(\theta_{t-1} + \rho \Delta \theta_{t-1})$，便得到了 Nesterov 动量的核心思想。该方法与原始动量方法的可视化比较如图 5 所示。</p>
 <p><img src="/pic/optimization/%E5%8A%A8%E9%87%8F%E6%AF%94%E8%BE%83.png" alt="图 5：动量法和Nesterov加速梯度 动量的更新方式比较。左侧为动量法的更新方式，累计动量和当前梯度的计算同时进行；右侧为Nesterov 加速梯度动量的更新方式，首先对当前动量进行更新，之后在更新后的基础上进行梯度计算。"></p>
 <h3 id="5-3-Adam"><a href="#5-3-Adam" class="headerlink" title="5.3 Adam"></a>5.3 Adam</h3><p>Adam 算法[10]是动量法和 RMSprop 的结合，它不但使用动量作为参数更新的方向，同时也可以自适应地调整学习率，帮助其稳定收敛。</p>
 <p>第 $t$ 次迭代时，Adam 算法首先计算了累计梯度平方的加权平均 $G_t$ 和梯度加权平均 $M_t$，计算公式如下<br>$$<br>    \begin{aligned}<br>    &amp;G_t = \beta_1 G_{t-1} + (1 - \beta_1) g_t \odot g_t \<br>    &amp;M_t = \beta_2 M_{t-1} + (1 - \beta_2) g_t<br>    \end{aligned}<br>$$</p>
