@@ -2,7 +2,10 @@
 @font-face {
     font-family: 'SourceHanSerif-Bold';
     src: url('../fonts/SourceHanSerif-Bold.ttc');
-    font-display:swap
+}
+
+body{
+    font-family: 'SourceHanSerif-Bold';
 }
 
 /* 页脚透明 */
