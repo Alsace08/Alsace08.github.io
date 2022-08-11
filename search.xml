@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>一维随机游走的常返性证明</title>
+      <link href="/2022/08/11/random-walk/"/>
+      <url>/2022/08/11/random-walk/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 概率论 </tag>
+            
+            <tag> 随机游走 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>GitHub + Hexo 个人博客搭建（一）：博客框架搭建</title>
       <link href="/2022/08/10/hexo%E6%90%AD%E5%BB%BA/"/>
       <url>/2022/08/10/hexo%E6%90%AD%E5%BB%BA/</url>
