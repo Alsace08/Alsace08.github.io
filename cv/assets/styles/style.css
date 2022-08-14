@@ -1,6 +1,6 @@
 /* ------------------------------------------------
  Author: ArtStyles (Art)
- ×îÐÂ×îÈ«×îºÃµÄBootstrapÄ£°å£ºhttp://www.bootstrapmb.com
+ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½Ãµï¿½BootstrapÄ£ï¿½å£ºhttp://www.bootstrapmb.com
  Template Name: vCard
  version: 1.0.0
 ------------------------------------------------ */
@@ -67,8 +67,8 @@
 ------------------------------------------------ */
 @import url(bootstrap.min.css);
 @import url(swiper.min.css);
-@import url(../../../../../fonts.googleapis.com/css¿family=Archivo_400,400i,500,500i,600,600i,700,700i&display=swap.cssp");
-@import url(../../../../../fonts.googleapis.com/css¿family=Merriweather_400,900&display=swap.cssp");
+@import url(../../../../../fonts.googleapis.com/cssï¿½family=Archivo_400,400i,500,500i,600,600i,700,700i&display=swap.cssp");
+@import url(../../../../../fonts.googleapis.com/cssï¿½family=Merriweather_400,900&display=swap.cssp");
 @import url(../icons/icomoon.css);
 .icon {
   background-size: contain;
@@ -1325,7 +1325,8 @@ iframe {
   transition: all .3s ease-in-out;
 }
 .sidebar__user-name {
-  font-family: "Merriweather", serif;
+  /* font-family: "Merriweather", serif; */
+  font-family: "Georgia", serif;
   margin-bottom: .9rem;
 }
 .sidebar__info {
