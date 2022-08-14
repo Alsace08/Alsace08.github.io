@@ -481,7 +481,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .title--h3 {
   font-size: 1.5rem;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.0rem;
 }
 @media only screen and (max-width: 580px) {
   .title--h3 {
