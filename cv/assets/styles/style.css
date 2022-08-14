@@ -126,6 +126,9 @@
 .icon__qq {
   background-image: url(../icons/icon-qq.svg);
 }
+.icon__google {
+  background-image: url(../icons/icon-google.svg);
+}
 
 /* -----------------------------------------------------------------
     - General Styles
