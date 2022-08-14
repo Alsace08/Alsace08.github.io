@@ -129,6 +129,9 @@
 .icon__google {
   background-image: url(../icons/icon-google.svg);
 }
+.icon__zhihu {
+  background-image: url(../icons/icon-zhihu.svg);
+}
 
 /* -----------------------------------------------------------------
     - General Styles
