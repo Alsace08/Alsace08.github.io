@@ -1875,7 +1875,8 @@ iframe {
   margin-left: 15px;
   margin-right: 15px;
   padding: 0;
-  width: calc(50% - 30px);
+  /* width: calc(50% - 30px); */
+  width: calc(100% - 30px);
 }
 @media only screen and (max-width: 992px) {
   .news-item {
