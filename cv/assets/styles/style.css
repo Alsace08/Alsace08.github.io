@@ -123,6 +123,9 @@
 .icon__github {
   background-image: url(../icons/icon-github.svg);
 }
+.icon__qq {
+  background-image: url(../icons/icon-qq.svg);
+}
 
 /* -----------------------------------------------------------------
     - General Styles
