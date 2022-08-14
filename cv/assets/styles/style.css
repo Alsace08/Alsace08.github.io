@@ -132,6 +132,9 @@
 .icon__zhihu {
   background-image: url(../icons/icon-zhihu.svg);
 }
+.icon__blog {
+  background-image: url(../icons/icon-blog.svg);
+}
 
 /* -----------------------------------------------------------------
     - General Styles
