@@ -120,6 +120,9 @@
 .icon__skype {
   background-image: url(../icons/icon-skype.svg);
 }
+.icon__github {
+  background-image: url(../icons/icon-github.svg);
+}
 
 /* -----------------------------------------------------------------
     - General Styles
