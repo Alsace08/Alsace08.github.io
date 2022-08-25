@@ -1,320 +1,565 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8" />
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <title>Yiming Wang - Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Sunshine - Responsive vCard Template" />
+    <meta name="keywords" content="vcard, resposnive, retina, resume, jquery, css3, bootstrap, Sunshine, portfolio" />
+    <meta name="author" content="lmtheme" />
+    <link rel="shortcut icon" href="favicon.ico">
 
-	<!-- Meta Data -->
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<meta name="format-detection" content="telephone=no"/>
-    <meta name="format-detection" content="address=no"/>
-    <meta name="author" content="ArtTemplate" />
-    <meta name="description" content="vCard" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/transition-animations.css">
+    <link rel="stylesheet" href="css/owl.carousel.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/main.css" type="text/css">
 
-    <!-- Twitter data -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@ArtTemplates">
-    <meta name="twitter:title" content="vCard">
-    <meta name="twitter:description" content="vCard">
-    <meta name="twitter:image" content="assets/images/social.jpg">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="js/modernizr.custom.js"></script>
 
-    <!-- Open Graph data -->
-    <meta property="og:title" content="ArtTemplate" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="your url website" />
-    <meta property="og:image" content="assets/images/social.jpg" />
-    <meta property="og:description" content="vCard" />
-    <meta property="og:site_name" content="vCard" />
-
-	<!-- Favicons -->
-	<link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicons/apple-touch-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicons/apple-touch-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicons/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicons/apple-touch-icon-57x57.png">
-	<link rel="shortcut icon" href="assets/images/favicons/favicon.png" type="image/png">
-
-    <!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="assets/styles/style.css"/>
     
-</head>
-<body class="bg-triangles">
-    <!-- Preloader -->
+  </head>
+
+  <body>
+    <!-- Loading animation -->
     <div class="preloader">
-	    <div class="preloader__wrap">
-		    <div class="circle-pulse">
-                <div class="circle-pulse__1"></div>
-                <div class="circle-pulse__2"></div>
+      <div class="preloader-animation">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+      </div>
+    </div>
+    <!-- /Loading animation -->
+
+    <div id="page" class="page">
+      <!-- Header -->
+      <header id="site_header" class="header">
+        <div class="my-photo">
+          <!-- <img src="images/my_photo.jpg" alt="image"> -->
+          <img src="images/v2-00f81af8034832667553e217327da623_hd.jpg" alt="image">
+          <div class="mask"></div>
+        </div>
+
+        <div class="site-title-block">
+          <h1 class="site-title" style="font-family:Georgia;font-size:36px;">Yiming Wang</h1>
+          <h1 class="site-title" style="font-family:Georgia;font-size:30px;">(王一鸣)</h1>
+          <p class="site-description" style="font-family:Georgia;">AI researcher</p>
+          <!-- <div class="col-sm-12 col-md-12">
+            <div class="download-cv-block">
+              <a class="button" target="_blank" href="#" style="font-family:Georgia;font-weight:bold;">Download CV</a>
             </div>
-		    <div class="preloader__progress"><span></span></div>
-		</div>
-	</div>
+          </div> -->
 
-    <main class="main">
-	    <div class="container gutter-top">
-		    <div class="row sticky-parent">
-			    <!-- Sidebar -->
-                <aside class="col-12 col-md-12 col-xl-3">
-				    <div class="sidebar box pb-0 sticky-column">
-						<svg class="avatar avatar--180" viewBox="0 0 188 188">
-                            <g class="avatar__box">
-                                <image xlink:href="assets/img/avatar-head.jpg" height="100%" width="100%" /> 
-                            </g>
-                        </svg>
-						<div class="text-center">
-						    <!-- <h3 class="title title--h3 sidebar__user-name"><span class="weight--500">Felecia</span> Brown</h3> -->
-							<h3 class="title title--h3 sidebar__user-name"> Yiming Wang</h3>
-							<h3 class="title title--h3 sidebar__user-name"> (王一鸣)</h3>
-							<div class="badge badge--gray">Student @ BUAA</div>
-							
-							<!-- Social -->
-		                    <div class="social">
-		                        <!-- <a class="social__link" href="http://www.bootstrapmb.com/"><i class="font-icon icon-facebook"></i></a>
-		                        <a class="social__link" href="https://www.behance.com/"><i class="font-icon icon-twitter"></i></a>
-		                        <a class="social__link" href="https://www.linkedin.com/"><i class="font-icon icon-linkedin2"></i></a> -->
-								<a class="social__link" href="https://github.com/Alsace08"><i class="font-icon icon-github"></i></a>
-								<a class="social__link" href="https://scholar.google.com/"><i class="font-icon icon-google"></i></a>
-								<!-- <a class="social__link" href="https://www.zhihu.com/people/yikou-niao-93"><i class="font-icon icon-zhihu"></i></a> -->
-								<a class="social__link" href="http://wpa.qq.com/msgrd?v=3&uin=794868055&site=qq&menu=yes"><i class="font-icon icon-qq"></i></a>
-							</div>
-						</div>
-						
-						<div class="sidebar__info box-inner box-inner--rounded">
-		                    <ul class="contacts-block">
-					            <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Birthday">
-							        <i class="font-icon icon-calendar"></i>Augest 23, 2001
-							    </li>
-								<li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="E-mail">
-							        <a href="mailto:alsaceym@gmail.com"><i class="font-icon icon-envelope"></i>alsaceym@gmail.com</a>
-							    </li>
-						        <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Address">
-							        <i class="font-icon icon-location"></i>Beijing, China
-							    </li>
-								<li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Phone">
-							        <i class="font-icon icon-phone"></i>(+86) 13222185068
-							    </li>
-								<!-- <li class="contacts-block__item" data-toggle="tooltip" data-placement="top" title="Blog">
-							        <a href="https://alsace08.github.io/"><i class="font-icon icon-blog"></i>Yiming Wang's Blog</a>
-							    </li> -->
-					        </ul>
-							
-							<a class="btn btn--blue-gradient" href="assets/cv_wym.pdf"><i class="font-icon icon-download"></i> Download CV</a>
-						</div>
-					</div>	
-		        </aside>
-		        
-				<!-- Content -->
-		        <div class="col-12 col-md-12 col-xl-9">
-				    <div class="box pb-0">
-					    <!-- Menu -->
-					    <div class="circle-menu">
-						    <div class="hamburger">
-                                <div class="line"></div>
-                                <div class="line"></div>
-                                <div class="line"></div>
-                            </div>
-						</div>
-						<div class="inner-menu">
-						    <ul class="nav">
-                                <!-- <li class="nav__item"><a class="active" href="index.html">About</a></li>
-								<li class="nav__item"><a href="resume.html">Resume</a></li>
-                                <li class="nav__item"><a href="portfolio.html">Portfolio</a></li>
-                                <li class="nav__item"><a href="blog.html">Blog</a></li>
-                                <li class="nav__item"><a href="contact.html">Contact</a></li> -->
-								<li class="nav__item"><a class="active" href="index.html">Profile</a></li>
-								<li class="nav__item"><a href="https://alsace08.github.io/cv/index.html#Backgrounds">Education</a></li>
-                                <li class="nav__item"><a href="https://alsace08.github.io/cv/index.html#Publications">Research</a></li>
-                                <li class="nav__item"><a href="https://alsace08.github.io/cv/index.html#Awards">Honor</a></li>
-								<li class="nav__item"><a href="https://alsace08.github.io/">Blog</a></li>
-                            </ul>
-						</div>
-						
-					    <!-- About -->
-						<div class="pb-0 pb-sm-2">
-		                    <h1 class="title title--h2 title__separate">About Me</h1>
-						    <p>I'm an undergraduate student of <a href="https://iai.buaa.edu.cn/">Institute of Artificial Intelligence, Beihang University</a>, majoring in artificial intelligence. I'm currently a research intern at ACT Lab in the <a href="http://scse.buaa.edu.cn/">School of Computer Science and Engineering, Beihang University.</a></p>
-                            <p>My research interests include natural language processing, text summarization, etc. I desire to achieve more interesting and meaningful results in the field of computational linguistics.</p>
-							<p>Finally, welcome to my <a href="https://alsace08.github.io/">blog</a>! </p>
-						</div>
-						
+          
+        <a class="btn btn--blue-gradient" href="assets/cv_wym.pdf" style="font-family:Georgia;font-weight:bold;"><i class="fa fa-download"></i> Download CV</a>
+
+
+
+        </div>
+
+        <a class="menu-toggle mobile-visible">
+          <i class="fa fa-bars"></i>
+        </a>
+      </header>
+      <!-- /Header -->
+
+      <!-- Main Content -->
+      <div id="main" class="site-main">
+        <!-- Page changer wrapper -->
+        <div class="pt-wrapper">
+          <!-- Navigation & Social buttons -->
+          <div class="site-nav mobile-menu-hide">
+            <!-- Main menu -->
+            <ul id="nav" class="site-main-menu">
+              <!-- About Me Subpage link -->
+              <li>
+                <a class="pt-trigger" href="#resume" data-animation="58" data-goto="1" style="font-family:Georgia;color:black;font-size:18px;">Resume</a><!-- href value = data-id without # of .pt-page -->
+              </li>
+              <li>
+                <a class="pt-trigger" href="#publication" data-animation="59" data-goto="2" style="font-family:Georgia;color:black;font-size:18px;">Publications</a>
+              </li>
+              <li>
+                <a class="pt-trigger" href="#contact" data-animation="60" data-goto="3" style="font-family:Georgia;color:black;font-size:18px;">Contact</a>
+              </li>
+              <li>
+                <a href="https://alsace08.github.io/" style="font-family:Georgia;color:black;font-size:18px;">Blog</a>
+              </li>
+              <!-- /About Me Subpage link -->
+              <!-- <li>
+                <a class="pt-trigger" href="#resume" data-animation="59" data-goto="2" style="font-family:Georgia">Resume</a>
+              </li>
+              <li>
+                <a class="pt-trigger" href="#portfolio" data-animation="60" data-goto="3">Portfolio</a>
+              </li>
+              <li>
+                <a class="pt-trigger" href="#blog" data-animation="61" data-goto="4">Blog</a>
+              </li>
+              <li>
+                <a class="pt-trigger" href="#contact" data-animation="58" data-goto="5">Contact</a>
+              </li> -->
+            </ul>
+            <!-- /Main menu -->
+
+            <!-- Social buttons -->
+            <ul class="social-links">
+              <li><a class="tip social-button" href="#" title="Twitter"><i class="fa fa-twitter"></i></a></li> <!-- Full list of social icons: http://fontawesome.io/icons/#brand -->
+              <li><a class="tip social-button" href="#" title="Facebook"><i class="fa fa-facebook"></i></a></li>
+              <li><a class="tip social-button" href="#" title="Google Plus"><i class="fa fa-google-plus"></i></a></li>
+              <li><a class="tip social-button" href="https://github.com/Alsace08" title="Github"><i class="fa fa-github"></i></a></li>
+							<li><a class="tip social-button" href="https://scholar.google.com/" title="Google Scholar"><i class="fa fa-google"></i></a></li>
+              <!--<li><a class="tip social-button" href="#" title="Youtube"><i class="fa fa-youtube"></i></a></li>-->
+              <!--<li><a class="tip social-button" href="#" title="last.fm"><i class="fa fa-lastfm"></i></a></li>-->
+              <!--<li><a class="tip social-button" href="#" title="Dribbble"><i class="fa fa-dribbble"></i></a></li>-->
+            </ul>
+            <!-- /Social buttons -->
+          </div>
+          <!-- Navigation & Social buttons -->
+
+          <!-- Subpages -->
+          <div class="subpages">
 
 
 
 
-						<br />
-						<!-- About -->
-						<div class="pb-3" id="Backgrounds">
-		                    <h1 class="title title--h2 title__separate">Backgrounds</h1>
-					    </div>
+            <!-- About Me Subpage -->
+            <section class="pt-page pt-page-1" data-id="about_me">
+              <div class="section-title-block">
+                <h2 class="section-title">About Me</h2>
+                <!-- <h5 class="section-description">Artist, Thinker, Creative Doer</h5> -->
+              </div>
 
-						<!-- Experience -->
-						<div class="pb-0">
-							<div class="row">
-							    <div class="col-12 col-lg-6">
-								    <h2 class="title title--h3"><img class="title-icon" src="assets/icons/icon-education.svg" alt="" /> Education</h2>
-									<div class="timeline">
-									    <!-- Item -->
-									    <article class="timeline__item">
-									        <h5 class="title title--h5 timeline__title">Ph.D Candidate, Shanghai Jiaotong University</h5>
-										    <span class="timeline__period">2023.09 — Unknown</span>
-										    <p class="timeline__description">Department of Computer Science and Engineering</p>
-										</article>
-                                        
-										<!-- Item -->
-									    <article class="timeline__item">
-									        <h5 class="title title--h5 timeline__title">Bachelor Degree, Beihang University</h5>
-										    <span class="timeline__period">2019.09 — 2023.06</span>
-										    <p class="timeline__description">Institute of Artificial Intelligence</p>
-											<!-- <p class="timeline__description">GPA: 3.85/4.00 (3/31)</p> -->
-										</article>
-                                        
-									</div>	
-								</div>
-								
-							    <div class="col-12 col-lg-6">
-								    <h2 class="title title--h3"><img class="title-icon" src="assets/icons/icon-experience.svg" alt="" /> Experience</h2>
-									<div class="timeline">
-								
-                                        
-										<!-- Item -->
-									    <article class="timeline__item">
-									        <h5 class="title title--h5 timeline__title">ACT Lab, Beihang University</h5>
-										    <span class="timeline__period">2021.11 - Present</span>
-										    <p class="timeline__description">Research Intern, focusing on natural language processing and graph neural network</p>
-										</article>
-									</div>
-								</div>
-							</div>
-						</div>
+              <div class="row">
+                <div class="col-sm-12 col-md-12 mobile-visible subpage-block">
+                  <div class="my-photo-small">
+                    <img src="images/photo_small.jpg" alt="image">
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-6 subpage-block">
+                  <div class="general-info" style="font-family:Georgia">
+                    <h3>I am an undergraduate student @ Beihang University</h3>
+                    <p>I'm an undergraduate student of <a href="https://iai.buaa.edu.cn/">Institute of Artificial Intelligence, Beihang University</a>, majoring in artificial intelligence. I'm currently a research intern at ACT Lab in the <a href="http://scse.buaa.edu.cn/">School of Computer Science and Engineering, Beihang University.</a></p>
+                    <p>My research interests include natural language processing, data mining, text summarization, etc. I desire to achieve more interesting and meaningful results in the field of computational linguistics.</p>
+                  </div>
+                </div>
 
-						<!-- Publications -->
-						<div class="pb-3" id="Publications">
-		                    <h1 class="title title--h2 title__separate">Publications</h1>
-					    </div>
+                <!--<div class="col-sm-4 col-md-4 subpage-block">
+                  <div class="block end">
+                    <ul class="info-list">
+                      <li><span class="title">Name</span><span class="value">Alex Smith</span></li>
+                      <li><span class="title">Age</span><span class="value">29</span></li>
+                      <li><span class="title">Address</span><span class="value">88 Street - State, Town</span></li>
+                      <li><span class="title">e-mail</span><span class="value"><a href="mailto:email@addres.com">email@addres.com</a></span></li>
+                      <li><span class="title">Phone</span><span class="value">+0123 123 456 789</span></li>
+                      <li><span class="title">Freelance</span><span class="value available">Available</span></li>
+                    </ul>
+                  </div>
+                </div>-->
 
+                <div class="col-sm-6 col-md-6 subpage-block">
+                  <div class="block-title">
+                    <h3>Testimonials</h3>
+                  </div>
+                  <div class="testimonials owl-carousel">
 
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-item">
+                      <!-- Testimonial Content -->
+                      <div class="testimonial-content">
+                        <div class="testimonial-text">
+                          <p>"Proin auctor pulvinar tellus, et venenatis ligula pharetra eu. Duis dictum nisi sed pellentesque euismod."</p>
+                        </div>
+                      </div>            
+                      <!-- /Testimonial Content -->  
+                      <!-- Testimonial Author -->
+                      <div class="testimonial-credits">
+                        <!-- Picture -->
+                        <div class="testimonial-picture">
+                          <img src="images/testimonials/testimonial_photo_1.png" alt="">
+                        </div>              
+                        <!-- /Picture -->
+                        <!-- Testimonial author information -->
+                        <div class="testimonial-author-info">
+                          <p class="testimonial-author">John Doe</p>
+                          <p class="testimonial-firm">Apple Inc.</p>
+                        </div>
+                      </div>
+                      <!-- /Testimonial author information -->               
+                    </div>
+                    <!-- End of Testimonial 1 -->
 
-
-						<article class="news-item box">
-							<div class="news-item__image-wrap overlay overlay--45">
-								<!-- <div class="news-item__date">Sep 16, 2019</div> -->
-								<a class="news-item__link" href="https://alsace08.github.io/"></a>
-								<img class="cover lazyload" src="assets/img/paper/factchecking.png" width="300" height="1200" alt="" />
-							</div>
-							<div class="news-item__caption">
-								<p style="color:black; font-family:Georgia; font-size:22px"><b>HiGIL: Hierarchical Graph Inference Learning for Fact Checking</b></p>
-								<p>Qianren Mao, <b>Yiming Wang</b>, Chenghong Yang, Linfeng Du, Hongdong Zhu, Yuxin Ying, Hao Peng, Jianxin Li, Lihong Wang and Zheng Wang.</p> 
-								<p>In the 22nd IEEE International Conference on Data Mining (ICDM'22, CCF-B)</p>
-							</div>
-						</article>
-
-
-						<article class="news-item box">
-							<div class="news-item__image-wrap overlay overlay--45">
-								<!-- <div class="news-item__date">Sep 16, 2019</div> -->
-								<a class="news-item__link" href="https://alsace08.github.io/"></a>
-								<img class="cover lazyload" src="assets/img/paper/cpsum.png" width="300" height="1200" alt="" />
-							</div>
-							<div class="news-item__caption">
-								<p style="color:black; font-family:Georgia; font-size:22px"><b>Noise-injected Consistency Training and Entropy-constrained Pseudo Labeling for Semi-supervised Extractive Summarization</b></p>
-								<p><b>Yiming Wang</b>, Qianren Mao, Junnan Liu, Weifeng Jiang, Hongdong Zhu and Jianxin Li</p>
-								<p>In the 29th International Conference on Computational Linguistics (COLING'22, CCF-B)</p>
-							</div>
-						</article>
-
-
-
-
-						<br />
-						<!-- Awards -->
-						<div class="pb-3" id="Awards">
-		                    <h1 class="title title--h2 title__separate">Awards</h1>
-					    </div>
-
-						<ul>
-							<li>Third prize of Beijing in "Internet+" College Student Innovation and Entrepreneurship Competition, 2022</li>
-							<li>Honorable Winner, Mathematical Contest In Modeling, 2022</li>
-							<li>Ministry of Education-Huawei "Future Star" Joint Commendation Scholarship (Speech by Student Representative), 2021</li>
-							<li>First prize of Beijing in "Blue Bridge Cup" programming competition (C/C++ group), 2021</li>
-							<li>First prize of Beijing in National Mathematics Contest for College Students, 2020</li>
-						</ul>
-
-						<br />
-						<!-- About -->
-						<div class="pb-3">
-		                    <h1 class="title title--h2 title__separate">Teaching</h1>
-					    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-item">
+                      <!-- Testimonial Content -->
+                      <div class="testimonial-content">
+                        <div class="testimonial-text">
+                          <p>"Vivamus porta dapibus tristique. Suspendisse et arcu eget nisi convallis eleifend nec ac lorem."</p>
+                        </div>
+                      </div>            
+                      <!-- /Testimonial Content -->  
+                      <!-- Testimonial Author -->
+                      <div class="testimonial-credits">
+                        <!-- Picture -->
+                        <div class="testimonial-picture">
+                          <img src="images/testimonials/testimonila_photo_2.png" alt="">
+                        </div>              
+                        <!-- /Picture -->
+                        <!-- Testimonial author information -->
+                        <div class="testimonial-author-info">
+                          <p class="testimonial-author">Bryan Morris</p>
+                          <p class="testimonial-firm">Sun Foods</p>
+                        </div>
+                      </div>
+                      <!-- /Testimonial author information -->               
+                    </div>
+                    <!-- End of Testimonial 2 -->
+                  </div>
+                </div>
+              </div>
 
 
-						<h2 class="title title--h3">Teaching Assistant</h2>
 
-						<ul>
-							<li>Advanced Linear Algebra for Engineering, 2020 Autumn (outstanding teaching assistant)</li>
-							<li>Advanced Linear Algebra for Engineering, 2021 Autumn</li>
-						</ul>
 
-						<br />
-						<!-- About -->
-						<div class="pb-2">
-		                    <h1 class="title title--h2 title__separate">Contact Me</h1>
-					    </div>
 
-						<!-- Contact -->
-                        <div class="map" id="map"></div>
-						<h2 class="title title--h3">Contact Form</h2>
-							
-						<form id="contact-form" class="contact-form" data-toggle="validator">
-                            <div class="row">
-				                <div class="form-group col-12 col-md-6">
-									<i class="font-icon icon-user"></i>
-                                    <input type="text" class="input input__icon form-control" id="nameContact" name="nameContact" placeholder="Full name" required="required" autocomplete="on" oninvalid="setCustomValidity('Fill in the field')" onkeyup="setCustomValidity('')">
-								    <div class="help-block with-errors"></div>
-				                </div>
-				                <div class="form-group col-12 col-md-6">
-									<i class="font-icon icon-envelope"></i>
-                                    <input type="email" class="input input__icon form-control" id="emailContact" name="emailContact" placeholder="Email address" required="required" autocomplete="on" oninvalid="setCustomValidity('Email is incorrect')" onkeyup="setCustomValidity('')">
-								    <div class="help-block with-errors"></div>
-				                </div>
-				                <div class="form-group col-12 col-md-12">
-                                    <textarea class="textarea form-control" id="messageContact" name="messageContact" placeholder="Your Message"  rows="4" required="required" oninvalid="setCustomValidity('Fill in the field')" onkeyup="setCustomValidity('')"></textarea>
-								    <div class="help-block with-errors"></div>
-				                </div>
-						    </div>
-							<div class="row">
-				                <div class="col-12 col-md-6 order-2 order-md-1 text-center text-md-left">
-					                <div id="validator-contact" class="hidden"></div>
-				                </div>
-				                <div class="col-12 col-md-6 order-1 order-md-2 text-right">
-					                <button type="submit" class="btn"><i class="font-icon icon-send"></i> Send Message</button>
-				                </div>
-			                </div>
-		                </form>
-					</div>
 
-				<!-- Footer -->
-				<footer class="footer">© 2022 Yiming Wang</footer>
-		        </div>
-			</div>
-		</div>	
-    </main>
+              <div class="section-title-block">
+                <h2 class="section-title">Background</h2>
+                <!-- <h5 class="section-description">6 Years of Experience</h5> -->
+              </div>
 
-    <div class="back-to-top"></div>
+              <div class="row">
+                <div class="col-sm-8 col-md-6 subpage-block">
+                  <div class="block-title">
+                    <h3>Education</h3>
+                  </div>
+                  <div class="timeline">
+                    <!-- Single event -->
+                    <div class="timeline-event te-primary">
+                      <h5 class="event-date" style="font-family:Georgia">2023.09 — 2028.06 (hope so)</h5>
+                      <h4 class="event-name" style="font-family:Georgia">Ph.D Candidate, Shanghai Jiaotong University</h4>
+                      <!-- <span class="event-description">University of Studies</span> -->
+                      <p style="font-family:Georgia">Department of Computer Science and Engineering</p>
+                    </div>
+                    <!-- Single event -->
+                    <div class="timeline-event te-primary">
+                      <h5 class="event-date" style="font-family:Georgia">2019.09 — 2023.06</h5>
+                      <h4 class="event-name" style="font-family:Georgia">Bachelor Degree, Beihang University</h4>
+                      <!-- <span class="event-description">University of Studies</span> -->
+                      <p style="font-family:Georgia">Institute of Artificial Intelligence</p>
+                    </div>
+                  </div>
+                </div>
 
-    <!-- SVG masks -->
-    <svg class="svg-defs">
-        <clipPath id="avatar-box">
-            <path d="M1.85379 38.4859C2.9221 18.6653 18.6653 2.92275 38.4858 1.85453 56.0986.905299 77.2792 0 94 0c16.721 0 37.901.905299 55.514 1.85453 19.821 1.06822 35.564 16.81077 36.632 36.63137C187.095 56.0922 188 77.267 188 94c0 16.733-.905 37.908-1.854 55.514-1.068 19.821-16.811 35.563-36.632 36.631C131.901 187.095 110.721 188 94 188c-16.7208 0-37.9014-.905-55.5142-1.855-19.8205-1.068-35.5637-16.81-36.63201-36.631C.904831 131.908 0 110.733 0 94c0-16.733.904831-37.9078 1.85379-55.5141z"/>
-        </clipPath>
-        <clipPath id="avatar-hexagon">
-             <path d="M0 27.2891c0-4.6662 2.4889-8.976 6.52491-11.2986L31.308 1.72845c3.98-2.290382 8.8697-2.305446 12.8637-.03963l25.234 14.31558C73.4807 18.3162 76 22.6478 76 27.3426V56.684c0 4.6805-2.5041 9.0013-6.5597 11.3186L44.4317 82.2915c-3.9869 2.278-8.8765 2.278-12.8634 0L6.55974 68.0026C2.50414 65.6853 0 61.3645 0 56.684V27.2891z"/>
-        </clipPath>		
-    </svg>
+                <div class="col-sm-8 col-md-6 subpage-block">
+                  <div class="block-title">
+                    <h3>Experience</h3>
+                  </div>
+                  <div class="timeline">
+                    <!-- Single event -->
+                    <div class="timeline-event te-primary">
+                      <h5 class="event-date" style="font-family:Georgia">2021.11 - Presentt</h5>
+                      <h4 class="event-name" style="font-family:Georgia">ACT Lab, Beihang University</h4>
+                      <!-- <span class="event-description">Web Agency</span> -->
+                      <p style="font-family:Georgia">Research Intern, focusing on natural language processing and graph neural network</p>
+                    </div>  
+                  </div>
+                </div>
 
-	<!-- JavaScripts -->
-	<script src="assets/js/jquery-3.4.1.min.js"></script>
-	<script src="assets/js/plugins.js"></script>
-    <script src="assets/js/common.js"></script>
+                
+              </div>
+              <!-- <div class="row">
+                <div class="col-sm-12 col-md-12">
+                  <div class="download-cv-block">
+                    <a class="button" target="_blank" href="#">Download CV</a>
+                  </div>
+                </div>
+              </div> -->
 
-</body>
+
+
+
+              <div class="section-title-block">
+                <h2 class="section-title">Publications</h2>
+                <div class="general-info" style="font-family:Georgia;font-size:18px;">
+                  <p></p>
+                  <p><b>Yiming Wang</b>, Qianren Mao, Junnan Liu, Weifeng Jiang, Hongdong Zhu and Jianxin Li. 2022. <i style="color:red;">Noise-injected Consistency Training and Entropy-constrained Pseudo Labeling for Semi-supervised Extractive Summarization.</i> In the 29th International Conference on Computational Linguistics (COLING’ 22, CCF-B).</p>
+                  <p>Qianren Mao, <b>Yiming Wang</b>, Chenghong Yang, Linfeng Du, Hongdong Zhu, Yuxin Ying, Hao Peng, Jianxin Li, Lihong Wang and Zheng Wang. 2022. <i style="color:red;">HiGIL: Hierarchical Graph Inference Learning for Fact Checking.</i> In the 22nd IEEE International Conference on Data Mining (ICDM'22, CCF-B).</p>
+                  <p></p>
+                </div>
+              </div>
+
+
+
+              <div class="section-title-block">
+                <h2 class="section-title">Awards</h2>
+                <div class="general-info" style="font-family:Georgia;font-size:18px;">
+                  <p></p>
+                  <p>Third prize of Beijing in "Internet+" College Student Innovation and Entrepreneurship Competition, 2022</p>
+                  <p>Honorable Winner, Mathematical Contest In Modeling, 2022</p>
+                  <p>Second prize of <a href="https://www-fengrubei-net.e1.buaa.edu.cn/"> "Fengru Cup"</a> Technology Competition in Beihang, 2022</p>
+                  <p>Ministry of Education-Huawei "Future Star" Joint Commendation Scholarship (Speech by Student Representative), 2021</p>
+                  <p>First prize of Beijing in "Lanqiao Cup" programming competition (C/C++ group), 2021</p>
+                  <p>First prize of Beijing in National Mathematics Contest for College Students, 2020</p>
+                  <p></p>
+                </div>
+              </div>
+
+
+
+
+
+              <div class="section-title-block">
+                <h2 class="section-title">Teaching Assistent</h2>
+                <div class="general-info" style="font-family:Georgia;font-size:18px;">
+                  <p></p>
+                  <p>Advanced Linear Algebra for Engineering (<i>Xueyuan Road Campus</i>), 2020 Autumn <a style="color:red;">(outstanding teaching assistant)</a></p>
+                  <p>Advanced Linear Algebra for Engineering (<i>Xueyuan Road Campus</i>), 2021 Autumn</p> 
+                  <p>Advanced Linear Algebra for Engineering (<i>Shahe Campus</i>), 2022 Autumn</p> 
+                </div>
+              </div>
+
+              
+
+            </section>
+            <!-- End of About Me Subpage -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Resume Subpage -->
+            <section class="pt-page pt-page-2" data-id="resume">
+              <div class="section-title-block">
+                <h2 class="section-title">Publications</h2>
+                <h5 class="section-description">More Details</h5>
+              </div>
+
+
+              <div class="col-sm-10 col-md-8 subpage-block">
+              <div class="blog-masonry">
+
+
+                <!-- Blog Post 1 -->
+                <div class="item">
+                  <div class="blog-card" style="height: 480px;">
+                    <div class="media-block">
+                      <a href="blog-post-1.html">
+                        <img class="post-image img-responsive" src="images/paper/cpsum.png" alt="blog-post-1" />
+                        <div class="mask"></div>
+                        <div class="post-date"><span class="day">15</span><span class="month">Aug</span><!--<span class="year">2016</span>--></div>
+                      </a>
+                    </div>
+                    <div class="post-info">
+                      <p style="font-family:Georgia;color:black;font-size:18px;"><i style="color:blue;">Noise-injected Consistency Training and Entropy-constrained Pseudo Labeling for Semi-supervised Extractive Summarization</i></p>
+                      <p style="font-family:Georgia;color:black;font-size:14px;"><b>Yiming Wang</b>, Qianren Mao, Junnan Liu, Weifeng Jiang, Hongdong Zhu and Jianxin Li</p>
+                      <p style="font-family:Georgia;color:black;font-size:14px;">In the 29th International Conference on Computational Linguistics (COLING'22, CCF-B)</p>
+                    </div>
+                  </div>
+                </div>
+                
+
+                <!-- End of Blog Post 1 -->
+
+                <!-- Blog Post 2 -->
+                <div class="item">
+                  <div class="blog-card" style="height: 375px;">
+                    <div class="media-block">
+                      <a href="blog-post-1.html">
+                        <img class="post-image img-responsive" src="images/paper/factchecking.png" alt="blog-post-2" />
+                        <div class="mask"></div>
+                        <div class="post-date"><span class="day">31</span><span class="month">Aug</span><!--<span class="year">2016</span>--></div>
+                      </a>
+                    </div>
+                    <div class="post-info">
+                      <p style="font-family:Georgia;color:black;font-size:18px;"><i style="color:blue;">HiGIL: Hierarchical Graph Inference Learning for Fact Checking</i></p>
+                      <p style="font-family:Georgia;color:black;font-size:14px;">Qianren Mao, <b>Yiming Wang</b>, Chenghong Yang, Linfeng Du, Hongdong Zhu, Yuxin Ying, Hao Peng, Jianxin Li, Lihong Wang and Zheng Wang.</p>
+                      <p style="font-family:Georgia;color:black;font-size:14px;">In the 22nd IEEE International Conference on Data Mining (ICDM'22, CCF-B)</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- End of Blog Post 2 -->
+
+              </div>
+              </div>
+
+
+              <div class="col-sm-12 col-md-4 subpage-block">
+
+
+                <div class="blog-masonry">
+
+                <!-- Blog Post 1 -->
+                  <div class="item">
+                    <div class="blog-card" style="height: 480px;">     
+                      <div class="post-info">
+                        <p style="font-size:20px;text-align:left;"><i>Abstract:</i></p>
+                        <p style="font-family:Georgia;color:black;font-size:15px;text-align:left;">
+                          In this paper, we first use the noise-injected consistency training paradigm to regularize model predictions.
+                          Subsequently, we propose a novel entropy-constrained pseudo labeling strategy to obtain high-confidence labels from unlabeled predictions, which can obtain high-confidence labels from unlabeled predictions by comparing the entropy of supervised and unsupervised predictions. 
+                          By combining consistency training and pseudo-labeling, this framework enforce a low-density separation between classes, which decently improves the performance of supervised learning over an insufficient labeled extractive summarization dataset.</p>
+                      </div>
+                    </div>
+                  </div>
+                <!-- End of Blog Post 1 -->
+
+                  <!-- Blog Post 2 -->
+                  <div class="item">
+                    <div class="blog-card" style="height: 375px;">     
+                      <div class="post-info">
+                        <p style="font-size:20px;text-align:left;"><i>Abstract:</i></p>
+                        <p style="font-family:Georgia;color:black;font-size:15px;text-align:left;">
+                          This paper proposes a better way to model the claim-evidence graph in a multi-granularity manner, which allows us to exploit more semantics and topology between a claim and its evidence. 
+                          We first employ a graph inference learning framework to infer graph nodes on different granular semantic units within their hierarchical topology. 
+                          We then design an inference learning procedure to optimize the global textual similarity and local topological reachability from the claim-evidence graph. </p>
+                      </div>
+                  </div>
+                  <!-- End of Blog Post 2 -->
+  
+
+                  
+
+  
+                </div>
+
+
+              </div>
+
+
+
+
+            </section>
+            <!-- End Resume Subpage -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Contact Subpage -->
+            <section class="pt-page pt-page-3" data-id="contact">
+              <div class="section-title-block">
+                <h2 class="section-title">Contact Me</h2>
+                <!-- <h5 class="section-description">Get in Touch</h5> -->
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6 col-md-6 subpage-block">
+                  <div class="block-title">
+                    <h3>Get in Touch</h3>
+                  </div>
+                  <p style="font-family:Georgia;">Sed eleifend sed nibh nec fringilla. Donec eu cursus sem, vitae tristique ante. Cras pretium rutrum egestas. Integer ultrices libero sed justo vehicula, eget tincidunt tortor tempus.</p>
+                  <div class="contact-info-block">
+                    <div class="ci-icon">
+                      <i class="pe-7s-icon pe-7s-map-marker"></i>
+                    </div>
+                    <div class="ci-text">
+                      <h5 style="font-family:Georgia;">Beihang University, No.37 Xueyuan Road, Haidian District, Beijing</h5>
+                    </div>
+                  </div>
+                  <div class="contact-info-block">
+                    <div class="ci-icon">
+                      <i class="pe-7s-icon pe-7s-mail"></i>
+                    </div>
+                    <div class="ci-text">
+                      <h5 style="font-family:Georgia;">alsaceym@gmail.com</h5>
+                    </div>
+                  </div>
+                  <div class="contact-info-block">
+                    <div class="ci-icon">
+                      <i class="pe-7s-icon pe-7s-call"></i>
+                    </div>
+                    <div class="ci-text">
+                      <h5 style="font-family:Georgia;">+(86) 13222185068</h5>
+                    </div>
+                  </div>
+                  <div class="contact-info-block">
+                    <div class="ci-icon">
+                      <i class="pe-7s-icon pe-7s-check"></i>
+                    </div>
+                    <div class="ci-text">
+                      <h5 style="font-family:Georgia;">Freelance Available</h5>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 col-md-6 subpage-block">
+                  <div class="block-title">
+                    <h3>Contact Form</h3>
+                  </div>
+                  <form id="contact-form" method="post" action="contact_form/contact_form.php">
+
+                    <div class="messages"></div>
+
+                    <div class="controls">
+                      <div class="form-group">
+                          <input id="form_name" type="text" name="name" class="form-control" placeholder="Full Name" required="required" data-error="Name is required.">
+                          <div class="form-control-border"></div>
+                          <i class="form-control-icon fa fa-user"></i>
+                          <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="form-group">
+                          <input id="form_email" type="email" name="email" class="form-control" placeholder="Email Address" required="required" data-error="Valid email is required.">
+                          <div class="form-control-border"></div>
+                          <i class="form-control-icon fa fa-envelope"></i>
+                          <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="form-group">
+                          <textarea id="form_message" name="message" class="form-control" placeholder="Message for me" rows="4" required="required" data-error="Please, leave me a message."></textarea>
+                          <div class="form-control-border"></div>
+                          <i class="form-control-icon fa fa-comment"></i>
+                          <div class="help-block with-errors"></div>
+                      </div>
+
+                      <div class="g-recaptcha" data-sitekey="6LdqmCAUAAAAAMMNEZvn6g4W5e0or2sZmAVpxVqI" data-callback="correctCaptcha"></div>
+
+                      <input type="submit" class="button btn-send" value="Send message">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </section>
+            <!-- End Contact Subpage -->
+
+          </div>
+        </div>
+        <!-- /Page changer wrapper -->
+      </div>
+      <!-- /Main Content -->
+    </div>
+
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/page-transition.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/validator.js"></script>
+    <script src="js/jquery.shuffle.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.hoverdir.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
 </html>
