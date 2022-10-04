@@ -60,7 +60,7 @@
       <link href="/2022/09/30/ACL-cross-lingual/"/>
       <url>/2022/09/30/ACL-cross-lingual/</url>
       
-        <content type="html"><![CDATA[<h3 id="ACL-2020"><a href="#ACL-2020" class="headerlink" title="ACL 2020"></a>ACL 2020</h3><h3 id="ACL-2021"><a href="#ACL-2021" class="headerlink" title="ACL 2021"></a>ACL 2021</h3><p><a href="https://aclanthology.org/2021.findings-acl.177/">Exploring Cross-Lingual Transfer Learning with Unsupervised Machine Translation</a></p><p><a href="https://zhuanlan.zhihu.com/p/369152658">多语言预训练模型中的跨语言迁移(解读)</a></p><p>多语言预训练模型为什么可以具有强大的跨语言知识迁移的能力，什么因素又是对跨语言迁移学习影响最大的呢？这篇文章给出了详细的实验对比和分析。</p><ul><li><p>领域相似性（domain similarity）</p></li><li><p>相同词语的数目（anchor points）</p></li><li><p>参数权重共享（share parameters）</p></li></ul><h3 id="ACL-2022"><a href="#ACL-2022" class="headerlink" title="ACL 2022"></a>ACL 2022</h3>]]></content>
+        <content type="html"><![CDATA[<h3 id="ACL-2020"><a href="#ACL-2020" class="headerlink" title="ACL 2020"></a>ACL 2020</h3><h3 id="ACL-2021"><a href="#ACL-2021" class="headerlink" title="ACL 2021"></a>ACL 2021</h3><p><a href="https://aclanthology.org/2021.findings-acl.177/">Exploring Cross-Lingual Transfer Learning with Unsupervised Machine Translation</a></p><p><a href="https://zhuanlan.zhihu.com/p/369152658">多语言预训练模型中的跨语言迁移(解读)</a></p><p>作者通过实验尝试解答了两个问题。多语言预训练模型为什么可以具有强大的跨语言知识迁移的能力，什么因素对于多语言预训练模型学习跨语言迁移能力是最关键的？以及不同语言之间是否存在潜在的统一的语言表示？这篇文章给出了详细的实验对比和分析。</p><h3 id="ACL-2022"><a href="#ACL-2022" class="headerlink" title="ACL 2022"></a>ACL 2022</h3>]]></content>
       
       
       <categories>
