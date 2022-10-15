@@ -1,0 +1,556 @@
+/*---------------------------------------------------------------------
+    desktops
+-----------------------------------------------------------------------*/
+
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+    .counter-single {
+        padding: 12px 10px 10px;
+    }
+    .service-single {
+        padding: 40px 15px 10px;
+    }
+    h1,
+    .cd-headline {
+        font-size: 40px;
+        line-height: 50px;
+    }
+}
+
+
+/*---------------------------------------------------------------------
+    tablet device
+----------------------------------------------------------------------*/
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .navbar-brand img {
+        max-width: 120px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    #navbarContent {
+        background-color: #130f40;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar-nav {
+        padding: 10px 20px 15px;
+    }
+    .navbar-nav .nav-item {
+        padding: 0 12px;
+    }
+    .navbar-nav .nav-link {
+        padding: 10px 4px !important;
+    }
+    h1,
+    .cd-headline,
+    h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    .home-img img {
+        max-width: 250px;
+    }
+    .home-btn a {
+        padding: 8px 22px;
+        margin: 40px 0 0;
+        font-size: 13px
+    }
+    .counter-single {
+        padding: 12px 12px 2px;
+    }
+    .skill-single h6 {
+        font-size: 12px;
+        line-height: 22px
+    }
+    .counter-single h3 {
+        font-size: 20px;
+    }
+    .counter-single p {
+        font-size: 13px;
+        line-height: 23px;
+    }
+    #about-area {
+        padding: 85px 0 90px;
+    }
+    .about-content a {
+        padding: 8px 20px;
+        margin: 25px 10px 0 0;
+        font-size: 13px
+    }
+    .about-content ul li {
+        font-size: 13px;
+        line-height: 23px;
+    }
+    #service-area {
+        padding: 82px 0 30px;
+    }
+    #resume-area {
+        padding: 82px 0 60px;
+    }
+    .portfolio-img {
+        margin: 0 0 30px;
+    }
+    #portfolio-area {
+        padding: 82px 0 125px;
+    }
+    #testimonial-area {
+        padding: 82px 0 108px;
+    }
+    #blog-area {
+        padding: 82px 0 90px;
+    }
+    .blog-wrap {
+        padding: 15px 0px 0;
+    }
+    #contact-area {
+        padding: 82px 0 90px;
+    }
+
+
+}
+
+
+/*---------------------------------------------------------------------
+    large screen modile device
+-----------------------------------------------------------------------*/
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .navbar-brand img {
+        max-width: 120px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    #navbarContent {
+        background-color: #130f40;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar-nav {
+        padding: 10px 20px 15px;
+    }
+    .navbar-nav .nav-item {
+        padding: 0 12px;
+    }
+    .navbar-nav .nav-link {
+        padding: 10px 4px !important;
+    }
+    h1,
+    .cd-headline,
+    h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    h2 {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    h3 {
+        font-size: 20px;
+        line-height: 30px
+    }
+    h4 {
+        font-size: 18px;
+        line-height: 28px
+    }
+    h5 {
+        font-size: 16px;
+        line-height: 26px
+    }
+    h6 {
+        font-size: 15px;
+        line-height: 25px
+    }
+    #home-area,
+    .home-content {
+        height: auto;
+    }
+    #home-area {
+        padding: 110px 0 70px;
+    }
+    .home-img img {
+        max-width: 250px;
+        margin: 0 0 40px
+    }
+    .home-content {
+        text-align: center;
+    }
+    .home-content h5 {
+        margin: 0 0 10px;
+    }
+    .home-btn a {
+        margin: 40px 0 0;
+        font-size: 13px;
+        line-height: 23px;
+        padding: 6px 24px
+    }
+    .skill,
+    .counter {
+        width: 50%;
+        float: left;
+        margin: 50px 0 0
+    }
+    #about-area {
+        padding: 72px 0 65px;
+    }
+    #service-area {
+        padding: 72px 0 20px;
+    }
+    #resume-area {
+        padding: 72px 0 50px;
+    }
+    .nav-tabs .nav-link {
+        padding: 6px 14px;
+    }
+    .section-heading {
+        margin: 0 0 40px;
+    }
+    #portfolio-area {
+        padding: 72px 0 115px;
+    }
+    .portfolio-img {
+        margin: 0 0 30px;
+    }
+    .about-content a {
+        padding: 5px 16px;
+        margin: 20px 10px 0 0;
+        font-size: 13px;
+    }
+    #testimonial-area {
+        padding: 72px 0 95px;
+    }
+    .portfolio-wrap {
+        padding: 20px 20px 30px;
+    }
+    .portfolio-details a {
+        font-size: 13px;
+    }
+    .blog-wrap {
+        padding: 25px 10px 0px;
+    }
+    .blog-single {
+        margin: 0 0 40px;
+    }
+    #blog-area {
+        padding: 74px 0 80px;
+    }
+    #contact-area {
+        padding: 72px 0 80px;
+    }
+    .contact-box {
+        padding: 25px 20px 12px;
+    }
+    .contact-box button {
+        padding: 8px 24px;
+        font-size: 14px;
+    }
+    .contact-box input {
+        height: 45px;
+        font-size: 14px;
+    }
+    .contact-box #name {
+        margin: 0 0 15px
+    }
+}
+
+
+/*----------------------------------------------------------------------
+   medium screen modile device
+------------------------------------------------------------------------*/
+
+@media only screen and (min-width: 360px) and (max-width: 479px) {
+    .navbar-brand img {
+        max-width: 120px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    #navbarContent {
+        background-color: #130f40;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar-nav {
+        padding: 10px 20px 15px;
+    }
+    .navbar-nav .nav-item {
+        padding: 0 12px;
+    }
+    .navbar-nav .nav-link {
+        padding: 10px 4px !important;
+    }
+    h1,
+    .cd-headline,
+    h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    h2 {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    h3 {
+        font-size: 20px;
+        line-height: 30px
+    }
+    h4 {
+        font-size: 18px;
+        line-height: 28px
+    }
+    h5 {
+        font-size: 16px;
+        line-height: 26px
+    }
+    h6 {
+        font-size: 15px;
+        line-height: 25px
+    }
+    #home-area,
+    .home-content {
+        height: auto;
+    }
+    #home-area {
+        padding: 110px 0 70px;
+    }
+    .home-img img {
+        max-width: 250px;
+        margin: 0 0 40px
+    }
+    .home-content {
+        text-align: center;
+    }
+    .home-content h5 {
+        margin: 0 0 10px;
+    }
+    .home-btn a {
+        margin: 40px 0 0;
+        font-size: 13px;
+        line-height: 23px;
+        padding: 6px 24px
+    }
+    .skill,
+    .counter {
+        width: 50%;
+        float: left;
+        margin: 50px 0 0
+    }
+    #about-area {
+        padding: 72px 0 65px;
+    }
+    .counter-single {
+        padding: 12px 10px 2px;
+    }
+    #service-area {
+        padding: 72px 0 20px;
+    }
+    #resume-area {
+        padding: 72px 0 50px;
+    }
+    .nav-tabs .nav-link {
+        padding: 6px 14px;
+    }
+    .section-heading {
+        margin: 0 0 40px;
+    }
+    #portfolio-area {
+        padding: 72px 0 115px;
+    }
+    .portfolio-img {
+        margin: 0 0 30px;
+    }
+    .about-content a {
+        padding: 5px 16px;
+        margin: 20px 10px 0 0;
+        font-size: 13px;
+    }
+    #testimonial-area {
+        padding: 72px 0 95px;
+    }
+    .quote-icon {
+        right: 30%;
+        font-size: 40px;
+    }
+    .portfolio-wrap {
+        padding: 20px 20px 30px;
+    }
+    .portfolio-details a {
+        font-size: 13px;
+    }
+    .blog-wrap {
+        padding: 25px 10px 0px;
+    }
+    .blog-single {
+        margin: 0 0 40px;
+    }
+    #blog-area {
+        padding: 74px 0 80px;
+    }
+    #contact-area {
+        padding: 72px 0 80px;
+    }
+    .contact-box {
+        padding: 25px 20px 12px;
+    }
+    .contact-box button {
+        padding: 8px 24px;
+        font-size: 14px;
+    }
+    .contact-box input {
+        height: 45px;
+        font-size: 14px;
+    }
+    .contact-box #name {
+        margin: 0 0 15px
+    }
+}
+
+
+/*----------------------------------------------------------------------
+    small screen modile device
+-----------------------------------------------------------------------*/
+
+@media only screen and (min-width: 320px) and (max-width: 359px) {
+    .navbar-brand img {
+        max-width: 120px;
+    }
+    .navbar-toggler {
+        background-color: #fff;
+    }
+    #navbarContent {
+        background-color: #130f40;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar-nav {
+        padding: 10px 20px 15px;
+    }
+    .navbar-nav .nav-item {
+        padding: 0 12px;
+    }
+    .navbar-nav .nav-link {
+        padding: 10px 4px !important;
+    }
+    h1,
+    .cd-headline,
+    h2 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+    h2 {
+        font-size: 26px;
+        line-height: 36px;
+    }
+    h3 {
+        font-size: 20px;
+        line-height: 30px
+    }
+    h4 {
+        font-size: 18px;
+        line-height: 28px
+    }
+    h5 {
+        font-size: 16px;
+        line-height: 26px
+    }
+    h6 {
+        font-size: 15px;
+        line-height: 25px
+    }
+    #home-area,
+    .home-content {
+        height: auto;
+    }
+    #home-area {
+        padding: 110px 0 70px;
+    }
+    .home-img img {
+        max-width: 200px;
+        margin: 0 0 40px
+    }
+    .home-content {
+        text-align: center;
+    }
+    .home-content h5 {
+        margin: 0 0 10px;
+    }
+    .home-btn a {
+        margin: 40px 0 0;
+        font-size: 13px;
+        line-height: 23px;
+        padding: 6px 24px
+    }
+    .skill,
+    .counter {
+        width: 50%;
+        float: left;
+        margin: 50px 0 0
+    }
+    #about-area {
+        padding: 72px 0 65px;
+    }
+    .counter-single {
+        padding: 12px 10px 2px;
+    }
+    #service-area {
+        padding: 72px 0 20px;
+    }
+    #resume-area {
+        padding: 72px 0 50px;
+    }
+    .nav-tabs .nav-link {
+        padding: 6px 14px;
+    }
+    .section-heading {
+        margin: 0 0 40px;
+    }
+    #portfolio-area {
+        padding: 72px 0 115px;
+    }
+    .portfolio-img {
+        margin: 0 0 30px;
+    }
+    .about-content a {
+        padding: 5px 16px;
+        margin: 20px 10px 0 0;
+        font-size: 13px;
+    }
+    #testimonial-area {
+        padding: 72px 0 95px;
+    }
+    .testimonial-details {
+        padding: 20px 10px 60px;
+    }
+    .quote-icon {
+        right: 30%;
+        font-size: 40px;
+    }
+    .portfolio-wrap {
+        padding: 20px 20px 30px;
+    }
+    .portfolio-details a {
+        font-size: 13px;
+    }
+    .blog-wrap {
+        padding: 25px 10px 0px;
+    }
+    .blog-single {
+        margin: 0 0 40px;
+    }
+    #blog-area {
+        padding: 74px 0 80px;
+    }
+    #contact-area {
+        padding: 72px 0 80px;
+    }
+    .contact-box {
+        padding: 25px 20px 12px;
+    }
+    .contact-box button {
+        padding: 8px 24px;
+        font-size: 14px;
+    }
+    .contact-box input {
+        height: 45px;
+        font-size: 14px;
+    }
+    .contact-box #name {
+        margin: 0 0 15px
+    }
+}
