@@ -240,7 +240,7 @@ p {
 }
 
 .navbar-nav .nav-item {
-    padding: 10px 12px;
+    padding: 0px 12px;
 }
 
 .navbar-nav .nav-link {
@@ -552,6 +552,11 @@ p {
 .section-heading h5 {
     color: #325eff;
     font-weight: 600
+}
+
+.section-heading h4 {
+    color: #325eff;
+    font-weight: 700
 }
 
 .section-heading h2 {
@@ -1102,4 +1107,9 @@ p {
 
 .demo-single {
     margin: 0 0 60px;
+}
+
+.activity {
+    margin-left: 20px;
+    margin-top: 20px;
 }
