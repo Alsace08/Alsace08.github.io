@@ -207,9 +207,9 @@
       
         <tags>
             
-            <tag> pytorch </tag>
-            
             <tag> 深度学习 </tag>
+            
+            <tag> pytorch </tag>
             
         </tags>
       
@@ -390,11 +390,11 @@
       
         <tags>
             
+            <tag> 论文精读 </tag>
+            
             <tag> 自然语言处理 </tag>
             
             <tag> 预训练语言模型 </tag>
-            
-            <tag> 论文精读 </tag>
             
         </tags>
       
